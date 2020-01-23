@@ -1,0 +1,8 @@
+# IDEA files
+.idea/
+
+# Modules' sources
+node_modules/
+
+# Chrome debug logs
+**/debug.log

@@ -1,0 +1,14 @@
+{
+  "name": "@ilya-matsuev/cash-scheduler",
+  "author": {
+    "email": "mirotvorec542546@gmail.com",
+    "name": "Ilya Matsuev",
+    "url": "https://github.com/IlyaMatsuev"
+  },
+  "main": "index.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/IlyaMatsuev/Cash-Scheduler-Web",
+  "dependencies": {
+    
+  }
+}
