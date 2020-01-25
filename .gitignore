@@ -1,8 +1,10 @@
 # IDEA files
 .idea/
 
-# Modules' sources
+# Modules' sources and lock-file
 node_modules/
+package-lock.json
+
 
 # Chrome debug logs
 **/debug.log

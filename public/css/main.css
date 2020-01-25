@@ -1,0 +1,23 @@
+html, body, header, .view {
+    height: 100%;
+}
+
+.page-bg {
+    background: url("./../img/login/back.jpg")no-repeat center center;
+    background-size: cover;
+}
+
+.navbar {
+    background-color: transparent;
+}
+
+.top-nav-collapse {
+    background-color: #4285F4;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #4285F4;
+    }
+}
