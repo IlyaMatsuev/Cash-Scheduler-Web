@@ -1,0 +1,44 @@
+[
+  {
+    "type_name": "Work"
+  },
+  {
+    "type_name": "Home"
+  },
+  {
+    "type_name": "Personal"
+  },
+  {
+    "type_name": "Charity"
+  },
+  {
+    "type_name": "Sport"
+  },
+  {
+    "type_name": "Food"
+  },
+  {
+    "type_name": "Device"
+  },
+  {
+    "type_name": "Gift"
+  },
+  {
+    "type_name": "Credit"
+  },
+  {
+    "type_name": "Hobbies"
+  },
+  {
+    "type_name": "Decoration"
+  },
+  {
+    "type_name": "Clothes"
+  },
+  {
+    "type_name": "Phone"
+  },
+  {
+    "type_name": "Social Networks"
+  }
+]

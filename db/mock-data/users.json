@@ -1,0 +1,20 @@
+[
+  {
+    "first_name": "Ilya",
+    "last_name": "Matsuev",
+    "email": "matsuev2000@mail.ru",
+    "password": "password"
+  },
+  {
+    "first_name": "Artemy",
+    "last_name": "Markovsky",
+    "email": "goryachaya.shtuchka@yandex.com",
+    "password": "12345678"
+  },
+    {
+    "first_name": "Nikita",
+    "last_name": "Le",
+    "email": "bedi.s.bashkoy@gmail.com",
+    "password": "87654321"
+  }
+]
