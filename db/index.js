@@ -17,7 +17,8 @@ function onSyncEnded() {
 function loadMockData() {
     return Promise.all([
         models.users.bulkCreate(require('./mock-data/users')),
-        models.recordTypes.bulkCreate(require('./mock-data/record-types'))
+        models.recordTypes.bulkCreate(require('./mock-data/record-types')),
+        models.customRecordTypes.bulkCreate(require('./mock-data/custom-record-types'))
     ]);
 }
 

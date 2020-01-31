@@ -1,0 +1,27 @@
+type User {
+    id: Int!
+    first_name: String
+    last_name: String
+    email: String!
+    password: String!
+}
+
+
+input NewUser {
+    first_name: String
+    last_name: String
+    email: String!
+    password: String!
+}
+
+
+
+type Query {
+    getUserById(id: Int!): User!
+    getUserByEmail(email: String!): User!
+    getUsers: [User!]
+}
+
+type Mutation {
+    register(user: NewUser!): User!
+}

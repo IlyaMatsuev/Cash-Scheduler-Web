@@ -16,5 +16,8 @@
         "freezeTableName": true
       }
     }
+  },
+  "crypt": {
+    "salt": 12
   }
 }

@@ -19,7 +19,6 @@ module.exports = (Sequelize, sequelize) => {
             type: Sequelize.STRING,
             allowNull: false
         },
-        // TODO: redesign password field on the model
         password: {
             type: Sequelize.STRING,
             allowNull: false

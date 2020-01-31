@@ -1,0 +1,30 @@
+[
+  {
+    "custom_type_name": "Wife",
+    "user_id": 1
+  },
+  {
+    "custom_type_name": "Computer",
+    "user_id": 1
+  },
+  {
+    "custom_type_name": "Birthday",
+    "user_id": 1
+  },
+  {
+    "custom_type_name": "Internet",
+    "user_id": 2
+  },
+  {
+    "custom_type_name": "AliExpress",
+    "user_id": 2
+  },
+  {
+    "custom_type_name": "Cinema",
+    "user_id": 3
+  },
+  {
+    "custom_type_name": "Pizzas",
+    "user_id": 3
+  }
+]
