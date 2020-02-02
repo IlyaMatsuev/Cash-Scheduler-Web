@@ -6,6 +6,15 @@ type User {
     password: String!
 }
 
+type RecordType {
+    type_name: String!
+}
+
+type CustomRecordType {
+    custom_type_name: String!
+    user: User!
+}
+
 
 input NewUser {
     first_name: String
@@ -14,14 +23,27 @@ input NewUser {
     password: String!
 }
 
+input NewCustomRecordType {
+    custom_type_name: String!
+    user_id: Int!
+}
+
 
 
 type Query {
     getUserById(id: Int!): User!
     getUserByEmail(email: String!): User!
     getUsers: [User!]
+
+    getRecordTypes: [RecordType!]
+
+    getCustomRecordTypes(userId: Int!): [CustomRecordType!]
 }
 
 type Mutation {
     register(user: NewUser!): User!
+
+    createCustomRecordType(customRecordType: NewCustomRecordType!): CustomRecordType!
+    updateCustomRecordType(oldCustomTypeName: String!, newCustomType: NewCustomRecordType!): CustomRecordType!
+    deleteCustomRecordType(customTypeName: String!, userId: Int!): CustomRecordType!
 }

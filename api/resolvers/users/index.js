@@ -12,9 +12,9 @@ module.exports = {
             email: email
         }
     }),
-    getUsers: (args, context) => context.users.findAll({raw: true}),
-    register: ({user}, context) =>
-        bcrypt.hash(user.password, cryptConfig.salt)
-            .then(hash => {return {...user, password: hash}})
-            .then(user => context.users.create(user))
+    getUsers: (args, context) => context.users.findAll(),
+
+    register: ({user}, context) => bcrypt.hash(user.password, cryptConfig.salt)
+        .then(hash => {return {...user, password: hash}})
+        .then(user => context.users.create(user))
 };

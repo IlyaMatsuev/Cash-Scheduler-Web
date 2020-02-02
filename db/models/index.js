@@ -9,6 +9,9 @@ module.exports = (Sequelize, dbConfig) => {
     const recordTypes = RecordType(Sequelize, sequelize);
     const customRecordTypes = CustomRecordType(Sequelize, sequelize);
 
+    customRecordTypes.belongsTo(users, {foreignKey: 'user_id'});
+    users.hasMany(customRecordTypes);
+
     return {
         users,
         recordTypes,

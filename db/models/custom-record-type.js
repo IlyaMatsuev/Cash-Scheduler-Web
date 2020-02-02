@@ -8,11 +8,7 @@ module.exports = (Sequelize, sequelize) => {
         },
         user_id: {
             type: Sequelize.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
+            allowNull: false
         }
     })
 };
