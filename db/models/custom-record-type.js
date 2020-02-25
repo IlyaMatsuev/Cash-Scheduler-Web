@@ -1,7 +1,7 @@
 
-module.exports = (Sequelize, sequelize) => {
-    return sequelize.define('custom_record_type', {
-        custom_type_name: {
+module.exports = (Sequelize, sequelize) =>
+    sequelize.define('custom_record_type', {
+        type_name: {
             type: Sequelize.STRING,
             primaryKey: true,
             allowNull: false,
@@ -10,5 +10,4 @@ module.exports = (Sequelize, sequelize) => {
             type: Sequelize.INTEGER,
             allowNull: false
         }
-    })
-};
+    });

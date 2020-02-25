@@ -6,13 +6,35 @@ type User {
     password: String!
 }
 
-type RecordType {
+type Income {
+    id: Int!
+    title: String
+    user: User!
+    type: ActionType!
+    amount: Float!
+    date: String!
+}
+
+type Expense {
+    id: Int!
+    title: String
+    user: User!
+    type: ActionType!
+    amount: Float!
+    date: String!
+}
+
+type RecordType implements ActionType {
     type_name: String!
 }
 
-type CustomRecordType {
-    custom_type_name: String!
+type CustomRecordType implements ActionType {
+    type_name: String!
     user: User!
+}
+
+interface ActionType {
+    type_name: String!
 }
 
 
@@ -24,8 +46,21 @@ input NewUser {
 }
 
 input NewCustomRecordType {
-    custom_type_name: String!
-    user_id: Int!
+    type_name: String!
+}
+
+input NewIncome {
+    title: String
+    type: String!
+    amount: Float!
+    date: String!
+}
+
+input NewExpense {
+    title: String
+    type: String!
+    amount: Float!
+    date: String!
 }
 
 
@@ -37,7 +72,13 @@ type Query {
 
     getRecordTypes: [RecordType!]
 
-    getCustomRecordTypes(userId: Int!): [CustomRecordType!]
+    getCustomRecordTypes: [CustomRecordType!]
+
+    getAllIncome: [Income!]
+    getIncomeByDate(date: String!): Income
+
+    getAllExpenses: [Expense!]
+    getExpenseByDate(date: String!): Expense
 }
 
 type Mutation {
@@ -45,5 +86,13 @@ type Mutation {
 
     createCustomRecordType(customRecordType: NewCustomRecordType!): CustomRecordType!
     updateCustomRecordType(oldCustomTypeName: String!, newCustomType: NewCustomRecordType!): CustomRecordType!
-    deleteCustomRecordType(customTypeName: String!, userId: Int!): CustomRecordType!
+    deleteCustomRecordType(customTypeName: String!): CustomRecordType!
+
+    addIncome(income: NewIncome!): Income!
+    editIncome(id: Int!, income: NewIncome!): Income!
+    removeIncome(id: Int!): Income!
+
+    addExpense(expense: NewExpense!): Expense!
+    editExpense(id: Int!, expense: NewExpense!): Expense!
+    removeExpense(id: Int!): Expense!
 }

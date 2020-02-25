@@ -1,20 +1,20 @@
 const bcrypt = require('bcrypt');
-const cryptConfig = require('./../../../config').crypt;
+const config = require('./../../../config').crypt;
 
 module.exports = {
-    getUserById: ({id}, context) => context.users.findOne({
+    getUserById: ({id}, context) => context.db.Users.findOne({
         where: {
             id: id
         }
     }),
-    getUserByEmail: ({email}, context) => context.users.findOne({
+    getUserByEmail: ({email}, context) => context.db.Users.findOne({
         where: {
             email: email
         }
     }),
-    getUsers: (args, context) => context.users.findAll(),
+    getUsers: (args, context) => context.db.Users.findAll(),
 
-    register: ({user}, context) => bcrypt.hash(user.password, cryptConfig.salt)
+    register: ({user}, context) => bcrypt.hash(user.password, config.salt)
         .then(hash => {return {...user, password: hash}})
-        .then(user => context.users.create(user))
+        .then(user => context.db.Users.create(user))
 };

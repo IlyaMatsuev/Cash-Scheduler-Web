@@ -1,6 +1,6 @@
 
-module.exports = (Sequelize, sequelize) => {
-    return sequelize.define('user', {
+module.exports = (Sequelize, sequelize) =>
+    sequelize.define('user', {
         id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
@@ -17,11 +17,14 @@ module.exports = (Sequelize, sequelize) => {
         },
         email: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true,
+            validate: {
+                isEmail: true
+            }
         },
         password: {
             type: Sequelize.STRING,
             allowNull: false
         }
     });
-};

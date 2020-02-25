@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Bought vegetables on the market",
+    "user_id": 1,
+    "standard_type": "Food",
+    "custom_type": null,
+    "amount": 3.50,
+    "date": "1580860800"
+  },
+  {
+    "title": "Give money to my wife",
+    "user_id": 1,
+    "standard_type":  null,
+    "custom_type": "Wife",
+    "amount": 100,
+    "date": "1580947200"
+  },
+  {
+    "title": "Bought an SSD",
+    "user_id": 1,
+    "standard_type": null,
+    "custom_type": "Computer",
+    "amount": 504.50,
+    "date": "1581207200"
+  },
+  {
+    "title": "Made a gift for mom",
+    "user_id": 2,
+    "standard_type": "Gift",
+    "custom_type": null,
+    "amount": 150,
+    "date": "1580860800"
+  },
+  {
+    "title": "Returned funds back for the failed order",
+    "user_id": 2,
+    "standard_type":  null,
+    "custom_type": "AliExpress",
+    "amount": 5.59,
+    "date": "1580947200"
+  },
+  {
+    "title": "Paid for my dad's phone",
+    "user_id": 3,
+    "standard_type": "Phone",
+    "custom_type": null,
+    "amount": 150,
+    "date": "1581207200"
+  },
+  {
+    "title": "Watched a new bestseller to the friends",
+    "user_id": 3,
+    "standard_type":  null,
+    "custom_type": "Cinema",
+    "amount": 20.50,
+    "date": "1580007200"
+  }
+]

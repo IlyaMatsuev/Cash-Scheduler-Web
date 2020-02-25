@@ -16,10 +16,14 @@ function onSyncEnded() {
 
 function loadMockData() {
     return Promise.all([
-        models.users.bulkCreate(require('./mock-data/users')),
-        models.recordTypes.bulkCreate(require('./mock-data/record-types')),
-        models.customRecordTypes.bulkCreate(require('./mock-data/custom-record-types'))
-    ]);
+        models.Users.bulkCreate(require('./mock-data/users')),
+        models.RecordTypes.bulkCreate(require('./mock-data/record-types'))
+    ]).then(() => Promise.all([
+        models.CustomRecordTypes.bulkCreate(require('./mock-data/custom-record-types'))
+    ])).then(() => Promise.all([
+        models.Income.bulkCreate(require('./mock-data/income')),
+        models.Expenses.bulkCreate(require('./mock-data/expenses'))
+    ]));
 }
 
 function onSyncError(err) {

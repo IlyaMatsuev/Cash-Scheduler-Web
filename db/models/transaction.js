@@ -1,0 +1,52 @@
+
+module.exports = (Sequelize, sequelize) => {
+    sequelize.define('transaction', {
+        id: {
+            type: Sequelize.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+            allowNull: false
+        },
+        title: {
+            type: Sequelize.STRING,
+            validate: {
+                len: {
+                    args: [0, 30],
+                    msg: 'The title is too long'
+                }
+            }
+        },
+        user_id: {
+            type: Sequelize.INTEGER,
+            allowNull: false
+        },
+        category_name: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        amount: {
+            type: Sequelize.FLOAT,
+            allowNull: false,
+            validate: {
+                min: {
+                    args: 0.01,
+                    msg: 'The min value for the amount field is 0.01'
+                },
+                isFloat: {
+                    msg: 'The amount field should be a number'
+                }
+            }
+        },
+        date: {
+            type: Sequelize.STRING,
+            allowNull: false,
+            defaultValue: Date.now(),
+            validate: {
+                is: {
+                    args: /^[0-9]{10}$/,
+                    msg: 'Provide a timestamp for a date value'
+                }
+            }
+        }
+    });
+};

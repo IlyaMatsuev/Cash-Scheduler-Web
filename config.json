@@ -18,6 +18,7 @@
     }
   },
   "crypt": {
-    "salt": 12
+    "salt": 12,
+    "secretKey": "9r3PznmhX6v18KXJBQKqwAjEYoqmRqkB"
   }
 }

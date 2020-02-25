@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const apiRoute = require('./api');
+const authRoute = require('./auth');
 const serverConfig = require('./config').server;
 const app = express();
 
@@ -9,6 +10,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 app.use('/api', apiRoute);
+app.use('/auth', authRoute);
 app.use((request, response) => response.status(404).end());
 
 app.listen(process.env.PORT || serverConfig.port, () => {
