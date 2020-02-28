@@ -20,8 +20,8 @@ module.exports = (Sequelize, sequelize) =>
             type: Sequelize.INTEGER,
             allowNull: false
         },
-        category_name: {
-            type: Sequelize.STRING,
+        category_id: {
+            type: Sequelize.INTEGER,
             allowNull: false
         },
         amount: {

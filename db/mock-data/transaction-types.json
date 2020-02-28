@@ -1,0 +1,11 @@
+[
+  {
+    "type_name": "Expense"
+  },
+  {
+    "type_name": "Income"
+  },
+  {
+    "type_name": "Debt"
+  }
+]

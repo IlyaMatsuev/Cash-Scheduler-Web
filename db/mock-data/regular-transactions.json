@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Work",
+    "user_id": 1,
+    "category_id": 5,
+    "amount": 2700,
+    "date": "1580860800"
+  },
+  {
+    "title": "Internet payment",
+    "user_id": 2,
+    "category_id": 13,
+    "amount": 27.5,
+    "date": "1580860800"
+  }
+]

@@ -3,15 +3,17 @@ const bodyParser = require('body-parser');
 
 const apiRoute = require('./api');
 const authRoute = require('./auth');
-const serverConfig = require('./config').server;
-const app = express();
 
+const errorsHandler = require('./errors');
+const serverConfig = require('./config').server;
+
+const app = express();
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 app.use('/api', apiRoute);
 app.use('/auth', authRoute);
-app.use((request, response) => response.status(404).end());
+app.use((request, response) => errorsHandler.throwHttpError(response, null, 404));
 
 app.listen(process.env.PORT || serverConfig.port, () => {
     console.log(`Listening to http://${process.env.HOST || serverConfig.host}:${process.env.PORT || serverConfig.port}/`);

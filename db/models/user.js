@@ -9,18 +9,32 @@ module.exports = (Sequelize, sequelize) =>
         },
         first_name: {
             type: Sequelize.STRING,
-            allowNull: true
+            allowNull: true,
+            validate: {
+                len: {
+                    args: [0, 30],
+                    msg: 'The first name value is too long'
+                }
+            }
         },
         last_name: {
             type: Sequelize.STRING,
-            allowNull: true
+            allowNull: true,
+            validate: {
+                len: {
+                    args: [0, 50],
+                    msg: 'The last name value is too long'
+                }
+            }
         },
         email: {
             type: Sequelize.STRING,
             allowNull: false,
             unique: true,
             validate: {
-                isEmail: true
+                isEmail: {
+                    msg: 'The email field is in wrong format'
+                }
             }
         },
         password: {

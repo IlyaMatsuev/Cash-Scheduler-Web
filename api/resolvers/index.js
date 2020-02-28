@@ -1,13 +1,13 @@
 const userResolvers = require('./users');
-const recordTypesResolvers = require('./record-types');
-const customRecordTypesResolvers = require('./custom-record-types');
-const incomeResolvers = require('./income');
-const expenseResolvers = require('./expenses');
+const categoryResolvers = require('./categories');
+const transactionResolvers = require('./transactions');
+const regularTransactionResolvers = require('./regular-transactions');
+const transactionTypeResolvers = require('./transaction-types');
 
 module.exports = {
     ...userResolvers,
-    ...recordTypesResolvers,
-    ...customRecordTypesResolvers,
-    ...incomeResolvers,
-    ...expenseResolvers
+    ...categoryResolvers,
+    ...transactionResolvers,
+    ...regularTransactionResolvers,
+    ...transactionTypeResolvers
 };

@@ -6,62 +6,39 @@ type User {
     password: String!
 }
 
-type Income {
+type TransactionType {
+    type_name: String!
+    image_url: String!
+}
+
+type Category {
+    id: Int!
+    name: String!
+    transaction_type: TransactionType!
+    user: User
+    is_custom: Boolean!
+    image_url: String!
+}
+
+type Transaction {
     id: Int!
     title: String
     user: User!
-    type: ActionType!
+    category: Category!
     amount: Float!
-    date: String!
+    date: String
 }
 
-type Expense {
+type RegularTransaction {
     id: Int!
     title: String
     user: User!
-    type: ActionType!
+    category: Category!
     amount: Float!
-    date: String!
+    next_transaction_date: String!
+    interval: String!
 }
 
-type RecordType implements ActionType {
-    type_name: String!
-}
-
-type CustomRecordType implements ActionType {
-    type_name: String!
-    user: User!
-}
-
-interface ActionType {
-    type_name: String!
-}
-
-
-input NewUser {
-    first_name: String
-    last_name: String
-    email: String!
-    password: String!
-}
-
-input NewCustomRecordType {
-    type_name: String!
-}
-
-input NewIncome {
-    title: String
-    type: String!
-    amount: Float!
-    date: String!
-}
-
-input NewExpense {
-    title: String
-    type: String!
-    amount: Float!
-    date: String!
-}
 
 
 
@@ -70,29 +47,14 @@ type Query {
     getUserByEmail(email: String!): User!
     getUsers: [User!]
 
-    getRecordTypes: [RecordType!]
+    getTransactionTypes: [TransactionType!]
 
-    getCustomRecordTypes: [CustomRecordType!]
+    getAllCategories: [Category!]
+    getStandardCategories: [Category!]
+    getCustomCategories: [Category!]
 
-    getAllIncome: [Income!]
-    getIncomeByDate(date: String!): Income
 
-    getAllExpenses: [Expense!]
-    getExpenseByDate(date: String!): Expense
-}
+    getAllTransactions(size: Int): [Transaction!]
 
-type Mutation {
-    register(user: NewUser!): User!
-
-    createCustomRecordType(customRecordType: NewCustomRecordType!): CustomRecordType!
-    updateCustomRecordType(oldCustomTypeName: String!, newCustomType: NewCustomRecordType!): CustomRecordType!
-    deleteCustomRecordType(customTypeName: String!): CustomRecordType!
-
-    addIncome(income: NewIncome!): Income!
-    editIncome(id: Int!, income: NewIncome!): Income!
-    removeIncome(id: Int!): Income!
-
-    addExpense(expense: NewExpense!): Expense!
-    editExpense(id: Int!, expense: NewExpense!): Expense!
-    removeExpense(id: Int!): Expense!
+    getAllRegularTransactions(size: Int): [RegularTransaction!]
 }

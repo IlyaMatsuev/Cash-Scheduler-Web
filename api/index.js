@@ -8,23 +8,22 @@ const apiRoute = express.Router();
 const schema = buildSchema(readFileSync('./api/schemas/main.gql').toString());
 const dbContext = require('./../db');
 const resolvers = require('./resolvers');
+const errorsHandler = require('./../errors');
 const config = require('./../config').crypt;
 
 apiRoute.use('/', (request, response, next) => {
-    /*const AUTH_TYPE_NAME = 'Bearer ';
-    const authHeader = request.get('Authorization');
-    if (authHeader && authHeader.startsWith(AUTH_TYPE_NAME)) {
-        jwt.verify(authHeader.split(AUTH_TYPE_NAME).pop(), config.secretKey, (err, decoded) => {
+    /*const authHeader = request.get('Authorization');
+    if (authHeader && authHeader.startsWith(config.authType)) {
+        jwt.verify(authHeader.split(config.authType).pop(), config.secretKey, (err, decoded) => {
             if (err) {
-                response.status(403).end();
-                response.end();
+                errorsHandler.throwHttpError(response, null, 403);
             } else {
                 request.user = decoded.user;
                 next();
             }
         });
     } else {
-        response.status(401).end();
+        errorsHandler.throwHttpError(response, null, 401);
     }*/
     request.user = {
         id: 1,

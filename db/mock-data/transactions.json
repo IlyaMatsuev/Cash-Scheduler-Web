@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Bought vegetables on the market",
+    "user_id": 1,
+    "category_id": 2,
+    "amount": 3.50,
+    "date": "1580860800"
+  },
+  {
+    "title": "Spent by my wife",
+    "user_id": 1,
+    "category_id": 9,
+    "amount": 100,
+    "date": "1580947200"
+  },
+  {
+    "title": "Bought an SSD",
+    "user_id": 1,
+    "category_id": 10,
+    "amount": 504.50,
+    "date": "1581207200"
+  },
+  {
+    "title": "Gift from mom",
+    "user_id": 2,
+    "category_id": 14,
+    "amount": 150,
+    "date": "1580860800"
+  },
+  {
+    "title": "Get a dildo",
+    "user_id": 2,
+    "category_id": 12,
+    "amount": 5.59,
+    "date": "1580947200"
+  },
+  {
+    "title": "Gets money on the phone from dad",
+    "user_id": 3,
+    "category_id": 15,
+    "amount": 150,
+    "date": "1581207200"
+  },
+  {
+    "title": "Showed a new bestseller to the friends",
+    "user_id": 3,
+    "category_id": 16,
+    "amount": 20.50,
+    "date": "1580007200"
+  }
+]

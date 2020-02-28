@@ -1,0 +1,91 @@
+[
+  {
+    "name": "Charity",
+    "transaction_type_name": "Expense",
+    "is_custom": false
+  },
+  {
+    "name": "Food",
+    "transaction_type_name": "Expense",
+    "is_custom": false
+  },
+  {
+    "name": "Gift",
+    "transaction_type_name": "Expense",
+    "is_custom": false
+  },
+  {
+    "name": "Clothes",
+    "transaction_type_name": "Expense",
+    "is_custom": false
+  },
+  {
+    "name": "Salary",
+    "transaction_type_name": "Income",
+    "is_custom": false
+  },
+  {
+    "name": "Social Networks",
+    "transaction_type_name": "Income",
+    "is_custom": false
+  },
+  {
+    "name": "Gift",
+    "transaction_type_name": "Income",
+    "is_custom": false
+  },
+  {
+    "name": "Help",
+    "transaction_type_name": "Income",
+    "is_custom": false
+  },
+
+  {
+    "name": "Wife",
+    "transaction_type_name": "Expense",
+    "user_id": 1,
+    "is_custom": true
+  },
+  {
+    "name": "Computer",
+    "transaction_type_name": "Expense",
+    "user_id": 1,
+    "is_custom": true
+  },
+  {
+    "name": "Birthday",
+    "transaction_type_name": "Income",
+    "user_id": 1,
+    "is_custom": true
+  },
+  {
+    "name": "AliExpress",
+    "transaction_type_name": "Expense",
+    "user_id": 2,
+    "is_custom": true
+  },
+  {
+    "name": "Internet",
+    "transaction_type_name": "Expense",
+    "user_id": 2,
+    "is_custom": true
+  },
+  {
+    "name": "Devices",
+    "transaction_type_name": "Income",
+    "user_id": 2,
+    "is_custom": true
+  },
+  {
+    "name": "Cinema",
+    "transaction_type_name": "Expense",
+    "user_id": 3,
+    "is_custom": true
+  },
+  {
+    "name": "Pizzas",
+    "transaction_type_name": "Income",
+    "user_id": 3,
+    "is_custom": true
+  }
+]

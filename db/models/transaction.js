@@ -1,5 +1,5 @@
 
-module.exports = (Sequelize, sequelize) => {
+module.exports = (Sequelize, sequelize) =>
     sequelize.define('transaction', {
         id: {
             type: Sequelize.INTEGER,
@@ -20,8 +20,8 @@ module.exports = (Sequelize, sequelize) => {
             type: Sequelize.INTEGER,
             allowNull: false
         },
-        category_name: {
-            type: Sequelize.STRING,
+        category_id: {
+            type: Sequelize.INTEGER,
             allowNull: false
         },
         amount: {
@@ -49,4 +49,3 @@ module.exports = (Sequelize, sequelize) => {
             }
         }
     });
-};

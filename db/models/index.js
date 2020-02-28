@@ -1,43 +1,38 @@
 const User = require('./user');
-const RecordType = require('./record-type');
-const CustomRecordType = require('./custom-record-type');
-const Income = require('./income');
-const Expense = require('./expense');
+const Category = require('./category');
+const Transaction = require('./transaction');
+const TransactionType = require('./transaction-type');
+const RegularTransaction = require('./regular-transaction');
 
 module.exports = (Sequelize, dbConfig) => {
-    const sequelize = new Sequelize(dbConfig.db_name, dbConfig.username, dbConfig.password, dbConfig.options);
+    const sequelize = new Sequelize(
+        dbConfig.db_name,
+        dbConfig.username,
+        dbConfig.password,
+        dbConfig.options
+    );
 
     const users = User(Sequelize, sequelize);
-    const recordTypes = RecordType(Sequelize, sequelize);
-    const customRecordTypes = CustomRecordType(Sequelize, sequelize);
-    const income = Income(Sequelize, sequelize);
-    const expenses = Expense(Sequelize, sequelize);
+    const categories = Category(Sequelize, sequelize);
+    const transactions = Transaction(Sequelize, sequelize);
+    const transactionTypes = TransactionType(Sequelize, sequelize);
+    const regularTransactions = RegularTransaction(Sequelize, sequelize);
 
-    income.belongsTo(users, {foreignKey: 'user_id'});
-    income.belongsTo(recordTypes, {foreignKey: 'standard_type'});
-    income.belongsTo(customRecordTypes, {foreignKey: 'custom_type'});
+    categories.belongsTo(transactionTypes, {foreignKey: 'transaction_type_name'});
+    categories.belongsTo(users, {foreignKey: 'user_id'});
 
-    expenses.belongsTo(users, {foreignKey: 'user_id'});
-    expenses.belongsTo(recordTypes, {foreignKey: 'standard_type'});
-    expenses.belongsTo(customRecordTypes, {foreignKey: 'custom_type'});
+    transactions.belongsTo(users, {foreignKey: 'user_id'});
+    transactions.belongsTo(categories, {foreignKey: 'category_id'});
 
-    recordTypes.hasMany(income);
-    recordTypes.hasMany(expenses);
-
-    customRecordTypes.belongsTo(users, {foreignKey: 'user_id'});
-    customRecordTypes.hasMany(income);
-    customRecordTypes.hasMany(expenses);
-
-    users.hasMany(customRecordTypes);
-    users.hasMany(income);
-    users.hasMany(expenses);
+    regularTransactions.belongsTo(users, {foreignKey: 'user_id'});
+    regularTransactions.belongsTo(categories, {foreignKey: 'category_id'});
 
     return {
         Users: users,
-        RecordTypes: recordTypes,
-        CustomRecordTypes: customRecordTypes,
-        Income: income,
-        Expenses: expenses,
+        Categories: categories,
+        Transactions: transactions,
+        TransactionTypes: transactionTypes,
+        RegularTransactions: regularTransactions,
 
         sequelize: sequelize,
         Sequelize: Sequelize,

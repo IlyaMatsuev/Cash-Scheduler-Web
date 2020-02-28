@@ -17,16 +17,16 @@ function onSyncEnded() {
 function loadMockData() {
     return Promise.all([
         models.Users.bulkCreate(require('./mock-data/users')),
-        models.RecordTypes.bulkCreate(require('./mock-data/record-types'))
+        models.TransactionTypes.bulkCreate(require('./mock-data/transaction-types'))
     ]).then(() => Promise.all([
-        models.CustomRecordTypes.bulkCreate(require('./mock-data/custom-record-types'))
+        models.Categories.bulkCreate(require('./mock-data/categories'))
     ])).then(() => Promise.all([
-        models.Income.bulkCreate(require('./mock-data/income')),
-        models.Expenses.bulkCreate(require('./mock-data/expenses'))
+        models.Transactions.bulkCreate(require('./mock-data/transactions')),
+        models.RegularTransactions.bulkCreate(require('./mock-data/regular-transactions'))
     ]));
 }
 
-function onSyncError(err) {
-    console.log('Sync error: ' + err);
-    process.exit(err.code);
+function onSyncError(error) {
+    console.log('Sync error: ' + error);
+    process.exit(error.code);
 }

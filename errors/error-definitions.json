@@ -1,0 +1,7 @@
+{
+  "-1": "Something went wrong with the server side. Contact administrator or open a case in help center",
+
+  "1": "Password is a required field",
+  "2": "The password must include from 6 to 20 characters",
+  "3": "Invalid email or password"
+}
