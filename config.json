@@ -19,9 +19,11 @@
   },
   "crypt": {
     "salt": 12,
-    "secretKey": "9r3PznmhX6v18KXJBQKqwAjEYoqmRqkB",
+    "accessTokenSecret": "9r3PznmhX6v18KXJBQKqwAjEYoqmRqkB",
+    "refreshTokenSecret": "65fdfsefwef234ihri2ugwduwduqdqhwdyug732",
     "authType": "Bearer ",
-    "tokenExpMinutes": 20,
+    "accessTokenExpIn": 900,
+    "refreshTokenExpIn": 86400,
     "passwordMinLen": 6,
     "passwordMaxLen": 20
   }

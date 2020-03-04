@@ -1,14 +1,14 @@
 const express = require('express');
 const bcrypt = require("bcrypt");
-const jwt = require('jsonwebtoken');
 
 const authRoute = express.Router();
 const db = require('./../db').Users;
 const config = require('./../config').crypt;
 const errorsHandler = require('./../errors');
+const tokensHandler = require('./tokensHandler');
 
 authRoute.post('/register', (request, response) => {
-    const {first_name, last_name, email, password} = request.body;
+    const {first_name, last_name, email, password, confirmedPassword} = request.body;
 
     if (
         !password
@@ -16,6 +16,11 @@ authRoute.post('/register', (request, response) => {
         || password.length > config.passwordMaxLen
     ) {
         errorsHandler.throwHttpError(response, 2, 400);
+        return;
+    }
+
+    if (password !== confirmedPassword) {
+        errorsHandler.throwHttpError(response, 6, 400);
         return;
     }
 
@@ -39,18 +44,11 @@ authRoute.post('/login', async (request, response) => {
     if (user) {
         bcrypt.compare(password, user.password, (err, passwordsMatch) => {
             if (passwordsMatch) {
-                jwt.sign(
-                    {user},
-                    config.secretKey,
-                    {expiresIn: 60 * config.tokenExpMinutes},
-                    (err, token) => {
-                        if (err) {
-                            errorsHandler.throwHttpError(response);
-                        } else {
-                            response.json({accessToken: token});
-                        }
-                    }
-                );
+                tokensHandler.generateTokens(user)
+                    .then(tokens => {
+                        response.json(tokens);
+                        tokensHandler.registerNewToken(tokens);
+                    }).catch(() => errorsHandler.throwHttpError(response));
             } else {
                 errorsHandler.throwHttpError(response, 3, 403);
             }
@@ -60,9 +58,29 @@ authRoute.post('/login', async (request, response) => {
     }
 });
 
-authRoute.post('/token', (request, response) => {
-    // TODO: implement functionality for refreshing session with refresh tokens
-    errorsHandler.throwHttpError(response, null, 404);
+authRoute.post('/token', async (request, response) => {
+    const {email, password, refreshToken} = request.body;
+    const user = await db.findOne({where: {email: email}});
+    if (user) {
+        bcrypt.compare(password, user.password, (err, passwordsMatch) => {
+            if (passwordsMatch) {
+                if (tokensHandler.isRefreshTokenRegistered(refreshToken)) {
+                    tokensHandler.generateTokens(user)
+                        .then(tokens => {
+                            response.json(tokens);
+                            tokensHandler.unregisterToken(tokens.refreshToken);
+                            tokensHandler.registerNewToken(tokens);
+                        }).catch(() => errorsHandler.throwHttpError(response));
+                } else {
+                    errorsHandler.throwHttpError(response, 4, 400);
+                }
+            } else {
+                errorsHandler.throwHttpError(response, 3, 403);
+            }
+        });
+    } else {
+        errorsHandler.throwHttpError(response, 3, 403);
+    }
 });
 
 module.exports = authRoute;

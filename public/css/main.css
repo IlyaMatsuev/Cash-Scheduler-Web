@@ -1,23 +1,14 @@
-html, body, header, .view {
+html, body {
     height: 100%;
 }
 
-.page-bg {
-    background: url("./../img/login/back.jpg")no-repeat center center;
-    background-size: cover;
+@font-face {
+    font-family: Ubuntu-Regular;
+    src: url('../fonts/ubuntu/Ubuntu-Regular.ttf');
 }
 
-.navbar {
-    background-color: transparent;
+@font-face {
+    font-family: Ubuntu-Bold;
+    src: url('../fonts/ubuntu/Ubuntu-Bold.ttf');
 }
 
-.top-nav-collapse {
-    background-color: #4285F4;
-}
-
-
-@media only screen and (max-width: 768px) {
-    .navbar {
-        background-color: #4285F4;
-    }
-}

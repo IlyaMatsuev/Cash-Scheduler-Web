@@ -3,5 +3,9 @@
 
   "1": "Password is a required field",
   "2": "The password must include from 6 to 20 characters",
-  "3": "Invalid email or password"
+  "3": "Invalid email or password",
+
+  "4": "Refresh token is invalid",
+  "5": "Access token is expired",
+  "6": "Passwords don't match"
 }

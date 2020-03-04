@@ -1,0 +1,290 @@
+header, .login-view {
+    height: 100%;
+}
+
+.header-background {
+    background: url("./../../img/login/back.jpg")no-repeat center center;
+    background-size: cover;
+}
+
+.navbar {
+    background-color: transparent;
+}
+
+.top-nav-collapse {
+    background-color: #4285F4;
+}
+
+.login-view > .container {
+    position: relative;
+    top: 30%;
+}
+
+.login-view .row {
+    height: 30rem;
+}
+
+.form-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.active-form {
+    display: block;
+}
+
+.non-active-form {
+    display: none;
+}
+
+.form-wrapper {
+    position: relative;
+    top: -5%;
+    left: 15%;
+    width: 20rem;
+    border-radius: 10px;
+    background: white;
+}
+
+.form-wrapper > form {
+    position: relative;
+    left: 10%;
+    width: 80%;
+    padding-bottom: 1rem;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.form-title {
+    position: relative;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    line-height: 1.2;
+    text-align: center;
+
+    font-family: Ubuntu-Bold, serif;
+}
+
+.form-title .active-header {
+    font-size: 30px;
+    text-decoration: none;
+    color: #403866;
+}
+
+.form-title .non-active-header {
+    position: absolute;
+    text-decoration: none;
+    color: #403866;
+    top: 42%;
+    font-size: 16px;
+}
+
+.form-input {
+    position: relative;
+    width: 100%;
+    margin-bottom: 16px;
+    background-color: #e6e6e6;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+.form-input > input {
+    display: block;
+    width: 100%;
+    height: 4rem;
+    line-height: 1.2;
+    padding: 0 20px 0 38px;
+    color: #403866;
+    font-size: 18px;
+    font-family: Ubuntu-Bold, serif;
+    background: transparent;
+
+    outline: none;
+    border: none;
+}
+
+.form-input > input:focus {
+    border-color: transparent !important;
+}
+
+.form-input > span {
+    position: absolute;
+    display: block;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    top: -1px;
+    left: -1px;
+    pointer-events: none;
+    border: 1px solid #827ffe;
+    border-radius: 3px;
+
+    visibility: hidden;
+    opacity: 0;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+
+    -webkit-transform: scaleX(1.1) scaleY(1.3);
+    -moz-transform: scaleX(1.1) scaleY(1.3);
+    -ms-transform: scaleX(1.1) scaleY(1.3);
+    -o-transform: scaleX(1.1) scaleY(1.3);
+    transform: scaleX(1.1) scaleY(1.3);
+}
+
+.form-input > input:focus + span {
+    visibility: visible;
+    opacity: 1;
+
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
+
+.login-links {
+    width: 100%;
+    padding-top: 3px;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-links > .login-remember-me > label {
+    position: relative;
+    margin: 0;
+    padding-left: 0.5rem;
+    cursor: pointer;
+    font-family: Ubuntu-Regular, serif;
+    font-size: 16px;
+    color: #999999;
+}
+
+.login-links > .login-forgot > a{
+    margin: 0;
+    font-family: Ubuntu-Regular, serif;
+    color: #827ffe;
+    font-size: 16px;
+    line-height: 1.4;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.login-links > .login-forgot > a:hover {
+    outline: none !important;
+}
+
+.login-links > .login-forgot > a:hover {
+    text-decoration: none;
+    color: #403866;
+}
+
+.login-errors {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.login-errors > span {
+    color: #EE3D48;
+    font-family: Ubuntu-Bold, serif;
+    font-size: 16px;
+}
+
+.form-submit-button {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-submit-button > button {
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 62px;
+
+    outline: none !important;
+    border: none;
+
+    font-family: Ubuntu-Bold, serif;
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+
+    background-color: #827ffe;
+    border-radius: 3px;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.form-submit-button > button:hover {
+    cursor: pointer;
+    background-color: #403866;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #4285F4;
+    }
+}
+
+
+
+
+
+
+
+

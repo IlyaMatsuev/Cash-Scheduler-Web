@@ -1,7 +1,7 @@
 const errorDefinitions = require('./error-definitions');
 
 module.exports = {
-    throwHttpError: (response, error = -1, statusCode = 500) => {
+    throwHttpError: (response, error = -1, statusCode = 500, logging = true) => {
         response.status(statusCode);
 
         let errors = [];
@@ -17,7 +17,10 @@ module.exports = {
             response.end();
         } else {
             response.json({errors: errors});
-            console.log('\nError: ' + JSON.stringify(errors, null, ' '));
+
+            if (logging) {
+                console.log('\nError: ' + JSON.stringify(errors, null, ' '));
+            }
         }
     }
 };
