@@ -22,9 +22,14 @@
     "accessTokenSecret": "9r3PznmhX6v18KXJBQKqwAjEYoqmRqkB",
     "refreshTokenSecret": "65fdfsefwef234ihri2ugwduwduqdqhwdyug732",
     "authType": "Bearer ",
-    "accessTokenExpIn": 900,
-    "refreshTokenExpIn": 86400,
+    "accessTokenExpIn": "1h",
+    "refreshTokenExpIn": "7d",
     "passwordMinLen": 6,
     "passwordMaxLen": 20
+  },
+  "email": {
+    "service": "gmail",
+    "verificationSubject": "Cash Scheduler",
+    "verificationContent": "Hi! Your verification code: "
   }
 }

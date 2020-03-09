@@ -3,6 +3,7 @@ const fs = require('fs');
 
 const config = require('./../config').crypt;
 const grantedTokens = require('./granted-tokens');
+const verificationTokens = require('./verification-tokens');
 
 const self = module.exports = {
     generateTokens(user) {
@@ -19,35 +20,38 @@ const self = module.exports = {
         return jwt.sign({user}, secret, {expiresIn: expiredIn});
     },
 
+    generateVerificationToken() {
+        return Math.floor(100000 + Math.random() * 900000).toString().substring(0, 7);
+    },
+
     registerNewToken(tokens) {
         grantedTokens[tokens.refreshToken] = tokens;
-        fs.writeFile(__dirname + '/granted-tokens.json', JSON.stringify(grantedTokens, null, '  '), err => {
-            if (err) {
-                console.log(err);
-            }
-        });
+        save('/granted-tokens.json', grantedTokens);
+    },
+
+    registerVerificationToken(email, token) {
+        verificationTokens[email] = token;
+        save('/verification-tokens.json', verificationTokens);
     },
 
     unregisterToken(refreshToken) {
         grantedTokens[refreshToken] = undefined;
-        fs.writeFile(__dirname + '/granted-tokens.json', JSON.stringify(grantedTokens, null, '  '), err => {
-            if (err) {
-                console.log(err);
-            }
-        });
+        save('/granted-tokens.json', grantedTokens);
     },
 
     isRefreshTokenRegistered(refreshToken) {
         return refreshToken && grantedTokens[refreshToken];
     },
 
-    refreshCookies(tokens, response, doUpdate) {
-        if (doUpdate) {
-            response.cookie('accessToken', tokens.accessToken);
-            response.cookie('refreshToken', tokens.refreshToken);
-        } else {
-            response.clearCookie('accessToken');
-            response.clearCookie('refreshToken');
-        }
+    compareVerificationTokens(email, token) {
+        return verificationTokens[email] === token;
     }
 };
+
+function save(tokensPath, tokens) {
+    fs.writeFile(__dirname + tokensPath, JSON.stringify(tokens, null, '  '), err => {
+        if (err) {
+            console.log(err);
+        }
+    });
+}

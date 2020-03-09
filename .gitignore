@@ -8,3 +8,6 @@ package-lock.json
 
 # Chrome debug logs
 **/debug.log
+
+# Secured files
+credentials.json

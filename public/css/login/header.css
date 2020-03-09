@@ -275,6 +275,46 @@ header, .login-view {
     background-color: #403866;
 }
 
+.forgot-form .form-wrapper {
+    top: -21%;
+    left: -3.6%;
+}
+
+.forgot-form-hide {
+    display: none;
+}
+
+.form-back-button {
+    margin-top: 1rem;
+}
+
+.form-back-button > button {
+    background-color: #403866;
+}
+
+.form-back-button > button:hover {
+    background-color: #827ffe;
+}
+
+.forgot-email-step-wrapper {
+    position: relative;
+    opacity: 1;
+}
+
+.forgot-code-step-wrapper {
+    position: absolute;
+    top: 22%;
+    left: 120%;
+    opacity: 0;
+}
+
+.forgot-change-password-step-wrapper {
+    position: absolute;
+    top: 22%;
+    left: 120%;
+    opacity: 0;
+}
+
 @media only screen and (max-width: 768px) {
     .navbar {
         background-color: #4285F4;

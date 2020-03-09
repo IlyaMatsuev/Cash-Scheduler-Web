@@ -4,11 +4,16 @@ html, body {
 
 @font-face {
     font-family: Ubuntu-Regular;
-    src: url('../fonts/ubuntu/Ubuntu-Regular.ttf');
+    src: url('/fonts/ubuntu/Ubuntu-Regular.ttf');
 }
 
 @font-face {
     font-family: Ubuntu-Bold;
-    src: url('../fonts/ubuntu/Ubuntu-Bold.ttf');
+    src: url('/fonts/ubuntu/Ubuntu-Bold.ttf');
 }
 
+
+.hidden-resource {
+    display: none;
+    opacity: 0;
+}

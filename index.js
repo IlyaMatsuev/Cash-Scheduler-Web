@@ -15,7 +15,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.use('/api', apiRoute);
 app.use('/auth', authRoute);
-app.use('/profile', viewsRoute);
+app.use('/views', viewsRoute);
 app.use((request, response) => errorsHandler.throwHttpError(response, null, 404));
 
 app.listen(process.env.PORT || serverConfig.port, () => {

@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <title>Cash Scheduler</title>
 
-    <link rel="icon" href="./img/icon.ico">
-    <link rel="stylesheet" href="./css/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="./css/login/header.css">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="icon" href="/img/icon.ico">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/css/login/header.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
 <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-        <a class="navbar-brand" href="#"><strong>Cash Scheduler</strong></a>
+        <a class="navbar-brand" href="javascript:void(0)"><strong>Cash Scheduler</strong></a>
 
         <!-- Button appears when the screen width becomes small -->
         <button class="navbar-toggler" type="button"
@@ -24,13 +24,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Download the App</a>
+                    <a class="nav-link" href="https://github.com/IlyaMatsuev/Cash-Scheduler-Web">Download the App</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link1</a>
+                    <a class="nav-link" href="https://github.com/IlyaMatsuev/Cash-Scheduler-Web">Link1</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link2</a>
+                    <a class="nav-link" href="https://github.com/IlyaMatsuev/Cash-Scheduler-Web">Link2</a>
                 </li>
             </ul>
         </div>
@@ -76,7 +76,7 @@
                                     </div>
 
                                     <div class="login-forgot">
-                                        <a href="javascript:void(0)">Forgot?</a>
+                                        <a href="javascript:forgotPassword()">Forgot?</a>
                                     </div>
                                 </div>
 
@@ -121,6 +121,53 @@
 
                                 <div class="form-submit-button">
                                     <button>Register</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="form-container forgot-form forgot-form-hide">
+                        <div class="form-wrapper">
+                            <form onsubmit="return false;">
+                                <div class="form-title">
+                                    <span class="active-header">Forgot Password?</span>
+                                </div>
+
+                                <div class="forgot-email-step-wrapper">
+                                    <div class="form-input">
+                                        <input type="text" name="email" placeholder="Email">
+                                        <span></span>
+                                    </div>
+
+                                    <div class="form-submit-button">
+                                        <button onclick="sendVerificationCode()">Send Code</button>
+                                    </div>
+                                </div>
+
+                                <div class="forgot-code-step-wrapper">
+                                    <div class="form-input">
+                                        <input type="text" name="code" placeholder="Code">
+                                        <span></span>
+                                    </div>
+
+                                    <div class="form-submit-button">
+                                        <button onclick="compareVerificationCodes()">Check</button>
+                                    </div>
+                                </div>
+
+                                <div class="forgot-change-password-step-wrapper">
+                                    <div class="form-input">
+                                        <input type="text" name="password" placeholder="New Password">
+                                        <span></span>
+                                    </div>
+
+                                    <div class="form-submit-button">
+                                        <button onclick="changePassword()">Change Password</button>
+                                    </div>
+                                </div>
+
+                                <div class="form-submit-button form-back-button">
+                                    <button onclick="goBack()">Go Back</button>
                                 </div>
                             </form>
                         </div>
