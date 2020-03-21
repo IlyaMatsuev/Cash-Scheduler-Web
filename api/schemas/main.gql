@@ -39,7 +39,11 @@ type RegularTransaction {
     interval: String!
 }
 
-
+type Currency {
+    abbreviation: String!
+    rate: Float!
+    icon: String
+}
 
 
 type Query {
@@ -57,4 +61,6 @@ type Query {
     getAllTransactions(size: Int): [Transaction!]
 
     getAllRegularTransactions(size: Int): [RegularTransaction!]
+
+    getAllCurrencies: [Currency!]
 }

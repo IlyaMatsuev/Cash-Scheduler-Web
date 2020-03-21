@@ -3,6 +3,7 @@ const Category = require('./category');
 const Transaction = require('./transaction');
 const TransactionType = require('./transaction-type');
 const RegularTransaction = require('./regular-transaction');
+const Currency = require('./currency');
 
 module.exports = (Sequelize, dbConfig) => {
     const sequelize = new Sequelize(
@@ -17,6 +18,7 @@ module.exports = (Sequelize, dbConfig) => {
     const transactions = Transaction(Sequelize, sequelize);
     const transactionTypes = TransactionType(Sequelize, sequelize);
     const regularTransactions = RegularTransaction(Sequelize, sequelize);
+    const currency = Currency(Sequelize, sequelize);
 
     categories.belongsTo(transactionTypes, {foreignKey: 'transaction_type_name'});
     categories.belongsTo(users, {foreignKey: 'user_id'});
@@ -33,6 +35,7 @@ module.exports = (Sequelize, dbConfig) => {
         Transactions: transactions,
         TransactionTypes: transactionTypes,
         RegularTransactions: regularTransactions,
+        Currency: currency,
 
         sequelize: sequelize,
         Sequelize: Sequelize,
