@@ -1,7 +1,7 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 const authRoute = express.Router();
 const db = require('./../db').Users;
@@ -62,6 +62,16 @@ authRoute.post('/login', async (request, response) => {
     }
 });
 
+authRoute.post('/logout', (request, response) => {
+    const accessToken = request.body.accessToken;
+    if (tokensHandler.unregisterTokenByAccessToken(accessToken)) {
+        response.json({});
+    } else {
+        errorsHandler.throwHttpError(response, 12, 400);
+    }
+});
+
+// TODO: update tokens when changing password
 authRoute.post('/change-password', async (request, response) => {
     const {email, password} = request.body;
 

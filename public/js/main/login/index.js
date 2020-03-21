@@ -3,16 +3,22 @@ const ACTIVE_FORM_CONTAINER_CLASS = 'active-form';
 const NON_ACTIVE_FORM_CONTAINER_CLASS = 'non-active-form';
 const FORGOT_FORM_CONTAINER_CLASS = 'forgot-form';
 const FORGOT_FORM_HIDE_CLASS = 'forgot-form-hide';
+const FORM_WRAPPER_CLASS = 'form-wrapper';
+const FORM_BUTTON_CONTAINER_CLASS = 'form-submit-button';
 let VerificationCodeSent = false;
 
 $(() => {
-    $(`.${ACTIVE_FORM_CONTAINER_CLASS} .form-wrapper form :input`).bind('input', clearInputErrors);
-    $(`.${NON_ACTIVE_FORM_CONTAINER_CLASS} .form-wrapper form :input`).bind('input', clearInputErrors);
+    $(`.${ACTIVE_FORM_CONTAINER_CLASS} .${FORM_WRAPPER_CLASS} form :input`).bind('input', clearInputErrors);
+    $(`.${NON_ACTIVE_FORM_CONTAINER_CLASS} .${FORM_WRAPPER_CLASS} form :input`).bind('input', clearInputErrors);
 
-    $(`.${FORGOT_FORM_CONTAINER_CLASS} .form-wrapper form :input`).bind('input', () => {
+    $(`.${FORGOT_FORM_CONTAINER_CLASS} .${FORM_WRAPPER_CLASS} form :input`).bind('input', () => {
         clearInvalidEmailMessage(`.${FORGOT_FORM_CONTAINER_CLASS} .forgot-email-step-wrapper input`);
         clearInvalidEmailMessage(`.${FORGOT_FORM_CONTAINER_CLASS} .forgot-code-step-wrapper input`);
     });
+
+    $(`.${FORM_BUTTON_CONTAINER_CLASS}.loadable button`).click(function () {
+        $(this).addClass('loading');
+    })
 });
 
 
@@ -159,10 +165,11 @@ function sendVerificationCode() {
     });
 }
 
-function compareVerificationCodes() {
+function compareVerificationCodes(button) {
     const credentials = getFieldsFromForm(`.${FORGOT_FORM_CONTAINER_CLASS} .form-wrapper form :input`);
 
     if (!credentials.code) {
+        $(button).removeClass('loading');
         showInvalidEmailMessage(`.${FORGOT_FORM_CONTAINER_CLASS} .forgot-code-step-wrapper input`);
         return;
     }
@@ -172,6 +179,7 @@ function compareVerificationCodes() {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(credentials)
     }).then(response => {
+        $(button).removeClass('loading');
         if (response.status === 200) {
             moveToChangePasswordStep();
         } else {
@@ -180,10 +188,11 @@ function compareVerificationCodes() {
     });
 }
 
-function changePassword() {
+function changePassword(button) {
     const credentials = getFieldsFromForm(`.${FORGOT_FORM_CONTAINER_CLASS} .form-wrapper form :input`);
 
     if (!credentials.code) {
+        $(button).removeClass('loading');
         showInvalidEmailMessage(`.${FORGOT_FORM_CONTAINER_CLASS} .forgot-change-password-step-wrapper input`);
         return;
     }
@@ -193,6 +202,7 @@ function changePassword() {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(credentials)
     }).then(response => {
+        $(button).removeClass('loading');
         if (response.status === 200) {
             redirectToLoginPage();
         } else {
@@ -201,18 +211,25 @@ function changePassword() {
     });
 }
 
-function login() {
-    let credentials = getFieldsFromForm(`.${ACTIVE_FORM_CONTAINER_CLASS} .form-wrapper form :input`);
+function login(button) {
+    let credentials = getFieldsFromForm(`.${ACTIVE_FORM_CONTAINER_CLASS} .${FORM_WRAPPER_CLASS} form :input`);
 
     requestTokens(credentials)
+        .then(tokens => {
+            $(button).removeClass('loading');
+            return tokens;
+        })
         .then(tokens => redirectToProfilePage(tokens.accessToken))
-        .catch(error => showInputErrors(error.message));
+        .catch(error => {
+            $(button).removeClass('loading');
+            showInputErrors(error.message)
+        });
 
     return false;
 }
 
-function register() {
-    let credentials = getFieldsFromForm(`.${ACTIVE_FORM_CONTAINER_CLASS} .form-wrapper form :input`);
+function register(button) {
+    let credentials = getFieldsFromForm(`.${ACTIVE_FORM_CONTAINER_CLASS} .${FORM_WRAPPER_CLASS} form :input`);
 
     fetch('/auth/register', {
         method: 'POST',
@@ -221,11 +238,19 @@ function register() {
     }).then(response => response.json())
         .then(response => {
             if (response.errors) {
+                $(button).removeClass('loading');
                 showInputErrors(response.errors[0]);
             } else {
                 requestTokens(credentials)
+                    .then(tokens => {
+                        $(button).removeClass('loading');
+                        return tokens;
+                    })
                     .then(tokens => redirectToProfilePage(tokens.accessToken))
-                    .catch(error => showInputErrors(error.message));
+                    .catch(error => {
+                        $(button).removeClass('loading');
+                        showInputErrors(error.message)
+                    });
             }
         });
     return false;
@@ -328,7 +353,7 @@ function validateEmail(selector) {
     }
 }
 
-function showInvalidEmailMessage(selector, message) {
+function showInvalidEmailMessage(selector) {
     const emailField = $(selector).first();
     const emailFieldContainer = emailField.parent();
     const emailFieldBorder = emailField.next();
@@ -338,7 +363,7 @@ function showInvalidEmailMessage(selector, message) {
     emailField.focus();
 }
 
-function clearInvalidEmailMessage(selector, message) {
+function clearInvalidEmailMessage(selector) {
     const emailField = $(selector).first();
     const emailFieldContainer = emailField.parent();
     const emailFieldBorder = emailField.next();

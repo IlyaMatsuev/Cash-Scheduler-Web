@@ -13,5 +13,6 @@
   "8": "No such registered user",
   "9": "The specified email doesn't exist. So there are no ways for you to recover it",
   "10": "Email or token didn't provided",
-  "11": "Invalid verification code"
+  "11": "Invalid verification code",
+  "12": "Access token is invalid"
 }

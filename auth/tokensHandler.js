@@ -39,6 +39,15 @@ const self = module.exports = {
         save('/granted-tokens.json', grantedTokens);
     },
 
+    unregisterTokenByAccessToken(accessToken) {
+        let refreshToken = Object.keys(grantedTokens)
+            .find(refreshToken => grantedTokens[refreshToken] && grantedTokens[refreshToken].accessToken === accessToken);
+        if (refreshToken) {
+            self.unregisterToken(refreshToken);
+        }
+        return !!refreshToken;
+    },
+
     isRefreshTokenRegistered(refreshToken) {
         return refreshToken && grantedTokens[refreshToken];
     },

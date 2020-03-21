@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const bodyParser = require('body-parser');
 
 const apiRoute = require('./api');
@@ -22,6 +23,6 @@ app.listen(process.env.PORT || serverConfig.port, () => {
     console.log(`Listening to http://${process.env.HOST || serverConfig.host}:${process.env.PORT || serverConfig.port}/`);
     console.log(`API endpoint: http://${process.env.HOST || serverConfig.host}:${process.env.PORT || serverConfig.port}/api`);
 
-    require('fs').writeFile(__dirname + '/auth/granted-tokens.json', '{}', () => {});
-    require('fs').writeFile(__dirname + '/auth/verification-tokens.json', '{}', () => {});
+    fs.writeFile(__dirname + '/auth/granted-tokens.json', '{}', () => {});
+    fs.writeFile(__dirname + '/auth/verification-tokens.json', '{}', () => {});
 });

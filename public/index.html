@@ -51,7 +51,7 @@
                 <div class="col-md">
                     <div class="form-container active-form">
                         <div class="form-wrapper">
-                            <form action="/auth/login" method="post" onsubmit="return login()">
+                            <form action="/auth/login" method="post" onsubmit="return false;">
                                 <div class="form-title">
                                     <a href="javascript:void(0)" class="active-header">Sign In</a>
                                     &nbsp;&nbsp;
@@ -84,8 +84,8 @@
                                     <span></span>
                                 </div>
 
-                                <div class="form-submit-button">
-                                    <button>Login</button>
+                                <div class="form-submit-button loadable">
+                                    <button onclick="login(this)">Login</button>
                                 </div>
                             </form>
                         </div>
@@ -93,7 +93,7 @@
 
                     <div class="form-container non-active-form">
                         <div class="form-wrapper">
-                            <form action="/auth/register" method="post" onsubmit="return register()">
+                            <form action="/auth/register" method="post" onsubmit="return false;">
                                 <div class="form-title">
                                     <a href="javascript:switchForm()" class="non-active-header" style="left: 7%;">Sign In</a>
                                     &nbsp;&nbsp;
@@ -119,8 +119,8 @@
                                     <span></span>
                                 </div>
 
-                                <div class="form-submit-button">
-                                    <button>Register</button>
+                                <div class="form-submit-button loadable">
+                                    <button onclick="register(this)">Register</button>
                                 </div>
                             </form>
                         </div>
@@ -150,8 +150,8 @@
                                         <span></span>
                                     </div>
 
-                                    <div class="form-submit-button">
-                                        <button onclick="compareVerificationCodes()">Check</button>
+                                    <div class="form-submit-button loadable">
+                                        <button onclick="compareVerificationCodes(this)">Check</button>
                                     </div>
                                 </div>
 
@@ -161,8 +161,8 @@
                                         <span></span>
                                     </div>
 
-                                    <div class="form-submit-button">
-                                        <button onclick="changePassword()">Change Password</button>
+                                    <div class="form-submit-button loadable">
+                                        <button onclick="changePassword(this)">Change Password</button>
                                     </div>
                                 </div>
 
