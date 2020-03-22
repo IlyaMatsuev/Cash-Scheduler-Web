@@ -4,17 +4,12 @@
     "port": 8000
   },
   "db": {
-    "db_name": "cash_scheduler",
-    "username": "ilya",
-    "password": "password",
-    "options": {
-      "dialect": "mysql",
-      "host": "localhost",
-      "logging": false,
-      "define": {
-        "timestamps": false,
-        "freezeTableName": true
-      }
+    "dialect": "mysql",
+    "host": "localhost",
+    "logging": false,
+    "define": {
+      "timestamps": false,
+      "freezeTableName": true
     }
   },
   "crypt": {

@@ -7,7 +7,6 @@ const authRoute = express.Router();
 const db = require('./../db').Users;
 const securityConfig = require('./../config').crypt;
 const emailConfig = require('./../config').email;
-const emailCredentials = require('./../credentials').email;
 const errorsHandler = require('./../errors');
 const tokensHandler = require('./tokensHandler');
 
@@ -110,6 +109,16 @@ authRoute.post('/send-code', async (request, response) => {
         if (!user) {
             errorsHandler.throwHttpError(response, 8, 400);
             return;
+        }
+
+        let emailCredentials;
+        try {
+            emailCredentials = require('./../credentials').email
+        } catch (e) {
+            emailCredentials = {
+                username: process.env.EMAIL_USERNAME,
+                password: process.env.EMAIL_PASSWORD
+            };
         }
 
         const transporter = nodemailer.createTransport({

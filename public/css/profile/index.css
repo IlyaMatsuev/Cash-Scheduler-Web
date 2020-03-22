@@ -1,0 +1,124 @@
+.feather {
+    width: 1rem;
+    height: 1rem;
+    vertical-align: text-bottom;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+    position: fixed;
+    z-index: 100;
+    padding: 3rem 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+    height: calc(100vh - 3rem);
+    padding-top: .5rem;
+}
+
+.shadow {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)!important;
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+}
+
+.sidebar .nav-link .feather {
+    margin-right: .25rem;
+    color: #999;
+}
+
+.sidebar .nav-link.active {
+    color: #007bff;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+    color: inherit;
+}
+
+.sidebar-heading {
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, .25);
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .form-control {
+    height: 2.25rem;
+    padding: .75rem 1rem;
+    border-width: 0;
+    border-radius: 0;
+}
+
+.form-control-dark {
+    color: white;
+    background-color: rgba(255, 255, 255, .1);
+    border-color: rgba(255, 255, 255, .1);
+}
+
+.form-control-dark:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+/*
+ * Content
+ */
+
+main {
+    padding-top: 3rem;
+}
+
+/* Calendar */
+.calendar-container {
+    position: relative;
+    top: 10%;
+    left: 3%;
+    width: 90%;
+    margin: 0;
+    padding: 0;
+}
+
+.calendar-toolbar {
+    margin-bottom: 1rem;
+}
+
+.calendar-month-row {
+    height: 6rem;
+}
+
+.calendar-month-row td:hover {
+    background-color: #E5F0FF;
+}
+
+.calendar-prior-months-date {
+    color: #DDD;
+}
+
+.calendar-current-date {
+    text-align: center;
+    display: inline-block;
+    width: 8rem;
+}
+
+td.calendar-today {
+    background-color: #E5F0FF;
+    border: 2px solid #B7D4FF;
+}

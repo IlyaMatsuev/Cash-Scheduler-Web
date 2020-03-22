@@ -1,7 +1,22 @@
 const Sequelize = require('sequelize');
-
+const getModels = require('./models');
 const dbConfig = require('./../config').db;
-const models = require('./models')(Sequelize, dbConfig);
+
+let dbCredentials;
+try {
+    dbCredentials = require('./../credentials').db;
+    dbCredentials.options = dbConfig;
+} catch (e) {
+    dbCredentials = {
+        db_name: process.env.DB_NAME,
+        username: process.env.DB_USERNAME,
+        password: process.env.DB_PASSWORD
+    };
+    dbCredentials.options = dbConfig;
+    dbCredentials.options.host = process.env.DB_HOST;
+}
+
+const models = getModels(Sequelize, dbCredentials);
 
 module.exports = models;
 
