@@ -1,3 +1,8 @@
+body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
 .feather {
     width: 1rem;
     height: 1rem;
@@ -86,39 +91,27 @@ main {
     padding-top: 3rem;
 }
 
-/* Calendar */
-.calendar-container {
+.main-container {
+    height: 43rem;
     position: relative;
     top: 10%;
     left: 3%;
-    width: 90%;
+    width: 94%;
     margin: 0;
     padding: 0;
 }
 
-.calendar-toolbar {
-    margin-bottom: 1rem;
-}
-
-.calendar-month-row {
-    height: 6rem;
-}
-
-.calendar-month-row td:hover {
-    background-color: #E5F0FF;
-}
-
-.calendar-prior-months-date {
-    color: #DDD;
-}
-
-.calendar-current-date {
-    text-align: center;
-    display: inline-block;
-    width: 8rem;
-}
-
-td.calendar-today {
-    background-color: #E5F0FF;
-    border: 2px solid #B7D4FF;
+.render-spinner {
+    display: none;
+    position: absolute;
+    top: calc((100% - 5rem) / 2);
+    left: calc((100% - 5rem) / 2);
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: 4px solid #827ffe;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    background-color: white !important;
+    animation: spin-loading 0.6s ease 0.2s infinite;
 }

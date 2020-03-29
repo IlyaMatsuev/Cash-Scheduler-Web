@@ -2,6 +2,10 @@ html, body {
     height: 100%;
 }
 
+/*
+* Fonts
+*/
+
 @font-face {
     font-family: Ubuntu-Regular;
     src: url('/fonts/ubuntu/Ubuntu-Regular.ttf');
@@ -12,7 +16,21 @@ html, body {
     src: url('/fonts/ubuntu/Ubuntu-Bold.ttf');
 }
 
+/*
+* Account pages styles
+*/
+
 .hidden-resource {
     display: none;
     opacity: 0;
+}
+
+/*
+* Animation keyframes
+*/
+
+@keyframes spin-loading {
+    0% {
+        transform: rotate(360deg);
+    }
 }

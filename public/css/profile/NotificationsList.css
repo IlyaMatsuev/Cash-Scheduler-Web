@@ -1,0 +1,106 @@
+.messages-list-container {
+    height: 100%;
+    display: flex;
+}
+
+.messages-list {
+    flex: 3;
+}
+
+.messages-filter-bar {
+    position: relative;
+    display: flex;
+    width: 90%;
+    margin: 1rem 0 1rem 0;
+}
+
+.messages-filter-bar .search {
+    display: flex;
+    width: 30%;
+}
+
+.messages-filter-bar .search button {
+    margin-left: 1rem;
+}
+
+.messages-filter-bar .pagination {
+    margin: 0 0 0 2rem;
+}
+
+.messages-filter-bar .pagination .page-link {
+    border: none;
+}
+
+.messages-filter-bar .pagination .page-item.active .page-link {
+    background-color: #B7D4FF;
+}
+
+.message-list-wrapper {
+    position: relative;
+    width: 90%;
+    padding: 0;
+}
+
+.message-list-wrapper li {
+    display: flex;
+    padding: 1.5rem 2rem;
+    margin-bottom: .5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 8px 0 RGBA(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.message-selected,
+.message-list-wrapper li:hover {
+    background-color: #E5F0FF;
+}
+
+.message-list-wrapper li div {
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.message-list-wrapper li .message-title {
+    left: 5%;
+    width: 20%;
+}
+
+.message-list-wrapper li .message-content {
+    left: 15%;
+    width: 60%;
+}
+
+.message-container {
+    position: relative;
+    left: 35%;
+    flex: 0;
+    display: none;
+}
+
+.message-container .message-wrapper {
+    position: relative;
+    top: 10%;
+    height: 88%;
+    border-radius: 10px;
+    box-shadow: 0 0 8px 0 RGBA(0, 0, 0, 0.1);
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.message-wrapper .title {
+    position: inherit;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 30%;
+}
+
+.message-wrapper .content {
+    position: inherit;
+    top: 3%;
+    left: 5%;
+    width: 90%;
+    height: 55%;
+}

@@ -1,0 +1,26 @@
+.calendar-toolbar {
+    margin-bottom: 1rem;
+}
+
+.calendar-month-row {
+    height: 6rem;
+}
+
+.calendar-month-row td:hover {
+    background-color: #E5F0FF;
+}
+
+.calendar-prior-months-date {
+    color: #DDD;
+}
+
+.calendar-current-date {
+    text-align: center;
+    display: inline-block;
+    width: 8rem;
+}
+
+td.calendar-today {
+    background-color: #E5F0FF;
+    border: 2px solid #B7D4FF;
+}

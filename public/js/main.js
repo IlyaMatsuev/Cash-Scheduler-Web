@@ -1,3 +1,6 @@
+/*
+* OAuth2 / Tokens exchange functionality
+*/
 
 function refreshAccessToken() {
     const email = window.localStorage.getItem('email');
@@ -42,7 +45,7 @@ function requestTokens(credentials) {
 
 function redirectToProfilePage(token) {
     window.localStorage.setItem('accessToken', token);
-    window.location.href = '/views/';
+    window.location.href = '/account/';
 }
 
 function redirectToLoginPage() {
@@ -83,8 +86,55 @@ function rememberTokens(tokens, remember = false) {
     return tokens;
 }
 
+/*
+* View rendering helpers
+*/
+
 function appearBodySlowly(timeout = 500) {
     const pageBody = $('body');
-    pageBody.css('display', 'block');
-    pageBody.animate({opacity: 1}, timeout);
+    pageBody.show();
+    pageBody.animate(
+        {opacity: 1},
+        timeout,
+        () => pageBody.removeClass('hidden-resource')
+    );
+}
+
+function loadTemplate(template) {
+    const accessToken = window.localStorage.getItem('accessToken');
+    return fetch(`/account/template?name=${template}`, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${accessToken}`
+        }
+    }).then(async response => {
+        if (response.status === 200) {
+            return response.text();
+        } else if (response.status === 401) {
+            return refreshAccessToken().then(() => loadTemplate(template));
+        } else if (response.status === 403) {
+            redirectToLoginPage();
+        } else {
+            const errors = (await response.json()).errors;
+            console.log('Errors: ' + errors);
+            throw new Error(errors[0]);
+        }
+    }).then(setMainView);
+}
+
+function setMainView(html) {
+    $('main').html(html);
+    return html;
+}
+
+function changeMainView(template) {
+    if (currentView === template) {
+        return;
+    }
+    scrollToNewView(template)
+        .then(viewRenderHandlers[template])
+        .then(fadeSpinnerOut)
+        .then(fadeMainContainerIn)
+        .then(() => currentView = template)
+        .then(initHandlers);
 }

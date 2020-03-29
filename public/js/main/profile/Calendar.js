@@ -67,3 +67,32 @@ class Calendar {
         callback();
     }
 }
+
+let calendar;
+
+function initCalendar() {
+    calendar = new Calendar();
+    const calendarControls = $('[data-toggle="calendar"]');
+
+    const disableCalendarControls = () => calendarControls.attr('disabled', true);
+    const enableCalendarControls = () => calendarControls.attr('disabled', false);
+
+    calendarControls.click(function () {
+        disableCalendarControls();
+        const action = $(this).data('action');
+        if (action) {
+            calendar[action](enableCalendarControls);
+        }
+    });
+
+    $(calendar.elem).on('wheel', event => {
+        disableCalendarControls();
+        setTimeout(() => {
+            if (event.originalEvent.deltaY < 0) {
+                calendar.next(enableCalendarControls);
+            } else {
+                calendar.prev(enableCalendarControls);
+            }
+        }, 100);
+    });
+}
