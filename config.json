@@ -26,5 +26,8 @@
     "service": "gmail",
     "verificationSubject": "Cash Scheduler",
     "verificationContent": "Hi! Your verification code: "
+  },
+  "notifications": {
+    "refreshInterval": 10000
   }
 }

@@ -24,6 +24,7 @@ const viewRenderHandlers = {
 
 function loadPageContent() {
     loadDashboardView()
+        .then(initNotificationListener)
         .then(initHandlers);
 }
 

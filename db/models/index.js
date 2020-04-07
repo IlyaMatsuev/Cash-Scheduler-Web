@@ -4,6 +4,7 @@ const Transaction = require('./transaction');
 const TransactionType = require('./transaction-type');
 const RegularTransaction = require('./regular-transaction');
 const Currency = require('./currency');
+const Notification = require('./notification');
 
 module.exports = (Sequelize, dbConfig) => {
     const sequelize = new Sequelize(
@@ -19,6 +20,7 @@ module.exports = (Sequelize, dbConfig) => {
     const transactionTypes = TransactionType(Sequelize, sequelize);
     const regularTransactions = RegularTransaction(Sequelize, sequelize);
     const currency = Currency(Sequelize, sequelize);
+    const notifications = Notification(Sequelize, sequelize);
 
     categories.belongsTo(transactionTypes, {foreignKey: 'transaction_type_name'});
     categories.belongsTo(users, {foreignKey: 'user_id'});
@@ -29,13 +31,16 @@ module.exports = (Sequelize, dbConfig) => {
     regularTransactions.belongsTo(users, {foreignKey: 'user_id'});
     regularTransactions.belongsTo(categories, {foreignKey: 'category_id'});
 
+    notifications.belongsTo(users, {foreignKey: 'user_id'});
+
     return {
         Users: users,
         Categories: categories,
         Transactions: transactions,
         TransactionTypes: transactionTypes,
         RegularTransactions: regularTransactions,
-        Currency: currency,
+        Currencies: currency,
+        Notifications: notifications,
 
         sequelize: sequelize,
         Sequelize: Sequelize,

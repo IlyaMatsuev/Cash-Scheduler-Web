@@ -1,15 +1,18 @@
 const express = require('express');
+const expressWebSocket = require('express-ws');
 const fs = require('fs');
 const bodyParser = require('body-parser');
-
-const apiRoute = require('./api');
-const authRoute = require('./auth');
-const viewsRoute = require('./views');
 
 const errorsHandler = require('./errors');
 const serverConfig = require('./config').server;
 
 const app = express();
+expressWebSocket(app);
+
+const apiRoute = require('./api');
+const authRoute = require('./auth');
+const viewsRoute = require('./views');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));

@@ -87,6 +87,25 @@ function rememberTokens(tokens, remember = false) {
 }
 
 /*
+* API helpers
+*/
+
+function graphql(method, query, variables = {}) {
+    return fetch('/api', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+            query,
+            variables
+        })
+    }).then(response => response.json())
+        .then(response => response.data[method]);
+}
+
+/*
 * View rendering helpers
 */
 

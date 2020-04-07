@@ -22,5 +22,20 @@ module.exports = {
                 console.log('\nError: ' + JSON.stringify(errors, null, ' '));
             }
         }
+    },
+
+    throwWebSocketError: (socket, error = -1, logging = true) => {
+        let errorMessage;
+        if (error && Number.isInteger(error)) {
+            errorMessage = errorDefinitions[error.toString()];
+        } else {
+            errorMessage = error.message;
+        }
+
+        socket.send(JSON.stringify({error: errorDefinitions[error.toString()]}));
+
+        if (logging) {
+            console.log('\nError: ' + JSON.stringify(errorMessage, null, ' '));
+        }
     }
 };

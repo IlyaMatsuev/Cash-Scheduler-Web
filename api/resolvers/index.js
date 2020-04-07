@@ -4,6 +4,7 @@ const transactionResolvers = require('./transactions');
 const regularTransactionResolvers = require('./regular-transactions');
 const transactionTypeResolvers = require('./transaction-types');
 const currencyResolvers = require('./currency');
+const notificationResolvers = require('./notifications');
 
 module.exports = {
     ...userResolvers,
@@ -11,5 +12,6 @@ module.exports = {
     ...transactionResolvers,
     ...regularTransactionResolvers,
     ...transactionTypeResolvers,
-    ...currencyResolvers
+    ...currencyResolvers,
+    ...notificationResolvers
 };

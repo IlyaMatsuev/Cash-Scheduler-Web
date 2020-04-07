@@ -34,3 +34,11 @@ html, body {
         transform: rotate(360deg);
     }
 }
+
+/*
+* Hidden resources
+*/
+
+.audio, .play-button {
+    display: none;
+}

@@ -45,6 +45,14 @@ type Currency {
     icon: String
 }
 
+type Notification {
+    id: Int!
+    title: String!
+    content: String!
+    user: User
+    read: Boolean!
+}
+
 
 type Query {
     getUserById(id: Int!): User!
@@ -63,4 +71,7 @@ type Query {
     getAllRegularTransactions(size: Int): [RegularTransaction!]
 
     getAllCurrencies: [Currency!]
+
+    getAllNotifications: [Notification!]
+    getUnreadNotifications: [Notification!]
 }

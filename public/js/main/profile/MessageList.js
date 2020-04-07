@@ -6,7 +6,9 @@ class MessageList {
         this.currentPage = 1;
         this.notifications = notifications;
         this.notificationPanelCollapsed = true;
+        this.paginationBarRendered = false;
         this.render(this.currentPage);
+        initPagination();
     }
 
     render(pageNumber) {
@@ -23,6 +25,9 @@ class MessageList {
             pageNotifications.forEach(notification => {
                 const escapeHtmlPattern = /<[^>]+>/g;
                 const messageEntry = $(`<li data-id="${notification.id}"></li>`);
+                if (!notification.read) {
+                    messageEntry.addClass('unread');
+                }
                 messageEntry.bind('click', event => this.expandNotification(event));
 
                 const messageTitleDiv = $(`<div class="message-title">${notification.title.replace(escapeHtmlPattern, '')}</div>`);
@@ -40,10 +45,14 @@ class MessageList {
         const paginationBarWrapper = $('.messages-filter-bar .pagination');
 
         if (notificationLength <= this.notificationPerPage) {
+            paginationBarWrapper.empty();
             return;
         }
-        if (paginationBarWrapper[0].hasChildNodes()) {
+        if (this.paginationBarRendered) {
             return;
+        } else {
+            this.paginationBarRendered = true;
+            paginationBarWrapper.empty();
         }
         const prevPageButton = $('<li class="page-item control" data-action="prev" style="visibility: hidden"><a class="page-link">&#60;</a></li>');
         const nextPageButton = $('<li class="page-item control" data-action="next"><a class="page-link">&#62;</a></li>');
@@ -131,70 +140,37 @@ class MessageList {
     }
 
     selectNotification(target) {
-        $(target).addClass('message-selected');
+        const notificationWrapper = $(target);
+        const notification = {id: notificationWrapper.data('id')};
+        notificationWrapper.addClass('message-selected');
+        notificationWrapper.removeClass('unread');
+        // TODO: perform a mutation to update current notification from "unread" to "read"
+        // graphql('readNotification', '');
     }
 
     unselectNotification() {
         $('.messages-list .message-selected').removeClass('message-selected');
+        this.selectedNotificationId = null;
     }
 }
 
+let currentNotifications = [];
 let messagesList;
 
-function initMessageList(notifications) {
-    messagesList = new MessageList([
-        {
-            id: 0,
-            title: 'Important Title!!!Important Title!!!Important Title!!!Important Title!!!Important Title!!!',
-            content: 'Hello world'
-        },
-        {
-            id: 1,
-            title: 'Another Important Title!!!',
-            content: '<h1>Hello world</h1>'
-        },
-        {
-            id: 2,
-            title: 'Important Title!!!Important Title!!!Important Title!!!Important Title!!!Important Title!!!',
-            content: 'Hello world'
-        },
-        {
-            id: 3,
-            title: 'Another Important Title!!!',
-            content: 'Hello world'
-        },
-        {
-            id: 4,
-            title: 'Important Title!!!Important Title!!!Important Title!!!Important Title!!!Important Title!!!',
-            content: 'Hello world'
-        },
-        {
-            id: 5,
-            title: 'Another Important Title!!!',
-            content: 'Hello world'
-        },
-        {
-            id: 6,
-            title: 'Important Title!!!Important Title!!!Important Title!!!Important Title!!!Important Title!!!',
-            content: 'Hello world'
-        },
-        {
-            id: 7,
-            title: 'Another Important Title!!!',
-            content: 'Hello world'
-        },
-        {
-            id: 8,
-            title: 'Important Title!!!Important Title!!!Important Title!!!Important Title!!!Important Title!!!',
-            content: 'Hello world'
-        },
-        {
-            id: 9,
-            title: 'Another Important Title!!!',
-            content: 'Hello world'
-        }
-    ]);
+async function initMessageList() {
+    const searchMessageInput = $('.messages-filter-bar .search input');
+    if (messagesList) {
+        messagesList = new MessageList(currentNotifications);
+    } else {
+        const allNotifications = await graphql('getAllNotifications', 'query { getAllNotifications { id, title, content, read } }');
+        messagesList = new MessageList(allNotifications);
+    }
+    currentNotifications = messagesList.notifications;
+    clearMessageCounter();
+    searchMessageInput.bind('input', doSearch);
+}
 
+function initPagination() {
     const paginationControls = $('.pagination .page-item');
 
     paginationControls.click(function () {
@@ -215,4 +191,72 @@ function initMessageList(notifications) {
             messagesList[action](currentPageNumber);
         }
     });
+}
+
+
+async function initNotificationListener() {
+    const notificationWSEndpoint = window.location.href.replace('http', 'ws') + '/notifications';
+    const notificationsListener = new WebSocket(notificationWSEndpoint);
+    notificationsListener.onopen = () => onNotificationListenerInit(notificationsListener);
+    notificationsListener.onmessage = event => onNewNotification(event);
+}
+
+function onNotificationListenerInit(notificationsListener) {
+    const accessToken = window.localStorage.getItem('accessToken');
+    notificationsListener.send(JSON.stringify({accessToken}));
+}
+
+function onNewNotification(event) {
+    const response = JSON.parse(event.data);
+    if (response.error) {
+        console.log('Error: ' + response.error);
+        if (response.error === 'Access token is expired') {
+            refreshAccessToken()
+                .then(initNotificationListener);
+        }
+    } else {
+        const newNotifications = response.notifications;
+        playNewNotificationSound();
+        if (newNotifications.length > 0) {
+            currentNotifications.unshift(...newNotifications);
+            if (currentView === 'notifications') {
+                messagesList = new MessageList(currentNotifications);
+            } else {
+                increaseMessageCounter(newNotifications.length);
+            }
+        }
+    }
+}
+
+
+function doSearch() {
+    const searchTerm = $(this).val();
+    if (!searchTerm) {
+        messagesList = new MessageList(currentNotifications);
+    } else {
+        // TODO: try to implement better search with regular expressions
+        messagesList = new MessageList(currentNotifications.filter(notification => notification.title.startsWith(searchTerm)));
+    }
+}
+
+function increaseMessageCounter(newNotificationsCount) {
+    const newNotificationsMarker = $('.new-notifications-marker');
+    newNotificationsMarker.animate({opacity: 0}, 100).promise()
+        .then(() => {
+            if (newNotificationsMarker.text()) {
+                newNotificationsCount += Number(newNotificationsMarker.text());
+            }
+            newNotificationsMarker.text(newNotificationsCount);
+            newNotificationsMarker.animate({opacity: 1}, 100);
+        });
+}
+
+function clearMessageCounter() {
+    const newNotificationsMarker = $('.new-notifications-marker');
+    newNotificationsMarker.text('0');
+    newNotificationsMarker.animate({opacity: 0}, 100);
+}
+
+function playNewNotificationSound() {
+    $('.play-new-notification-sound')[0].click();
 }
