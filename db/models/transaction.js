@@ -38,13 +38,13 @@ module.exports = (Sequelize, sequelize) =>
             }
         },
         date: {
-            type: Sequelize.STRING,
+            type: Sequelize.DATEONLY,
             allowNull: false,
-            defaultValue: Date.now(),
+            defaultValue: Sequelize.NOW,
             validate: {
-                is: {
-                    args: /^[0-9]{10}$/,
-                    msg: 'Provide a timestamp for a date value'
+                isDate: {
+                    args: true,
+                    msg: 'Invalid date format, try this one - YYYY-MM-DD'
                 }
             }
         }

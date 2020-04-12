@@ -141,11 +141,17 @@ class MessageList {
 
     selectNotification(target) {
         const notificationWrapper = $(target);
-        const notification = {id: notificationWrapper.data('id')};
+        const notificationId = Number(notificationWrapper.data('id'));
         notificationWrapper.addClass('message-selected');
         notificationWrapper.removeClass('unread');
-        // TODO: perform a mutation to update current notification from "unread" to "read"
-        // graphql('readNotification', '');
+        graphql(
+            'readNotification',
+            `mutation { readNotification(id: ${notificationId}) { id } }`
+        );
+        const notification = this.notifications.find(notification => notification.id === notificationId);
+        if (notification) {
+            notification.read = true;
+        }
     }
 
     unselectNotification() {

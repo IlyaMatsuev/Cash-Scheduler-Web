@@ -25,12 +25,7 @@ module.exports = (Sequelize, sequelize) =>
         },
         image_url: {
             type: Sequelize.STRING,
-            defaultValue: '/img/categories/default.jpg',
-            validate: {
-                isUrl: {
-                    msg: 'Images should store in the url format'
-                }
-            }
+            defaultValue: '/img/categories/default.jpg'
         }
     }, {
         validate: () => {

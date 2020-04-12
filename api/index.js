@@ -5,7 +5,7 @@ const { buildSchema } = require('graphql');
 const graphqlHTTP = require('express-graphql');
 
 const apiRoute = express.Router();
-const schema = buildSchema(readFileSync('./api/schemas/main.gql').toString());
+const schema = buildSchema(readFileSync('./api/schemas/main.graphql').toString());
 const dbContext = require('./../db');
 const resolvers = require('./resolvers');
 const errorsHandler = require('./../errors');
@@ -43,7 +43,7 @@ apiRoute.use('/', graphqlHTTP(request => ({
     schema: schema,
     rootValue: resolvers,
     context: {
-        request: request,
+        user: request.user,
         db: dbContext
     },
     graphiql: true

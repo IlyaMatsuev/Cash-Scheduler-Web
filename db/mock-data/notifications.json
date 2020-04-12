@@ -50,13 +50,13 @@
   {
     "title": "Important Title!!!Important Title!!!Important Title!!!Important Title!!!Important Title!!!",
     "content": "Hello world",
-    "read": true,
+    "read": false,
     "user_id": 1
   },
   {
     "title": "Another Important Title!!!",
     "content": "Hello world",
-    "read": true,
+    "read": false,
     "user_id": 1
   }
 ]

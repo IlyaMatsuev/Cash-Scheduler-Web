@@ -37,12 +37,23 @@ module.exports = (Sequelize, sequelize) =>
                 }
             }
         },
-        next_transaction_date: {
-            type: Sequelize.STRING,
+        date: {
+            type: Sequelize.DATEONLY,
+            allowNull: false,
+            defaultValue: Sequelize.NOW,
             validate: {
-                is: {
-                    args: /^[0-9]{10}$/,
-                    msg: 'Provide a timestamp for a date value'
+                isDate: {
+                    args: true,
+                    msg: 'Invalid date format, try this one - YYYY-MM-DD'
+                }
+            }
+        },
+        next_transaction_date: {
+            type: Sequelize.DATEONLY,
+            validate: {
+                isDate: {
+                    args: true,
+                    msg: 'Invalid date format, try this one - YYYY-MM-DD'
                 }
             }
         },

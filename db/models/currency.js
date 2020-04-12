@@ -16,11 +16,6 @@ module.exports = (Sequelize, sequelize) =>
             }
         },
         icon: {
-            type: Sequelize.STRING,
-            validate: {
-                isUrl: {
-                    msg: 'Invalid url path to the icon'
-                }
-            }
+            type: Sequelize.STRING
         }
     });

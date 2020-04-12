@@ -49,7 +49,6 @@ viewsRoute.get('/template', (request, response) => {
 viewsRoute.ws('/notifications', clientSocket => {
     const sendNewNotifications = user => {
         let newNotifications = Notifications.findAll({where: {user_id: user.id, read: false}});
-        newNotifications = [{id: 43, title: 'test', content: 'test', read: false}];
         if (newNotifications.length > 0) {
             clientSocket.send(JSON.stringify({notifications: newNotifications}));
         }
