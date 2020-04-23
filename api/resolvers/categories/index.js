@@ -1,6 +1,18 @@
 
 module.exports = {
-    getAllCategories: (args, context) => context.db.Categories.findAll({
+    getAllCategories: ({transactionType}, context) => context.db.Categories.findAll({
+        where: {
+            [context.db.Sequelize.Op.or]: [
+                {
+                    user_id: context.user.id,
+                    is_custom: true
+                },
+                {
+                    is_custom: false
+                }
+            ],
+            ...(transactionType ? {transaction_type_name: transactionType} : {})
+},
         include: [context.db.Users, context.db.TransactionTypes]
     }),
     getStandardCategories: (args, context) => context.db.Categories.findAll({

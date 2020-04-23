@@ -1,17 +1,23 @@
 .calendar-toolbar {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 1rem;
 }
 
 .calendar-month-row {
-    height: 6rem;
+    height: 7rem;
 }
 
 .calendar-month-row td:hover {
     background-color: #E5F0FF;
 }
 
+.calendar-month-row > td {
+    width: calc(100%/7);
+}
+
 .calendar-prior-months-date {
-    color: #DDD;
+    opacity: .4;
 }
 
 .calendar-current-date {
@@ -23,4 +29,93 @@
 td.calendar-today {
     background-color: #E5F0FF;
     border: 2px solid #B7D4FF;
+}
+
+.day-entry-details {
+    position: relative;
+    top: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+.day-entry-details > div {
+    display: inline-block;
+    position: relative;
+    width: 40%;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.day-entry-details .income {
+    color: #00dc7d;
+}
+
+.day-entry-details .expenses {
+    color: #FF7272;
+}
+
+.day-entry-details .regular-income {
+    color: #7EB3FF;
+}
+
+.day-entry-details .regular-expenses {
+    color: #FFA96B;
+}
+
+.new-transaction-modal-container {
+    z-index: 1030;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.new-transaction-modal-container > div {
+    position: relative;
+    top: 20%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.modal-header {
+    position: relative;
+    height: 15%;
+    padding-left: 3rem;
+    padding-top: 0.5rem;
+}
+
+.modal-header .modal-title {
+    text-transform: capitalize;
+}
+
+.modal-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: relative;
+    top: 5%;
+    left: 10%;
+    width: 80%;
+    height: 65%;
+}
+
+.modal-section .modal-section-column {
+    width: 40%;
+}
+
+.modal-section .modal-section-column .date-field {
+    background-color: white;
+}
+
+
+.modal-footer {
+    position: relative;
+    height: 20%;
 }

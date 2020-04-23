@@ -160,8 +160,8 @@ class MessageList {
     }
 }
 
-let currentNotifications = [];
 let messagesList;
+let currentNotifications = [];
 
 async function initMessageList() {
     const searchMessageInput = $('.messages-filter-bar .search input');

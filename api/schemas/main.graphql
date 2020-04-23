@@ -15,6 +15,7 @@ type Category {
     id: Int!
     name: String!
     transaction_type: TransactionType!
+    transaction_type_name: String!
     user: User
     is_custom: Boolean!
     image_url: String!
@@ -60,7 +61,7 @@ type Query {
 
     getTransactionTypes: [TransactionType!]
 
-    getAllCategories: [Category!]
+    getAllCategories(transactionType: String): [Category!]
     getStandardCategories: [Category!]
     getCustomCategories: [Category!]
 

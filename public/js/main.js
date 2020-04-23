@@ -95,14 +95,21 @@ function graphql(method, query, variables = {}) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Accept': 'application/json',
+            'Authorization': window.localStorage.getItem('accessToken')
         },
         body: JSON.stringify({
             query,
             variables
         })
-    }).then(response => response.json())
-        .then(response => response.data[method]);
+    }).then(response => {
+        if (response.status === 401) {
+            return refreshAccessToken()
+                .then(() => graphql(method, query, variables))
+                .then(response => response.json());
+        } else {
+            return response.json()
+        }
+    }).then(response => response.data[method]);
 }
 
 /*
