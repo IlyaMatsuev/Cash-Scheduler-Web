@@ -40,5 +40,15 @@ module.exports = (Sequelize, sequelize) =>
         password: {
             type: Sequelize.STRING,
             allowNull: false
+        },
+        balance: {
+            type: Sequelize.FLOAT,
+            allowNull: false,
+            defaultValue: 0,
+            validate: {
+                isFloat: {
+                    msg: 'Balance can only contain numbers'
+                }
+            }
         }
     });

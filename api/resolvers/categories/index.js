@@ -55,6 +55,16 @@ module.exports = {
         if (!record) {
             throw new Error('There are no such categories with id of ' + id);
         }
-        return record.destroy().then(() => record);
+        return context.db.Transactions.destroy({
+            where: {
+                user_id: context.user.id,
+                category_id: record.id
+            }
+        }).then(() => context.db.RegularTransactions.destroy({
+            where: {
+                user_id: context.user.id,
+                category_id: record.id
+            }
+        })).then(() => record.destroy()).then(() => record);
     })
 };

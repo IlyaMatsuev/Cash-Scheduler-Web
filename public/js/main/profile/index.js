@@ -12,7 +12,8 @@ $(() => {
 * Page/view loading functionality
 */
 
-let currentView = 'dashboard';
+// TODO: try to fix a bug when clicking on a page item at the left corner while the current view is loading
+let currentView = 'categories';
 const viewRenderHandlers = {
     dashboard: loadDashboardView,
     notifications: loadNotificationsView,
@@ -48,7 +49,8 @@ function loadExpensesView() {
 }
 
 function loadCategoriesView() {
-    return loadTemplate('categories');
+    return loadTemplate('categories')
+        .then(initCategoriesList);
 }
 
 function loadSettingsView() {

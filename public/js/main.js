@@ -95,7 +95,7 @@ function graphql(method, query, variables = {}) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': window.localStorage.getItem('accessToken')
+            'Authorization': 'Bearer ' + window.localStorage.getItem('accessToken')
         },
         body: JSON.stringify({
             query,

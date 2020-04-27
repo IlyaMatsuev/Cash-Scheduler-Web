@@ -4,6 +4,7 @@ type User {
     last_name: String
     email: String!
     password: String!
+    balance: Float!
 }
 
 type TransactionType {

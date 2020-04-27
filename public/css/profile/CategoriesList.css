@@ -1,0 +1,96 @@
+.categories-list-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.categories-list-wrapper {
+    position: relative;
+    width: 40%;
+}
+
+.categories-controls {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0 1rem 0;
+}
+
+.categories-controls .transaction-type-sort {
+    position: relative;
+    width: 30%;
+}
+
+.categories-list {
+    position: relative;
+    height: 40rem;
+    margin-top: 2rem;
+    overflow-y: auto;
+}
+
+.category > span {
+    position: relative;
+    left: 20%;
+}
+
+.category > img {
+    height: 2rem;
+}
+
+.category-edit-form {
+    position: relative;
+    width: 50%;
+    border: 1px solid #2E3F7F;
+    border-radius: 8px;
+}
+
+.category-edit-form > div {
+    position: relative;
+    top: 5%;
+    left: 20%;
+    width: 60%;
+    height: 15%;
+}
+
+.category-edit-form .category-image label {
+    display: block;
+    height: 3rem;
+    line-height: 2.5em;
+    background-color: #D1D3D4;
+    border-radius: .3rem;
+    text-align: center;
+}
+
+.category-edit-form .category-image > label:hover {
+    cursor: pointer;
+    background-color: #F1F2F2;
+}
+
+.category-edit-form .category-image > label:active {
+    background-color: #F1F2F2;
+}
+
+.category-edit-form .category-image input {
+    width: 0;
+    height: 0;
+}
+
+.category-edit-form .category-edit-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.category-edit-controls .save,
+.category-edit-controls .delete {
+    position: relative;
+    width: 45%;
+}
+
+.category-edit-controls .add-new {
+    position: relative;
+    width: 100%;
+}
+
+.category-edit-controls button {
+    width: 100%;
+}

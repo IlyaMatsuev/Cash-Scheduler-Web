@@ -145,10 +145,10 @@ async function initCalendar() {
     await setAllTransactions();
     await setAllRecurringTransactions();
     calendar = new Calendar(transactions, recurringTransactions);
-    bindControls();
+    bindCalendarControls();
 }
 
-function bindControls() {
+function bindCalendarControls() {
     const transactionControls = $('[data-toggle="transaction"]');
     const calendarControls = $('[data-toggle="calendar"]');
     const calendarContainer = $(calendar.container);

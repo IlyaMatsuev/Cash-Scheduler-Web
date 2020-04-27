@@ -70,7 +70,6 @@ authRoute.post('/logout', (request, response) => {
     }
 });
 
-// TODO: update tokens when changing password
 authRoute.post('/change-password', async (request, response) => {
     const {email, password} = request.body;
 

@@ -1,3 +1,44 @@
-<div>
-    <h1>Hello World - Categories</h1>
+<div class="main-container">
+    <h2>
+        Categories
+    </h2>
+
+    <div class="categories-list-container">
+        <div class="categories-list-wrapper">
+            <div class="categories-controls">
+                <div class="btn-group category-type-sort">
+                    <button type="button" class="btn btn-default btn-primary" data-action="standard">Standard</button>
+                    <button type="button" class="btn btn-default" data-action="custom">Custom</button>
+                </div>
+                <select class="transaction-type-sort form-control"></select>
+            </div>
+            <div class="categories-list list-group"></div>
+        </div>
+        <div class="category-edit-form" style="display: none">
+            <input type="hidden" class="category-id">
+            <div class="category-name">
+                <input class="form-control form-control-lg" type="text" placeholder="Category Name" value="Salary">
+            </div>
+            <div class="category-type">
+                <select class="form-control form-control-lg"></select>
+            </div>
+            <div class="category-image">
+                <label for="category-image">
+                    <input type="file" id="category-image" accept="image/*">
+                    Choose an image for the Category
+                </label>
+            </div>
+            <div class="category-edit-controls">
+                <div class="save">
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+                <div class="delete">
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </div>
+                <div class="add-new">
+                    <button type="button" class="btn btn-outline-primary">Add New</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
