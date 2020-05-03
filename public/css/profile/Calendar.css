@@ -47,19 +47,19 @@ td.calendar-today {
     text-overflow: ellipsis;
 }
 
-.day-entry-details .income {
+.income {
     color: #00dc7d;
 }
 
-.day-entry-details .expenses {
+.expenses {
     color: #FF7272;
 }
 
-.day-entry-details .regular-income {
+.regular-income {
     color: #7EB3FF;
 }
 
-.day-entry-details .regular-expenses {
+.regular-expenses {
     color: #FFA96B;
 }
 

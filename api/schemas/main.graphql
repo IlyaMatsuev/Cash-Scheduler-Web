@@ -68,6 +68,7 @@ type Query {
 
     getAllTransactions(size: Int): [Transaction!]
     getTransactionsForLastDays(days: Int): [Transaction!]
+    getTransactionsByMonth(month: Int!, year: Int!): [Transaction!]
 
     getAllRegularTransactions(size: Int): [RegularTransaction!]
 

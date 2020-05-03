@@ -37,12 +37,12 @@ class Calendar {
                             ${countingDate.format('D')}
                         </div>
                         <div class="day-entry-details">
-                            <div class="income">${dailyIncome ? dailyIncome : ''}</div>
-                            <div class="expenses">${dailyExpenses ? dailyExpenses : ''}</div>
+                            <div class="income">${dailyIncome ? dailyIncome.toFixed(2) : ''}</div>
+                            <div class="expenses">${dailyExpenses ? dailyExpenses.toFixed(2) : ''}</div>
                         </div>
                         <div class="day-entry-details">
-                            <div class="regular-income">${regularIncomeSum ? regularIncomeSum : ''}</div>
-                            <div class="regular-expenses">${regularExpensesSum ? regularExpensesSum : ''}</div>
+                            <div class="regular-income">${regularIncomeSum ? regularIncomeSum.toFixed(2) : ''}</div>
+                            <div class="regular-expenses">${regularExpensesSum ? regularExpensesSum.toFixed(2) : ''}</div>
                         </div>
                     </td>`
                 );

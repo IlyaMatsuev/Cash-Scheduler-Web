@@ -1,0 +1,181 @@
+.transactions-container {
+    display: flex;
+    justify-content: space-between;
+    max-height: 45rem;
+}
+
+.transactions-container > div {
+    position: relative;
+    top: 5%;
+    width: 48%;
+}
+
+.transactions-list-wrapper {
+    position: relative;
+    height: 45rem;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 1px #3c3f41;
+    border-radius: 5px;
+}
+
+.transactions-list-wrapper > .header {
+    position: relative;
+    display: flex;
+    height: 10%;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dbdfe2;
+    user-select: none;
+}
+
+.transactions-list-wrapper > .section {
+    position: relative;
+    height: 90%;
+    overflow-y: auto;
+}
+
+.header .list-range-item {
+    width: calc(100% / 3);
+    text-align: center;
+    cursor: pointer;
+}
+
+.header .list-range-item > span {
+    position: relative;
+    top: 30%;
+}
+
+.header .list-range-item:hover {
+    background-color: #f4f4f4;
+}
+
+.header .list-range-item.active {
+    color: #7EB3FF;
+    border-bottom: 3px solid #7EB3FF;
+}
+
+.section > .empty-list {
+    position: relative;
+    top: 10%;
+    text-align: center;
+    user-select: none;
+}
+
+.section > .empty-list > span {
+    font-size: 24px;
+    color: rgba(0, 0, 0, .54)
+}
+
+.transactions-list-wrapper .list-item {
+    position: relative;
+    margin-top: 5%;
+    background-color: white;
+}
+
+.list-item > .header {
+    position: relative;
+    height: 3rem;
+    display: flex;
+    border-bottom: 1px solid #dbdfe2;
+}
+
+.list-item > .header > .day {
+    position: relative;
+    width: 15%;
+    text-align: center;
+    font-size: 34px;
+    font-weight: 400;
+}
+
+.list-item > .header > .full-date {
+    position: relative;
+    width: 70%;
+    padding-top: .4rem;
+    padding-left: .5rem;
+    font-size: 12px;
+    color: rgba(0, 0, 0, .54);
+}
+
+.list-item > .header > .full-date > .week-day {
+    font-weight: 700;
+}
+
+.list-item > .header > .full-date > .month-year {
+    font-weight: 400;
+}
+
+.list-item > .header > .delta-summary {
+    position: relative;
+    width: 15%;
+    padding-top: .6rem;
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, .87);
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.list-item > .section-item {
+    position: relative;
+    height: 4rem;
+    display: flex;
+    cursor: pointer;
+}
+
+.list-item > .section-item:hover {
+    background-color: #eaeaea;
+}
+
+.list-item > .section-item > .image {
+    position: relative;
+    width: 15%;
+    text-align: center;
+    padding-top: .5rem;
+}
+
+.list-item > .section-item > .image > img {
+    height: 65%;
+}
+
+.list-item > .section-item > .title {
+    position: relative;
+    width: 70%;
+    padding-top: 1rem;
+    padding-left: .5rem;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, .87);
+}
+
+.list-item > .section-item > .delta {
+    position: relative;
+    text-align: center;
+    width: 15%;
+    padding-top: .6rem;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.transactions-analyze-wrapper > div {
+    position: relative;
+    width: 100%;
+    height: 48%;
+    margin-top: 3%;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 1px #3c3f41;
+    border-radius: 5px;
+}
+
+.transactions-analyze-wrapper > .charts-section {
+    position: relative;
+    display: flex;
+}
+
+.transactions-analyze-wrapper > .charts-section > div {
+    position: relative;
+    width: 50%;
+}

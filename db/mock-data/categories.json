@@ -2,17 +2,20 @@
   {
     "name": "Charity",
     "transaction_type_name": "Expense",
-    "is_custom": false
+    "is_custom": false,
+    "image_url": "/img/categories/charity.png"
   },
   {
     "name": "Food",
     "transaction_type_name": "Expense",
-    "is_custom": false
+    "is_custom": false,
+    "image_url": "/img/categories/food.png"
   },
   {
     "name": "Gift",
     "transaction_type_name": "Expense",
-    "is_custom": false
+    "is_custom": false,
+    "image_url": "/img/categories/gift.png"
   },
   {
     "name": "Clothes",
@@ -22,7 +25,8 @@
   {
     "name": "Salary",
     "transaction_type_name": "Income",
-    "is_custom": false
+    "is_custom": false,
+    "image_url": "/img/categories/salary.png"
   },
   {
     "name": "Social Networks",
@@ -32,7 +36,8 @@
   {
     "name": "Gift",
     "transaction_type_name": "Income",
-    "is_custom": false
+    "is_custom": false,
+    "image_url": "/img/categories/gift.png"
   },
   {
     "name": "Help",

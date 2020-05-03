@@ -8,10 +8,12 @@
     <link rel="icon" href="/img/icon.ico">
     <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/css/bootstrap/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="/css/ChartJs/Chart.min.css">
     <link rel="stylesheet" href="/css/profile/index.css">
     <link rel="stylesheet" href="/css/profile/Calendar.css">
     <link rel="stylesheet" href="/css/profile/NotificationsList.css">
     <link rel="stylesheet" href="/css/profile/CategoriesList.css">
+    <link rel="stylesheet" href="/css/profile/TransactionList.css">
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body class="hidden-resource">
@@ -32,7 +34,7 @@
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="javascript:changeMainView('dashboard')">
+                        <a class="nav-link active" href="javascript:void(0)" data-view="dashboard">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                  stroke-linejoin="round" class="feather feather-home">
@@ -43,7 +45,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:changeMainView('notifications')">
+                        <a class="nav-link" href="javascript:void(0)" data-view="notifications">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 416 416"
                                  class="feather feather-users" fill="none" stroke="currentColor" stroke-width="30"
                                  stroke-linecap="round" stroke-linejoin="round">
@@ -55,30 +57,18 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:changeMainView('income')">
+                        <a class="nav-link" href="javascript:void(0)" data-view="transactions">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 212.755 212.755"
                                  fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round"
                                  stroke-linejoin="round" class="feather feather-file">
                                 <path d="M106.377,0C47.721,0,0,47.721,0,106.377s47.721,106.377,106.377,106.377s106.377-47.721,106.377-106.377   S165.034,0,106.377,0z M106.377,198.755C55.44,198.755,14,157.314,14,106.377S55.44,14,106.377,14s92.377,41.44,92.377,92.377   S157.314,198.755,106.377,198.755z"/>
                                 <path d="m113.377,100.096v-39.744c3.961,1.471 7.417,4.17 9.82,7.82 2.127,3.229 6.468,4.123 9.696,1.997 3.229-2.126 4.123-6.467 1.996-9.696-5.029-7.636-12.778-12.82-21.512-14.647v-11.12c0-3.866-3.134-7-7-7s-7,3.134-7,7v11.099c-15.493,3.23-27.168,16.989-27.168,33.426 0,16.437 11.676,30.198 27.168,33.428v39.744c-3.961-1.471-7.417-4.17-9.82-7.82-2.127-3.229-6.468-4.124-9.696-1.997-3.229,2.126-4.123,6.467-1.996,9.696 5.029,7.636 12.778,12.82 21.512,14.647v11.119c0,3.866 3.134,7 7,7s7-3.134 7-7v-11.098c15.493-3.23 27.168-16.989 27.168-33.426-2.84217e-14-16.437-11.675-30.198-27.168-33.428zm-27.168-20.865c0-8.653 5.494-16.027 13.168-18.874v37.748c-7.674-2.847-13.168-10.221-13.168-18.874zm27.168,73.166v-37.748c7.674,2.847 13.168,10.221 13.168,18.874s-5.493,16.027-13.168,18.874z"/>
                             </svg>
-                            Income
+                            Transactions
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:changeMainView('expenses')">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                 stroke-linejoin="round" class="feather feather-shopping-cart">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
-                            Expenses
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:changeMainView('categories')">
+                        <a class="nav-link" href="javascript:void(0)" data-view="categories">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                  stroke-linejoin="round" class="feather feather-layers">
@@ -90,7 +80,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:changeMainView('settings')">
+                        <a class="nav-link" href="javascript:void(0)" data-view="settings">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"
                                  fill="none" stroke="currentColor" stroke-width="20" stroke-linecap="round"
                                  stroke-linejoin="round" class="feather feather-users">
@@ -189,12 +179,15 @@
 
 <script src="/js/moment/moment.min.js"></script>
 <script src="/js/jQuery/jquery.min.js"></script>
+<!--<script src="/js/jQuery/jquery.canvasjs.min.js"></script>-->
+<script src="/js/ChartJs/Chart.min.js"></script>
 <script src="/js/popper/popper.min.js"></script>
 <script src="/js/bootstrap/bootstrap.min.js"></script>
 <script src="/js/bootstrap/bootstrap-datepicker.min.js"></script>
 <script src="/js/main/profile/Calendar.js"></script>
 <script src="/js/main/profile/MessageList.js"></script>
 <script src="/js/main/profile/CategoriesList.js"></script>
+<script src="/js/main/profile/TransactionList.js"></script>
 <script src="/js/main/profile/index.js"></script>
 <script src="/js/main.js"></script>
 </body>

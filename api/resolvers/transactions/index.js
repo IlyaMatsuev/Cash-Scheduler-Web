@@ -19,6 +19,16 @@ module.exports = {
         },
         include: [context.db.Users, context.db.Categories]
     }),
+    getTransactionsByMonth: ({month, year}, context) => context.db.Transactions.findAll({
+        where: {
+            user_id: context.user.id,
+            date: {
+                [context.db.Sequelize.Op.gte]: new Date(year, month, 1),
+                [context.db.Sequelize.Op.lt]: new Date(year, month + 1, 1)
+            }
+        },
+        include: [context.db.Users, context.db.Categories]
+    }),
 
     createTransaction: ({transaction}, context) => {
         return context.db.Transactions.create({

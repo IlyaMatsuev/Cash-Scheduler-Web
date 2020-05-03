@@ -12,21 +12,19 @@ $(() => {
 * Page/view loading functionality
 */
 
-// TODO: try to fix a bug when clicking on a page item at the left corner while the current view is loading
-let currentView = 'categories';
+let currentView = 'dashboard';
 const viewRenderHandlers = {
     dashboard: loadDashboardView,
     notifications: loadNotificationsView,
-    income: loadIncomeView,
-    expenses: loadExpensesView,
+    transactions: loadTransactionView,
     categories: loadCategoriesView,
     settings: loadSettingsView
 };
 
 function loadPageContent() {
-    loadDashboardView()
-        .then(initNotificationListener)
-        .then(initHandlers);
+    viewRenderHandlers[currentView]()
+        .then(initNotificationListener);
+    initHandlers();
 }
 
 
@@ -40,12 +38,9 @@ function loadNotificationsView() {
         .then(initMessageList);
 }
 
-function loadIncomeView() {
-    return loadTemplate('income');
-}
-
-function loadExpensesView() {
-    return loadTemplate('expenses');
+function loadTransactionView() {
+    return loadTemplate('transactions')
+        .then(() => initTransactionList(moment()));
 }
 
 function loadCategoriesView() {
@@ -102,10 +97,23 @@ function signOut() {
 
 function initHandlers() {
     const menuItems = $('.sidebar .nav-link');
+    let pageLoadingProcessing = false;
 
     menuItems.click(function () {
-        menuItems.each(item => $(menuItems[item]).removeClass('active'));
+        const template = $(this).data('view');
+        if (currentView === template || pageLoadingProcessing) {
+            return;
+        }
+        pageLoadingProcessing = true;
+        menuItems.removeClass('active');
         $(this).addClass('active');
+
+        scrollToNewView(template)
+            .then(viewRenderHandlers[template])
+            .then(fadeSpinnerOut)
+            .then(fadeMainContainerIn)
+            .then(() => currentView = template)
+            .then(() => pageLoadingProcessing = false);
     });
 }
 

@@ -152,15 +152,3 @@ function setMainView(html) {
     $('main').html(html);
     return html;
 }
-
-function changeMainView(template) {
-    if (currentView === template) {
-        return;
-    }
-    scrollToNewView(template)
-        .then(viewRenderHandlers[template])
-        .then(fadeSpinnerOut)
-        .then(fadeMainContainerIn)
-        .then(() => currentView = template)
-        .then(initHandlers);
-}

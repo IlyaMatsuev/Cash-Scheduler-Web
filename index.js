@@ -1,6 +1,5 @@
 const express = require('express');
 const expressWebSocket = require('express-ws');
-const fs = require('fs');
 const bodyParser = require('body-parser');
 
 const errorsHandler = require('./errors');
@@ -25,7 +24,4 @@ app.use((request, response) => errorsHandler.throwHttpError(response, null, 404)
 app.listen(process.env.PORT || serverConfig.port, () => {
     console.log(`Listening to http://${process.env.HOST || serverConfig.host}:${process.env.PORT || serverConfig.port}/`);
     console.log(`API endpoint: http://${process.env.HOST || serverConfig.host}:${process.env.PORT || serverConfig.port}/api`);
-
-    fs.writeFile(__dirname + '/auth/granted-tokens.json', '{}', () => {});
-    fs.writeFile(__dirname + '/auth/verification-tokens.json', '{}', () => {});
 });
