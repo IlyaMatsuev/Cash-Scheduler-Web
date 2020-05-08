@@ -56,6 +56,14 @@ type Notification {
     read: Boolean!
 }
 
+type UserSetting {
+    id: Int!
+    name: String!
+    value: String
+    unit_name: String!
+    user: User!
+}
+
 
 type Query {
     getUser: User!
@@ -76,6 +84,8 @@ type Query {
 
     getAllNotifications: [Notification!]
     getUnreadNotifications: [Notification!]
+
+    getUserSettings(unitName: String): [UserSetting!]
 }
 
 
@@ -97,6 +107,7 @@ input NewTransactionInput {
     date: String
 }
 
+
 input UpdatedTransactionInput {
     title: String
     amount: Float
@@ -117,6 +128,12 @@ input UpdatedRegularTransactionInput {
     amount: Float
 }
 
+input UpdateUserSettingInput {
+    name: String!
+    value: String
+    unit_name: String
+}
+
 
 type Mutation {
     createCustomCategory(category: NewCustomCategoryInput!): Category!
@@ -132,4 +149,6 @@ type Mutation {
     deleteRegularTransaction(id: Int!): RegularTransaction!
 
     readNotification(id: Int!): Notification!
+
+    updateUserSetting(setting: UpdateUserSettingInput!): UserSetting!
 }

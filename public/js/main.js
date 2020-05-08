@@ -126,7 +126,7 @@ function appearBodySlowly(timeout = 500) {
     );
 }
 
-function loadTemplate(template) {
+function loadTemplate(template, place = 'main') {
     const accessToken = window.localStorage.getItem('accessToken');
     return fetch(`/account/template?name=${template}`, {
         method: 'GET',
@@ -145,10 +145,10 @@ function loadTemplate(template) {
             console.log('Errors: ' + errors);
             throw new Error(errors[0]);
         }
-    }).then(setMainView);
+    }).then(template => setView(template, place));
 }
 
-function setMainView(html) {
-    $('main').html(html);
+function setView(html, selector) {
+    $(selector).html(html);
     return html;
 }

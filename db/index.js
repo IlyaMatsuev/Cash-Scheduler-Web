@@ -34,7 +34,8 @@ function loadMockData() {
         models.TransactionTypes.bulkCreate(require('./mock-data/transaction-types'))
     ]).then(() => Promise.all([
         models.Categories.bulkCreate(require('./mock-data/categories')),
-        models.Notifications.bulkCreate(require('./mock-data/notifications'))
+        models.Notifications.bulkCreate(require('./mock-data/notifications')),
+        models.UserSettings.bulkCreate(require('./mock-data/user-settings.json'))
     ])).then(() => Promise.all([
         models.Transactions.bulkCreate(require('./mock-data/transactions')),
         models.RegularTransactions.bulkCreate(require('./mock-data/regular-transactions')),

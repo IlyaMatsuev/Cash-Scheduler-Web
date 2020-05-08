@@ -1,0 +1,91 @@
+.settings-container {
+    display: flex;
+    margin-top: 1rem;
+    height: 100%;
+}
+
+.settings-units-list {
+    position: relative;
+    width: 20%;
+    border: 1px solid #e1e4e8;
+    border-radius: 4px;
+    /* 3 is a number of setting menu items*/
+    height: calc(3 * 3rem);
+}
+
+.settings-units-list > .setting-unit {
+    position: relative;
+    height: 3rem;
+    text-align: center;
+    border-bottom: 1px solid #e1e4e8;
+    cursor: pointer;
+    color: #0366d6;
+    user-select: none;
+}
+
+.settings-units-list > .setting-unit > span {
+    position: relative;
+    top: 20%;
+}
+
+.settings-units-list > .setting-unit:hover {
+    background-color: #f3f5f8;
+}
+
+.settings-units-list > .setting-unit:last-child {
+    border-bottom: 0;
+}
+
+.settings-units-list > .setting-unit.active {
+    color: black;
+    cursor: auto;
+    background-color: white;
+    border-left: 4px solid #5199FF;
+}
+
+.settings-editor {
+    position: relative;
+    width: 50%;
+    padding-left: 2rem;
+}
+
+.settings-editor > .setting-section {
+    margin-bottom: 3rem;
+}
+
+.settings-editor > .setting-section > .title {
+    position: relative;
+    width: 100%;
+    font-size: 24px;
+    font-weight: 400;
+    padding-bottom: .5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+.settings-editor > .setting-section > .setting-item {
+    padding-left: 15px;
+}
+
+.settings-editor > .setting-section > .setting-item > input[type="checkbox"] {
+    float: left;
+    margin: 5px 0 0 -15px;
+}
+
+.settings-editor > .setting-section > .setting-item > button {
+    margin-left: .5rem;
+    margin-bottom: 1rem;
+}
+
+.settings-editor > .setting-section > .setting-item > label {
+    font-weight: 600;
+    margin-left: .5rem;
+}
+
+.settings-editor > .setting-section > .setting-note {
+    font-size: 12px;
+    font-weight: 400;
+    color: #586069;
+    min-height: 1rem;
+    margin-bottom: 1rem;
+}

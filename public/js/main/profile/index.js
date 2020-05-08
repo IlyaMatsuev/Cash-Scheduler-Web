@@ -49,7 +49,8 @@ function loadCategoriesView() {
 }
 
 function loadSettingsView() {
-    return loadTemplate('settings');
+    return loadTemplate('settings')
+        .then(initSettingList);
 }
 
 

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "display-balance-enabled",
+    "value": "0",
+    "user_id": 1
+  },
+  {
+    "name": "display-balance-enabled",
+    "value": "0",
+    "user_id": 2
+  },
+  {
+    "name": "display-balance-enabled",
+    "value": "0",
+    "user_id": 3
+  }
+]

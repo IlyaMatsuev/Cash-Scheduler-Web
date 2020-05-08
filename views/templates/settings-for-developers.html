@@ -1,0 +1,14 @@
+<div class="setting-section">
+    <div class="title">Api Key</div>
+    <div class="setting-item">
+        <button id="api-key" class="btn btn-outline-primary">Click here to copy the token</button>
+        <label>Api key which you can use to get access to your CashScheduler API</label>
+        <script>
+            $('#api-key').click(() => navigator.clipboard.writeText(window.localStorage.getItem('accessToken')));
+        </script>
+    </div>
+    <div class="setting-note">
+        The full documentation of a GraphQl CashScheduler API you can find in
+        <a href="https://github.com/IlyaMatsuev/Cash-Scheduler-Web">our GitHub repository</a>
+    </div>
+</div>

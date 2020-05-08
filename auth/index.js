@@ -41,6 +41,7 @@ authRoute.post('/register', (request, response) => {
         ));
 });
 
+// TODO: store tokens in db
 authRoute.post('/login', async (request, response) => {
     const {email, password} = request.body;
     const user = await db.findOne({where: {email: email}});
