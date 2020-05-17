@@ -112,21 +112,53 @@ function graphql(method, query, variables = {}) {
     }).then(response => response.data[method]);
 }
 
+function getUser() {
+    return graphql(
+        'getUser',
+        'query{getUser{balance, first_name, last_name, email}}'
+    );
+}
+
+function getSettings() {
+    return graphql(
+        'getUserSettings',
+        'query{getUserSettings{id, name, value, unit_name}}'
+    );
+}
+
 /*
 * View rendering helpers
 */
 
-function appearBodySlowly(timeout = 500) {
-    const pageBody = $('body');
-    pageBody.show();
-    pageBody.animate(
+async function applyViewSettings() {
+    const userSettings = await getSettings();
+    const showBalanceSetting = userSettings.find(setting => setting.name === 'display-balance-enabled');
+    const turnNotificationSoundSetting = userSettings.find(setting => setting.name === 'notification-sound-enabled');
+    applySettingsHandlers['display-balance-enabled'](showBalanceSetting && showBalanceSetting.value === 'true');
+    applySettingsHandlers['notification-sound-enabled'](turnNotificationSoundSetting && turnNotificationSoundSetting.value === 'true');
+}
+
+function appearElementSlowly(selector, timeout = 500) {
+    const element = $(selector);
+    element.show();
+    element.animate(
         {opacity: 1},
         timeout,
-        () => pageBody.removeClass('hidden-resource')
+        () => element.removeClass('hidden-resource')
     );
 }
 
-function loadTemplate(template, place = 'main') {
+function disappearElementSlowly(selector, timeout = 500) {
+    const element = $(selector);
+    element.addClass('hidden-resource');
+    element.animate(
+        {opacity: 0},
+        timeout,
+        () => element.hide()
+    );
+}
+
+function loadTemplate(template, place = 'main', replaceOrAppend = true) {
     const accessToken = window.localStorage.getItem('accessToken');
     return fetch(`/account/template?name=${template}`, {
         method: 'GET',
@@ -145,10 +177,15 @@ function loadTemplate(template, place = 'main') {
             console.log('Errors: ' + errors);
             throw new Error(errors[0]);
         }
-    }).then(template => setView(template, place));
+    }).then(template => replaceOrAppend ? setView(template, place) : appendView(template, place));
 }
 
 function setView(html, selector) {
     $(selector).html(html);
+    return html;
+}
+
+function appendView(html, selector) {
+    $(selector).append(html);
     return html;
 }

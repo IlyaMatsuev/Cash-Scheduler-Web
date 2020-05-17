@@ -87,6 +87,32 @@ body {
     box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
 }
 
+nav .user-balance {
+    position: relative;
+    width: 15%;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+nav .global-search-results {
+    position: absolute;
+    width: inherit;
+    max-height: 15rem;
+    overflow-y: auto;
+}
+
+nav .global-search-results > .search-item {
+    position: relative;
+    width: 60%;
+    height: 3rem;
+}
+
+nav .global-search-results > .search-item:hover {
+
+}
+
 /*
  * Content
  */

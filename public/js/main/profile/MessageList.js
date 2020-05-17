@@ -240,8 +240,11 @@ function doSearch() {
     if (!searchTerm) {
         messagesList = new MessageList(currentNotifications);
     } else {
-        // TODO: try to implement better search with regular expressions
-        messagesList = new MessageList(currentNotifications.filter(notification => notification.title.startsWith(searchTerm)));
+        const pattern = `^.*${searchTerm}.*$`;
+        messagesList = new MessageList(currentNotifications.filter(notification => {
+            return notification.title.search(new RegExp(pattern, 'gi')) !== -1
+                || notification.content.search(new RegExp(pattern, 'gi')) !== -1;
+        }));
     }
 }
 
@@ -264,5 +267,5 @@ function clearMessageCounter() {
 }
 
 function playNewNotificationSound() {
-    $('.play-new-notification-sound')[0].click();
+    $('.play-new-notification-sound:not(.off)')[0].click();
 }

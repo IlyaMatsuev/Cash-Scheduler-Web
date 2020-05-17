@@ -2,7 +2,8 @@ $(() => {
     checkPageAccess()
         .then(access => {
             if (access) {
-                appearBodySlowly();
+                appearElementSlowly('body');
+                applyViewSettings();
                 loadPageContent();
             }
         });
@@ -54,6 +55,27 @@ function loadSettingsView() {
 }
 
 
+/*
+* Handlers
+*/
+
+function onGlobalSearch() {
+    // TODO: implement dropdown search by categories/transactions/notifications
+    /*const searchTerm = $(this).val();
+    const matchedTransactions = transactionList.transactions.filter(transaction => transaction.title.startsWith(searchTerm));
+    const matchedNotifications = messagesList.notifications.filter(notification => notification.title.startsWith(searchTerm));
+    const matchedCategories = categoriesList.categories.filter(category => category.name.startsWith(searchTerm));
+
+    const matchedList = [];
+    matchedList.push(...matchedTransactions, ...matchedNotifications, ...matchedCategories);
+    console.log(matchedList);*/
+}
+
+function clickBalance() {
+    const transactionsSectionButton = $('.nav > .nav-item > .nav-link[data-view="transactions"]');
+    transactionsSectionButton.click();
+}
+
 function scrollToNewView(template) {
     let margin;
     const mainContainer = $('main');
@@ -69,10 +91,6 @@ function scrollToNewView(template) {
         .then(fadeMainContainerOut)
         .then(() => mainContainer.css('margin-top', 0));
 }
-
-/*
-* Handlers
-*/
 
 function signOut() {
     fetch('/auth/logout', {
@@ -98,6 +116,8 @@ function signOut() {
 
 function initHandlers() {
     const menuItems = $('.sidebar .nav-link');
+    const balanceHeader = $('nav .user-balance');
+    const searchHeader = $('nav .global-search');
     let pageLoadingProcessing = false;
 
     menuItems.click(function () {
@@ -116,6 +136,8 @@ function initHandlers() {
             .then(() => currentView = template)
             .then(() => pageLoadingProcessing = false);
     });
+    balanceHeader.click(clickBalance);
+    searchHeader.on('input', onGlobalSearch);
 }
 
 function fadeSpinnerIn() {

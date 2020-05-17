@@ -17,13 +17,10 @@ class SettingsList {
                     const settingItemName = $(this).attr('id');
                     const userSettingItem = userSettings.find(item => item.name === settingItemName);
                     if (userSettingItem) {
-                        switch ($(this).attr('type')) {
-                            case 'checkbox':
-                                $(this).attr('checked', userSettingItem.value === 'true');
-                                break;
-                            case 'text':
-                                $(this).val(userSettingItem.value);
-                                break;
+                        if ($(this).attr('type') === 'checkbox') {
+                            $(this).attr('checked', userSettingItem.value === 'true');
+                        } else {
+                            $(this).val(userSettingItem.value);
                         }
                     }
                     $(this).change(settingChanged);
@@ -51,6 +48,10 @@ class SettingsList {
     }
 }
 
+const applySettingsHandlers = {
+    'display-balance-enabled': changeBalanceVisibility,
+    'notification-sound-enabled': turnNotificationSound
+};
 let settingsList;
 
 function initSettingList() {
@@ -80,21 +81,44 @@ function settingChanged() {
     const settingName = $(this).attr('id');
     const settingUnitName = settingsList.currentUnit;
     let newSettingValue;
-    switch ($(this).attr('type')) {
-        case 'checkbox':
-            newSettingValue = $(this).is(':checked');
-            break;
-        case 'text':
-            newSettingValue = $(this).val();
-            break;
-        default:
-            newSettingValue = $(this).val();
-            break;
+    if ($(this).attr('type') === 'checkbox') {
+        newSettingValue = $(this).is(':checked');
+    } else {
+        newSettingValue = $(this).val();
     }
+
     fadeSpinnerIn()
-        .then(() => graphql(
-            'updateUserSetting',
-            `mutation{updateUserSetting(setting: {name: "${settingName}", value: "${newSettingValue}", unit_name: "${settingUnitName}"}) {id, name, value, unit_name}}`
-        )).then(fadeSpinnerOut);
+        .then(() => updateUserSetting(settingName, newSettingValue, settingUnitName))
+        .then(() => applySettingsHandlers[settingName](newSettingValue))
+        .then(fadeSpinnerOut);
 }
 
+
+function updateUserSetting(settingName, value, unitName) {
+    return graphql(
+        'updateUserSetting',
+        `mutation{updateUserSetting(setting: {name: "${settingName}", value: "${value}", unit_name: "${unitName}"}) {id, name, value, unit_name}}`
+    );
+}
+
+
+async function changeBalanceVisibility(value) {
+    const balanceHeader = $('nav > .user-balance');
+    if (value) {
+        const user = await getUser();
+        const currencySign = '$';
+        balanceHeader.text(`${currencySign} ${user.balance}`);
+        appearElementSlowly('nav > .user-balance');
+    } else {
+        disappearElementSlowly('nav > .user-balance');
+    }
+}
+
+async function turnNotificationSound(value) {
+    const playSoundButton = $('.play-new-notification-sound');
+    if (value) {
+        playSoundButton.removeClass('off');
+    } else {
+        playSoundButton.addClass('off');
+    }
+}

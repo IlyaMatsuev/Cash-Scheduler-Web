@@ -1,0 +1,44 @@
+<div class="new-transaction-modal-container">
+    <div class="new-transaction-modal">
+        <div class="modal-header">
+            <h4 class="modal-title">Add Recurring Transaction</h4>
+        </div>
+        <div class="modal-section">
+            <div class="modal-section-column">
+                <label for="new-transaction-title">Title</label>
+                <input class="form-control" type="text" id="new-transaction-title" maxlength="30">
+            </div>
+            <div class="modal-section-column">
+                <label for="new-transaction-amount">Amount</label>
+                <input class="form-control" type="text" id="new-transaction-amount" maxlength="20" required>
+            </div>
+            <div class="modal-section-column">
+                <label for="new-transaction-date">Next Transaction Date</label>
+                <input class="form-control date-field" type="text" id="new-transaction-date" required readonly>
+            </div>
+            <div class="modal-section-column">
+                <label for="new-transaction-date-interval">Transaction Interval</label>
+                <select class="form-control" id="new-transaction-date-interval" required></select>
+            </div>
+            <div class="modal-section-column">
+                <label for="new-transaction-category">Category</label>
+                <div class="input-group">
+                    <select class="form-control" id="new-transaction-category" required></select>
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-outline-secondary" id="new-transaction-type" style="color: black;" disabled>Income</button>
+                        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
+                        <div class="dropdown-menu transaction-types"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="modal-cancel-button">
+                <button class="btn btn-light">Cancel</button>
+            </div>
+            <div class="modal-create-button">
+                <button class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

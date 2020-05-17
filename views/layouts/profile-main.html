@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/ChartJs/Chart.min.css">
     <link rel="stylesheet" href="/css/profile/index.css">
     <link rel="stylesheet" href="/css/profile/Calendar.css">
-    <link rel="stylesheet" href="/css/profile/NotificationsList.css">
+    <link rel="stylesheet" href="/css/profile/MessageList.css">
     <link rel="stylesheet" href="/css/profile/TransactionList.css">
     <link rel="stylesheet" href="/css/profile/CategoriesList.css">
     <link rel="stylesheet" href="/css/profile/SettingsList.css">
@@ -21,7 +21,15 @@
 
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/account">Cash Scheduler</a>
-    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <div class="w-100">
+        <input class="form-control form-control-dark global-search" type="text" placeholder="Search">
+        <div class="global-search-results">
+            <!--<div class="search-item">hello</div>
+            <div class="search-item">hello</div>
+            <div class="search-item">hello</div>-->
+        </div>
+    </div>
+    <div class="user-balance hidden-resource"></div>
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
             <a class="nav-link" href="javascript:signOut()">Sign out</a>
@@ -171,7 +179,7 @@
     </div>
 </div>
 
-<div class="audio">
+<div class="hidden-resource">
     <audio class="new-notification-sound">
         <source src="/sounds/new-notification.mp3" type="audio/mp3">
     </audio>

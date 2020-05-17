@@ -202,7 +202,7 @@ class TransactionList {
     getSectionItemByTransaction(transaction) {
         let negativeDelta = (transaction.category.transaction_type_name === 'Expense');
         return `
-            <div class="section-item">
+            <div class="section-item" data-id="${transaction.id}">
                 <div class="image">
                     <img src="${transaction.category.image_url}" alt="">
                 </div>
@@ -255,10 +255,43 @@ async function initTransactionList(transactionsRange) {
     bindTransactionListControls(transactionsRange);
 }
 
+// TODO: create separated list for regular transactions
 function bindTransactionListControls(transactionsRange) {
-    // TODO: open modal window for editing transaction when clicking on it in the list
-    // TODO: create separated list for regular transactions
+    const transactionItems = $('.transactions-list-wrapper .list-item > .section-item');
+
+    transactionItems.click(function () {
+        const selectedTransactionId = Number($(this).data('id'));
+        const selectedTransaction = transactionList.transactions.find(transaction => transaction.id === selectedTransactionId);
+        const transactionFormType = 'edit-transaction';
+        if (selectedTransaction) {
+            showTransactionModalForm(transactionFormType, () => populateTransactionForm(selectedTransaction, transactionFormType));
+        }
+    });
     setTransactionsListHeaderRanges(transactionsRange);
+}
+
+function populateTransactionForm(selectedTransaction, transactionFormType) {
+    const transactionIdInput = $('#new-transaction-id');
+    const transactionTitleInput = $('#new-transaction-title');
+    const transactionAmountInput = $('#new-transaction-amount');
+    const transactionDateInput = $('#new-transaction-date');
+    const transactionInterval = $('#new-transaction-date-interval');
+    const transactionCategoryInput = $('#new-transaction-category');
+    const transactionTypeItem = $(`.transaction-types .dropdown-item[data-type="${selectedTransaction.category.transaction_type_name}"]`);
+
+
+    transactionIdInput.val(selectedTransaction.id);
+    transactionTitleInput.val(selectedTransaction.title);
+    transactionAmountInput.val(selectedTransaction.amount);
+    transactionTypeItem.click();
+    setTimeout(() => transactionCategoryInput.val(selectedTransaction.category.id), 100);
+
+    if (transactionFormType === EDIT_SINGLE_TRANSACTION_TYPE) {
+        transactionDateInput.val(selectedTransaction.date);
+    } else if (transactionFormType === EDIT_RECURRING_TRANSACTION_TYPE) {
+        transactionDateInput.val(selectedTransaction.next_transaction_date);
+        transactionInterval.val(selectedTransaction.interval);
+    }
 }
 
 function selectTransactionsRange(event) {
@@ -276,7 +309,7 @@ function selectTransactionsRange(event) {
 async function setTransactionsPerMonth(month, year) {
     transactionPerMonth = await graphql(
         'getTransactionsByMonth',
-        `query{getTransactionsByMonth(month: ${month}, year: ${year}){id, title, user {balance}, category {name, transaction_type_name, image_url}, amount, date}}`
+        `query{getTransactionsByMonth(month: ${month}, year: ${year}){id, title, user {balance}, category {id, name, transaction_type_name, image_url}, amount, date}}`
     );
 }
 
