@@ -68,12 +68,12 @@
 
 .message-list-wrapper li .message-title {
     left: 5%;
-    width: 20%;
+    width: 15rem;
 }
 
 .message-list-wrapper li .message-content {
     left: 15%;
-    width: 60%;
+    width: 15rem;
 }
 
 .message-container {

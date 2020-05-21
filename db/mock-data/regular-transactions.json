@@ -4,9 +4,9 @@
     "user_id": 1,
     "category_id": 5,
     "amount": 2700,
-    "date": "2020-04-10",
-    "next_transaction_date": "2020-04-17",
-    "interval": "week"
+    "date": "2020-05-21",
+    "next_transaction_date": "2020-05-21",
+    "interval": "month"
   },
   {
     "title": "Internet payment",
@@ -14,6 +14,6 @@
     "category_id": 13,
     "amount": 27.5,
     "date": "2020-03-25",
-    "next_transaction_date": "2020-04-25"
+    "next_transaction_date": "2020-05-23"
   }
 ]

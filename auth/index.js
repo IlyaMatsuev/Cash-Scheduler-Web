@@ -1,9 +1,9 @@
 const express = require('express');
-const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 const authRoute = express.Router();
+const EmailManager = require('./../utils/EmailManager');
 const db = require('./../db').Users;
 const securityConfig = require('./../config').crypt;
 const emailConfig = require('./../config').email;
@@ -111,31 +111,10 @@ authRoute.post('/send-code', async (request, response) => {
             return;
         }
 
-        let emailCredentials;
-        try {
-            emailCredentials = require('./../credentials').email
-        } catch (e) {
-            emailCredentials = {
-                username: process.env.EMAIL_USERNAME,
-                password: process.env.EMAIL_PASSWORD
-            };
-        }
-
-        const transporter = nodemailer.createTransport({
-            service: emailConfig.service,
-            auth: {
-                user: emailCredentials.username,
-                pass: emailCredentials.password
-            }
-        });
         const verificationToken = tokensHandler.generateVerificationToken();
         tokensHandler.registerVerificationToken(email, verificationToken);
-        transporter.sendMail({
-            from: emailCredentials.username,
-            to: email,
-            subject: emailConfig.verificationSubject,
-            text: emailConfig.verificationContent + verificationToken
-        });
+
+        EmailManager.send(emailConfig.verificationSubject, emailConfig.verificationContent + verificationToken, email);
         response.end();
     }
 });

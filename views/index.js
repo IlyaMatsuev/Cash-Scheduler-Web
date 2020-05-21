@@ -47,8 +47,8 @@ viewsRoute.get('/template', (request, response) => {
 });
 
 viewsRoute.ws('/notifications', clientSocket => {
-    const sendNewNotifications = user => {
-        let newNotifications = Notifications.findAll({where: {user_id: user.id, read: false}});
+    const sendNewNotifications = async user => {
+        let newNotifications = await Notifications.findAll({where: {user_id: user.id, read: false}});
         if (newNotifications.length > 0) {
             clientSocket.send(JSON.stringify({notifications: newNotifications}));
         }
@@ -66,7 +66,11 @@ viewsRoute.ws('/notifications', clientSocket => {
                         throw err;
                     } else {
                         sendNewNotifications(decoded.user);
-                        refreshNotificationsTimer = setInterval(sendNewNotifications, config.notifications.refreshInterval, decoded.user);
+                        refreshNotificationsTimer = setInterval(
+                            sendNewNotifications,
+                            config.workers.notifications.receiveRefreshInterval,
+                            decoded.user
+                        );
                     }
                 });
             } catch (e) {

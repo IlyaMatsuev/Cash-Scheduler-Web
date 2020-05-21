@@ -89,7 +89,11 @@ function settingChanged() {
 
     fadeSpinnerIn()
         .then(() => updateUserSetting(settingName, newSettingValue, settingUnitName))
-        .then(() => applySettingsHandlers[settingName](newSettingValue))
+        .then(() => {
+            if (applySettingsHandlers[settingName]) {
+                applySettingsHandlers[settingName](newSettingValue);
+            }
+        })
         .then(fadeSpinnerOut);
 }
 

@@ -221,7 +221,13 @@ function onNewNotification(event) {
                 .then(initNotificationListener);
         }
     } else {
-        const newNotifications = response.notifications;
+        const newNotifications = [];
+        const unreadNotifications = response.notifications;
+        unreadNotifications.forEach(notification => {
+            if (!currentNotifications.find(currentNotification => currentNotification.id === notification.id)) {
+                newNotifications.unshift(notification);
+            }
+        });
         playNewNotificationSound();
         if (newNotifications.length > 0) {
             currentNotifications.unshift(...newNotifications);
@@ -267,5 +273,8 @@ function clearMessageCounter() {
 }
 
 function playNewNotificationSound() {
-    $('.play-new-notification-sound:not(.off)')[0].click();
+    const playButton = $('.play-new-notification-sound:not(.off)')[0];
+    if (playButton) {
+        playButton.click();
+    }
 }

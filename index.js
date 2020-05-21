@@ -2,6 +2,7 @@ const express = require('express');
 const expressWebSocket = require('express-ws');
 const bodyParser = require('body-parser');
 
+const workersHelper = require('./workers');
 const errorsHandler = require('./errors');
 const serverConfig = require('./config').server;
 
@@ -20,6 +21,8 @@ app.use('/api', apiRoute);
 app.use('/auth', authRoute);
 app.use('/account', viewsRoute);
 app.use((request, response) => errorsHandler.throwHttpError(response, null, 404));
+
+workersHelper.initWorkers();
 
 app.listen(process.env.PORT || serverConfig.port, () => {
     console.log(`Listening to http://${process.env.HOST || serverConfig.host}:${process.env.PORT || serverConfig.port}/`);

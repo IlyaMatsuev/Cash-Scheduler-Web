@@ -12,7 +12,7 @@ const errorsHandler = require('./../errors');
 const config = require('./../config').crypt;
 
 apiRoute.use('/', (request, response, next) => {
-    /*const authHeader = request.get('Authorization');
+    const authHeader = request.get('Authorization');
     if (authHeader && authHeader.startsWith(config.authType)) {
         jwt.verify(authHeader.split(config.authType).pop(), config.accessTokenSecret, (err, decoded) => {
             if (err) {
@@ -28,15 +28,15 @@ apiRoute.use('/', (request, response, next) => {
         });
     } else {
         errorsHandler.throwHttpError(response, null, 403);
-    }*/
-    request.user = {
+    }
+    /*request.user = {
         id: 1,
         first_name: "Ilya",
         last_name: "Matsuev",
         email: "matsuev2000@mail.ru",
         password: "$2b$12$4MXtoIFWOnhZSA/1yDzS..XQ3gaC1z3ZzUy8Cqd67vjftvGpMmvMi"
     };
-    next();
+    next();*/
 });
 
 apiRoute.use('/', graphqlHTTP(request => ({

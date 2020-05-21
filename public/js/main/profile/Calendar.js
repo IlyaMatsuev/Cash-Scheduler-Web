@@ -116,7 +116,9 @@ class Calendar {
 }
 
 const SINGLE_TRANSACTION_TYPE = 'transaction';
-const RECURRING_TRANSACTION_TYPE = 'recurring-transaction';
+const EDIT_SINGLE_TRANSACTION_TYPE = 'edit-transaction';
+const RECURRING_TRANSACTION_TYPE = 'regular-transaction';
+const EDIT_RECURRING_TRANSACTION_TYPE = 'edit-regular-transaction';
 const DEFAULT_TRANSACTION_TYPE = 'Income';
 const TRANSACTION_INTERVAL_OPTIONS = [
     {
@@ -185,16 +187,11 @@ function bindCalendarControls() {
 }
 
 
-function showTransactionModalForm(transactionType) {
-    let modalContainer;
-    if (transactionType === SINGLE_TRANSACTION_TYPE) {
-        modalContainer = getTransactionForm();
-    } else if (transactionType === RECURRING_TRANSACTION_TYPE) {
-        modalContainer = getRecurringTransactionForm();
-    }
-    $(document.body).append(modalContainer);
-    initTransactionFormHandlers(transactionType);
-    return modalContainer.fadeIn(300).promise()
+function showTransactionModalForm(transactionType, preloadData) {
+    return loadTemplate(transactionType + '-form', document.body, false)
+        .then(() => initTransactionFormHandlers(transactionType))
+        .then(() => preloadData ? preloadData() : null)
+        .then(() => $('.new-transaction-modal-container').fadeIn(300).promise())
         .then(() => modalFormToggle = !modalFormToggle);
 }
 
@@ -205,7 +202,8 @@ function cancelTransactionModalForm() {
         .then(() => modalFormToggle = !modalFormToggle);
 }
 
-function saveTransaction(transactionType) {
+
+function createTransaction(transactionType) {
     if (!validateTransactionForm()) {
         return;
     }
@@ -218,123 +216,97 @@ function saveTransaction(transactionType) {
 
     let transactionSaved;
     if (transactionType === SINGLE_TRANSACTION_TYPE) {
-        transactionSaved = saveSingleTransaction(title, amount, date, category);
+        transactionSaved = createSingleTransaction(title, amount, date, category);
     } else if (transactionType === RECURRING_TRANSACTION_TYPE) {
-        transactionSaved = saveRecurringTransaction(title, amount, date, interval, category);
+        transactionSaved = createRecurringTransaction(title, amount, date, interval, category);
     }
     return transactionSaved.then(cancelTransactionModalForm)
         .then(() => calendar = new Calendar(transactions, recurringTransactions))
         .then(fadeSpinnerOut);
 }
 
-function saveSingleTransaction(title, amount, date, category) {
+function createSingleTransaction(title, amount, date, category) {
     return fadeSpinnerIn().then(() => graphql(
         'createTransaction',
         `mutation{createTransaction(transaction:{title: "${title}", category_id: ${category}, amount: ${amount}, date: "${date}"}){id, title, category{name, transaction_type_name}, amount, date}}`
     )).then(newTransaction => transactions.push(newTransaction));
 }
 
-function saveRecurringTransaction(title, amount, date, interval, category) {
+function createRecurringTransaction(title, amount, date, interval, category) {
     return fadeSpinnerIn().then(() => graphql(
         'createRegularTransaction',
         `mutation{createRegularTransaction(transaction:{title: "${title}", category_id: ${category}, amount: ${amount}, next_transaction_date: "${date}", interval: "${interval}"}){id, title, category{name, transaction_type_name}, amount, next_transaction_date, interval}}`
     )).then(newRecurringTransaction => recurringTransactions.push(newRecurringTransaction));
 }
 
+function updateTransaction(transactionType) {
+    if (!validateTransactionForm()) {
+        return;
+    }
 
-function getTransactionForm() {
-    return $(`
-        <div class="new-transaction-modal-container">
-            <div class="new-transaction-modal">
-                <div class="modal-header">
-                    <h4 class="modal-title">Add Transaction</h4>
-                </div>
-                <div class="modal-section">
-                    <div class="modal-section-column">
-                        <label for="new-transaction-title">Title</label>
-                        <input class="form-control" type="text" id="new-transaction-title" maxlength="30">
-                    </div>
-                    <div class="modal-section-column">
-                        <label for="new-transaction-amount">Amount</label>
-                        <input class="form-control" type="text" id="new-transaction-amount" maxlength="20" required>
-                    </div>
-                    <div class="modal-section-column">
-                        <label for="new-transaction-date">Date</label>
-                        <input class="form-control date-field" type="text" id="new-transaction-date" required readonly>
-                    </div>
-                    <div class="modal-section-column">
-                        <label for="new-transaction-category">Category</label>
-                        <div class="input-group">
-                            <select class="form-control" id="new-transaction-category" required></select>
-                            <div class="input-group-append">
-                                <button type="button" class="btn btn-outline-secondary" id="new-transaction-type" style="color: black;" disabled>Income</button>
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
-                                <div class="dropdown-menu transaction-types"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div class="modal-cancel-button">
-                        <button class="btn btn-light">Cancel</button>
-                    </div>
-                    <div class="modal-save-button">
-                        <button class="btn btn-primary">Save</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `);
+    const id = $('#new-transaction-id').val();
+    const title = $('#new-transaction-title').val();
+    const amount = $('#new-transaction-amount').val();
+    const date = $('#new-transaction-date').val();
+
+    let transactionSaved;
+    if (transactionType === EDIT_SINGLE_TRANSACTION_TYPE) {
+        transactionSaved = updateSingleTransaction(id, title, amount, date);
+    } else if (transactionType === EDIT_RECURRING_TRANSACTION_TYPE) {
+        transactionSaved = updateRecurringTransaction(id, title, amount);
+    }
+    return transactionSaved.then(cancelTransactionModalForm)
+        .then(() => initTransactionList(moment()))
+        .then(fadeSpinnerOut);
 }
 
-function getRecurringTransactionForm() {
-    return $(`
-        <div class="new-transaction-modal-container">
-            <div class="new-transaction-modal">
-                <div class="modal-header">
-                    <h4 class="modal-title">Add Recurring Transaction</h4>
-                </div>
-                <div class="modal-section">
-                    <div class="modal-section-column">
-                        <label for="new-transaction-title">Title</label>
-                        <input class="form-control" type="text" id="new-transaction-title" maxlength="30">
-                    </div>
-                    <div class="modal-section-column">
-                        <label for="new-transaction-amount">Amount</label>
-                        <input class="form-control" type="text" id="new-transaction-amount" maxlength="20" required>
-                    </div>
-                    <div class="modal-section-column">
-                        <label for="new-transaction-date">Next Transaction Date</label>
-                        <input class="form-control date-field" type="text" id="new-transaction-date" required readonly>
-                    </div>
-                    <div class="modal-section-column">
-                        <label for="new-transaction-date-interval">Transaction Interval</label>
-                        <select class="form-control" id="new-transaction-date-interval" required></select>
-                    </div>
-                    <div class="modal-section-column">
-                        <label for="new-transaction-category">Category</label>
-                        <div class="input-group">
-                            <select class="form-control" id="new-transaction-category" required></select>
-                            <div class="input-group-append">
-                                <button type="button" class="btn btn-outline-secondary" id="new-transaction-type" style="color: black;" disabled>Income</button>
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
-                                <div class="dropdown-menu transaction-types"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div class="modal-cancel-button">
-                        <button class="btn btn-light">Cancel</button>
-                    </div>
-                    <div class="modal-save-button">
-                        <button class="btn btn-primary">Save</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `);
+function updateSingleTransaction(id, title, amount, date) {
+    return fadeSpinnerIn().then(() => graphql(
+        'updateTransaction',
+        `mutation{updateTransaction(id: ${id}, transaction:{title: "${title}", amount: ${amount}, date: "${date}"}){id, title, category{name, transaction_type_name}, amount, date}}`
+    ));
 }
+
+function updateRecurringTransaction(id, title, amount) {
+    return fadeSpinnerIn().then(() => graphql(
+        'updateRegularTransaction',
+        `mutation{updateRegularTransaction(id: ${id}, transaction:{title: "${title}", amount: ${amount}}){id, title, category{name, transaction_type_name}, amount, date}}`
+    ));
+}
+
+function deleteTransaction(transactionType) {
+    // TODO: implement approve form for deleting
+    /*if (!validateTransactionForm()) {
+        return;
+    }*/
+
+    const id = $('#new-transaction-id').val();
+
+    let transactionDeleted;
+    if (transactionType === EDIT_SINGLE_TRANSACTION_TYPE) {
+        transactionDeleted = deleteSingleTransaction(id);
+    } else if (transactionType === EDIT_RECURRING_TRANSACTION_TYPE) {
+        transactionDeleted = deleteRecurringTransaction(id);
+    }
+    return transactionDeleted.then(cancelTransactionModalForm)
+        .then(() => initTransactionList(moment()))
+        .then(fadeSpinnerOut);
+}
+
+function deleteSingleTransaction(id) {
+    return fadeSpinnerIn().then(() => graphql(
+        'deleteTransaction',
+        `mutation{deleteTransaction(id: ${id}){id}}`
+    ));
+}
+
+function deleteRecurringTransaction(id) {
+    return fadeSpinnerIn().then(() => graphql(
+        'deleteRegularTransaction',
+        `mutation{deleteRegularTransaction(id: ${id}){id}}`
+    ));
+}
+
 
 async function initTransactionFormHandlers(transactionType) {
     const amountField = $('#new-transaction-amount');
@@ -343,7 +315,9 @@ async function initTransactionFormHandlers(transactionType) {
     const transactionIntervalField = $('#new-transaction-date-interval');
     const transactionTypesField = $('.transaction-types');
     const cancelButton = $('.modal-cancel-button button');
-    const saveButton = $('.modal-save-button button');
+    const createButton = $('.modal-create-button button');
+    const updateButton = $('.modal-update-button button');
+    const deleteButton = $('.modal-delete-button button');
 
     if (transactionType === RECURRING_TRANSACTION_TYPE) {
         setRecurringTransactionIntervalOptions(transactionIntervalField);
@@ -369,7 +343,9 @@ async function initTransactionFormHandlers(transactionType) {
         setCategoriesByType(categoryField, selectedTransactionType);
     });
     cancelButton.click(cancelTransactionModalForm);
-    saveButton.click(() => saveTransaction(transactionType));
+    createButton.click(() => createTransaction(transactionType));
+    updateButton.click(() => updateTransaction(transactionType));
+    deleteButton.click(() => deleteTransaction(transactionType));
 }
 
 function validateTransactionForm() {
@@ -404,7 +380,7 @@ function setTransactionTypes(transactionTypesField) {
         'query{getTransactionTypes{type_name, image_url}}'
     ).then(transactionTypes => {
         transactionTypes.forEach(type => {
-            const typeItem = $(`<a class="dropdown-item" href="javascript:void(0)">${type.type_name}</a>`);
+            const typeItem = $(`<a class="dropdown-item" href="javascript:void(0)" data-type="${type.type_name}">${type.type_name}</a>`);
             if (type.type_name === DEFAULT_TRANSACTION_TYPE) {
                 typeItem.addClass('active');
             }

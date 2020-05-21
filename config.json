@@ -27,7 +27,19 @@
     "verificationSubject": "Cash Scheduler",
     "verificationContent": "Hi! Your verification code: "
   },
-  "notifications": {
-    "refreshInterval": 10000
+  "workers": {
+    "notifications": {
+      "warningNotification": {
+        "title": "Your most expensive category for the last month",
+        "content": "Hello! Here is the most expensive category according to your transactions for the last month: <h3>$$$</h3>!<br>Its amount exceeded the <h3>@@%</h3> of your whole expenses for the month!<br><br> Hope this will help you be care for your money.<br><br>Best Regards, Cash Scheduler"
+      },
+      "warningExpensePercentage": 0.3,
+      "warningAmountLimit": 1,
+      "receiveRefreshInterval": 10000,
+      "sendRefreshInterval": 10800000
+    },
+    "regularTransactions": {
+      "sendRefreshInterval": 86400000
+    }
   }
 }
