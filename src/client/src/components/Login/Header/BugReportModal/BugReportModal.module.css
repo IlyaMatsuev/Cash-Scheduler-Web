@@ -1,0 +1,6 @@
+.notificationsContainer {
+    position: absolute;
+    z-index: 3;
+    bottom: 5%;
+    left: 75%;
+}

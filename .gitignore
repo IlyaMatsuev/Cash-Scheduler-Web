@@ -1,0 +1,61 @@
+# IDEs
+.vs/
+.vscode/
+.idea/
+
+# Salesforce cache
+.sfdx/
+.localdevserver/
+IlluminatedCloud/
+
+# LWC VSCode autocomplete
+**/lwc/jsconfig.json
+
+# LWC Jest coverage reports
+coverage/
+
+# SOQL Query Results
+**/scripts/soql/query-results
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies
+node_modules/
+package-lock.json
+nupkg/
+
+# production
+/build
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# Eslint cache
+.eslintcache
+
+# MacOS system files
+.DS_Store
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.pfx
+*.env

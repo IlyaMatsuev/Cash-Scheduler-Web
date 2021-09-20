@@ -1,0 +1,21 @@
+[
+  {
+    "Id": 1,
+    "FirstName": "Sheri",
+    "LastName": "Mc Gee",
+    "Email": "smcgee0@hibu.com",
+    "Password": "P@$$w0rd"
+  },
+  {
+    "Id": 2,
+    "FirstName": "Ilya",
+    "LastName": "Matsuev",
+    "Email": "mirotvorec542546@gmail.com"
+  },
+  {
+    "Id": 3,
+    "FirstName": "Michelle",
+    "LastName": "Slucock",
+    "Email": "mslucock1@digg.com"
+  }
+]

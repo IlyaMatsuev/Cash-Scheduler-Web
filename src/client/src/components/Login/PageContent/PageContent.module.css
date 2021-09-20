@@ -1,0 +1,14 @@
+.loginContentWrapper {
+    height: 100vh;
+    background: url("../../../img/login/back.jpg")no-repeat center center;
+    background-size: cover;
+}
+
+.loginContentGrid {
+    height: 100vh;
+    margin-top: 0 !important;
+}
+
+.loginContentColumn {
+    max-width: 27rem;
+}

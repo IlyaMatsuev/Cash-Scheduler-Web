@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Next_Transaction_Date_Tomorrow_Or_Later</fullName>
+    <active>true</active>
+    <errorConditionFormula>RecordType.DeveloperName = &quot;RecurringTransaction&quot;
+&amp;&amp; NextTransactionDate__c &lt;= TODAY()</errorConditionFormula>
+    <errorDisplayField>NextTransactionDate__c</errorDisplayField>
+    <errorMessage>The next transaction date must be set for tomorrow or later</errorMessage>
+</ValidationRule>

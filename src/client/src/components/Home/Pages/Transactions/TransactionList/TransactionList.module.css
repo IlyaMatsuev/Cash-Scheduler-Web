@@ -1,0 +1,14 @@
+.newTransactionButtonContainer {
+    position: relative;
+    text-align: center;
+    width: 90% !important;
+}
+
+.transactionsListContainer {
+    max-height: 45rem;
+    overflow: auto;
+}
+
+.transactionEntry {
+    cursor: pointer;
+}

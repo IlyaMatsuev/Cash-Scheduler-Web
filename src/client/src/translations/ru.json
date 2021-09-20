@@ -1,0 +1,159 @@
+{
+  "header": {
+    "logOut": "Выход"
+  },
+  "menu": {
+    "dashboard": "Главная",
+    "wallets": "Кошельки",
+    "transactions": "Транзакции",
+    "categories": "Категории",
+    "settings": "Настройки"
+  },
+  "notifications": {
+    "title": "Уведомления",
+    "successTitle": "Готово",
+    "logOutFromConnectedAppsDescription": "Вы успешно вышли из всех интегрированных приложений, которые использовали ваш токен.",
+    "newNotificationTitle": "Новое Уведомление",
+    "deleteAccountTitle": "Добавлено к Удалению",
+    "deleteAccountDescription": "Ваш аккаунт и все данные будут полностью удалены через час."
+  },
+  "account": {
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "email": "Почта",
+    "balance": "Баланс"
+  },
+  "dashboard": {
+    "today": "Сегодня",
+    "transaction": "Транзакция",
+    "recurringTransaction": "Повторяющаяся Транзакция"
+  },
+  "wallets": {
+    "newWallet": "Новый Кошелёк",
+    "editWallet": "Редактирование Кошелька",
+    "deleteConfirmMessage": "Вы уверены, что хотите удалить кошелёк? Все привязанные к нему транзакции будут также удалены.",
+    "walletName": "Имя",
+    "walletBalance": "Баланс",
+    "walletCurrency": "Валюта",
+    "walletIsDefault": "Сделать Основным?",
+    "walletIsConvertBalance": "Конвертировать Баланс?",
+    "newTransfer": "Новый Перевод",
+    "transferSourceWallet": "Откуда",
+    "transferTargetWallet": "Куда",
+    "transferAmount": "Сумма"
+  },
+  "currencies": {
+    "exchangeRate": "Курс Обмена",
+    "addExchangeRate": "Добавить Курс"
+  },
+  "transactions": {
+    "newTransaction": "Новая Транзакция",
+    "newRecurringTransaction": "Новая Повторяющаяся Транзакция",
+    "editTransaction": "Редактирование Транзакции",
+    "editRecurringTransaction": "Редактирование Повторяющейся Транзакции",
+    "deleteConfirmMessage": "Вы уверены, что хотите удалить транзакцию?",
+    "transactionTitle": "Заголовок",
+    "transactionAmount": "Сумма",
+    "transactionDate": "Дата",
+    "transactionNextDate": "Следующая Дата Транзакции",
+    "transactionCategory": "Категория",
+    "transactionWallet": "Кошелёк",
+    "transactionInterval": "Интервал",
+    "transactionsList": "Транзакции",
+    "recurringTransactionsList": "Повторяющиеся Транзакции",
+    "noRecordsMessage": "Вы еще не добавили транзакции на выбранный период",
+    "recurring": "Повторяющиеся Транзакции",
+    "amountSummaryChartTitle": "Отчет По Доходам - Расходам",
+    "countPerDayChartTitle": "Отчет По Количеству Транзакций",
+    "deltaPerYearChartTitle": "Разница По Доходам - Расходам За Год"
+  },
+  "categories": {
+    "newCategory": "Новая Категория",
+    "editCategory": "Редактирование Категории",
+    "standardCategories": "Стандартные Категории",
+    "customCategories": "Пользовательские Категории",
+    "deleteConfirmMessage": "Вы уверены, что хотите удалить категорию? Все транзакции этой категории будут также удалены.",
+    "categoryName": "Имя",
+    "categoryType": "Тип",
+    "categoryIconUrl": "Ссылка На Иконку"
+  },
+  "settings": {
+    "General": "Основные",
+    "Notifications": "Уведомления",
+    "Integrations": "Интеграции",
+    "Balance": "Баланс",
+    "Appearance": "Внешний Вид",
+    "Dangerous": "Опасная Секция",
+    "Management": "Управление",
+    "Sound": "Звук",
+    "App Token": "Токен Приложений",
+    "Always show balance in the header": "Всегда показывать баланс в заголовке",
+    "Dark Theme": "Темная Тема",
+    "Language": "Язык",
+    "Delete Account": "Удалить Аккаунт",
+    "Turn notification on": "Включить уведомления",
+    "Duplicate to email": "Дублировать на почту",
+    "Turn notification sound on": "Включить звук уведомлений",
+    "You'll be able to see your actual balance all the time at the right top corner of the website": "Вы сможете видеть свой основной баланс все время сверху справа",
+    "Dark theme is more convenient for your eyes. And it looks stylish!": "Темная тема приятнее для глаз. И выглядит стильнее!",
+    "Pick the language of the whole application interface": "Выберите язык интерфейса приложения",
+    "You'll receive a lot of messages from us notifying you about your transactions tendencies and where you spend money more. And many other things": "Вы будете получать уведомления сообщающие вам о ваших транзакция, вашем аккаунте и т.д.",
+    "Duplicate all notifications to your email": "Дублировать уведомления на почту",
+    "Play sound when a new notification arrives": "Проигрывать звук при получении нового уведомления",
+    "Token that can be used for providing access to your account for other apps in order to get them ability to log transactions for you!": "Токен, который позволит Вам интегрировать CashScheduler с другими приложеними!",
+    "If you don't want to use CashScheduler anymore you can delete account to be sure all your personal data is removed": "Если вы больше не хотите пользоваться CashScheduler, то вы можете удалить свой аккаунт и быть уверенными, что ваши персональные данные удалены",
+    "pickLanguage": "Выберите Язык",
+    "copy": "Копировать",
+    "revival": "Показать",
+    "hide": "Скрыть",
+    "refresh": "Обновить",
+    "logOut": "Выйти Из Всех Интегрированных Приложений",
+    "logOutConfirmationHeader": "Выход из всех интегрированных приложений",
+    "logOutConfirmationMessage": "Вы уверены, что хотите выйти из всех подключенных приложений?",
+    "confirmLogOut": "Выйти",
+    "confirmDeleteAccountMessage": "Подтвердите действие вводом пароля",
+    "confirmDeleteAccountInput": "Введите Свой Пароль Здесь"
+  },
+  "months": {
+    "January": "Январь",
+    "February": "Февраль",
+    "March": "Март",
+    "April": "Апрель",
+    "May": "Май",
+    "June": "Июнь",
+    "July": "Июль",
+    "August": "Август",
+    "September": "Сентябрь",
+    "October": "Октябрь",
+    "November": "Ноябрь",
+    "December": "Декабрь"
+  },
+  "weekDays": {
+    "Monday": "Понедельник",
+    "Tuesday": "Вторник",
+    "Wednesday": "Среда",
+    "Thursday": "Четверг",
+    "Friday": "Пятница",
+    "Saturday": "Суббота",
+    "Sunday": "Воскресенье"
+  },
+  "transactionTypes": {
+    "Income": "Доход",
+    "Incomes": "Доходы",
+    "Expense": "Расход",
+    "Expenses": "Расходы",
+    "RecurringIncome": "Повторяющиеся Доходы",
+    "RecurringExpenses": "Повторяющиеся Расходы"
+  },
+  "transactionIntervals": {
+    "day": "Ежедневно",
+    "week": "Еженедельно",
+    "month": "Ежемесячно",
+    "year": "Ежегодно"
+  },
+  "transfer": "Перевод",
+  "save": "Сохранить",
+  "cancel": "Отменить",
+  "delete": "Удалить",
+  "confirmDelete": "Да, удалить"
+}

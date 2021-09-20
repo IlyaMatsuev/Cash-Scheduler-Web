@@ -1,0 +1,25 @@
+{
+  "orgName": "CashSchedulerScratch",
+  "edition": "Developer",
+  "features": [
+    "ServiceCloud",
+    "ServiceUser",
+    "Entitlements",
+    "LightningServiceConsole",
+    "LegacyLiveAgentRouting"
+  ],
+  "hasSampleData": false,
+  "settings": {
+    "omniChannelSettings": {
+      "enableOmniChannel": true
+    },
+    "caseSettings": {
+      "webToCase": {
+        "enableWebToCase": true
+      },
+      "emailToCase": {
+        "enableEmailToCase": true
+      }
+    }
+  }
+}

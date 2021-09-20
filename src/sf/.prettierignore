@@ -1,0 +1,8 @@
+**/staticresources/**
+.localdevserver
+.sfdx
+.vscode
+.idea
+IlluminatedCloud
+
+coverage/

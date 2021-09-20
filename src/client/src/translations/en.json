@@ -1,0 +1,135 @@
+{
+  "header": {
+    "logOut": "Log Out"
+  },
+  "menu": {
+    "dashboard": "Dashboard",
+    "wallets": "Wallets",
+    "transactions": "Transactions",
+    "categories": "Categories",
+    "settings": "Settings"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "successTitle": "Success",
+    "logOutFromConnectedAppsDescription": "You've successfully logged out from all connected apps that used your token.",
+    "newNotificationTitle": "New Notification",
+    "deleteAccountTitle": "Enqueued For Deleting",
+    "deleteAccountDescription": "Your account will be permanently deleted in an hour."
+  },
+  "account": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "balance": "Balance"
+  },
+  "dashboard": {
+    "today": "Today",
+    "transaction": "Transaction",
+    "recurringTransaction": "Recurring Transaction"
+  },
+  "wallets": {
+    "newWallet": "New Wallet",
+    "editWallet": "Edit Wallet",
+    "deleteConfirmMessage": "Are you sure you want to delete the wallet? All associated transactions will be attached to your default wallet.",
+    "walletName": "Name",
+    "walletBalance": "Balance",
+    "walletCurrency": "Currency",
+    "walletIsDefault": "Is Default?",
+    "walletIsConvertBalance": "Convert Balance?",
+    "newTransfer": "New Transfer",
+    "transferSourceWallet": "Source Wallet",
+    "transferTargetWallet": "Target Wallet",
+    "transferAmount": "Transfer Amount"
+  },
+  "currencies": {
+    "exchangeRate": "Exchange Rate",
+    "addExchangeRate": "Add Exchange Rate"
+  },
+  "transactions": {
+    "newTransaction": "New Transaction",
+    "newRecurringTransaction": "New Recurring Transaction",
+    "editTransaction": "Edit Transaction",
+    "editRecurringTransaction": "Edit Recurring Transaction",
+    "deleteConfirmMessage": "Are you sure you want to delete the transaction?",
+    "transactionTitle": "Title",
+    "transactionAmount": "Amount",
+    "transactionDate": "Date",
+    "transactionNextDate": "Next Transaction Date",
+    "transactionCategory": "Category",
+    "transactionWallet": "Wallet",
+    "transactionInterval": "Interval",
+    "transactionsList": "Transactions",
+    "recurringTransactionsList": "Recurring Transactions",
+    "noRecordsMessage": "There are no records for the selected period",
+    "recurring": "Recurring",
+    "amountSummaryChartTitle": "Income - Expenses Amount Summary",
+    "countPerDayChartTitle": "Income - Expenses Count Per Day",
+    "deltaPerYearChartTitle": "Transactions Delta For The Year"
+  },
+  "categories": {
+    "newCategory": "New Category",
+    "editCategory": "Edit Category",
+    "standardCategories": "Standard Categories",
+    "customCategories": "Custom Categories",
+    "deleteConfirmMessage": "Are you sure you want to delete a category? All your related transactions will be deleted as well.",
+    "categoryName": "Name",
+    "categoryType": "Type",
+    "categoryIconUrl": "Icon Url"
+  },
+  "settings": {
+    "pickLanguage": "Pick a Language",
+    "copy": "Copy",
+    "revival": "Revival",
+    "hide": "Hide",
+    "refresh": "Refresh",
+    "logOut": "Log Out From All Connected Apps",
+    "logOutConfirmationHeader": "Log out from all connected apps",
+    "logOutConfirmationMessage": "You're about to log out from all connected apps that are linked to your account. Do you want to proceed?",
+    "confirmLogOut": "Log Out",
+    "confirmDeleteAccountMessage": "Confirm the action by providing a password",
+    "confirmDeleteAccountInput": "Type Your Password here"
+  },
+  "months": {
+    "January": "January",
+    "February": "February",
+    "March": "March",
+    "April": "April",
+    "May": "May",
+    "June": "June",
+    "July": "July",
+    "August": "August",
+    "September": "September",
+    "October": "October",
+    "November": "November",
+    "December": "December"
+  },
+  "weekDays": {
+    "Monday": "Monday",
+    "Tuesday": "Tuesday",
+    "Wednesday": "Wednesday",
+    "Thursday": "Thursday",
+    "Friday": "Friday",
+    "Saturday": "Saturday",
+    "Sunday": "Sunday"
+  },
+  "transactionTypes": {
+    "Income": "Income",
+    "Incomes": "Income",
+    "Expense": "Expense",
+    "Expenses": "Expenses",
+    "RecurringIncome": "Recurring Income",
+    "RecurringExpenses": "Recurring Expenses"
+  },
+  "transactionIntervals": {
+    "day": "Daily",
+    "week": "Weekly",
+    "month": "Monthly",
+    "year": "Yearly"
+  },
+  "transfer": "Transfer",
+  "save": "Save",
+  "cancel": "Cancel",
+  "delete": "Delete",
+  "confirmDelete": "Yes, delete it"
+}

@@ -1,0 +1,13 @@
+<div>Dear {!Contact.FirstName},</div>
+<br/>
+<div>{!Case.Solution_Description}</div>
+<br/>
+<br/>
+<div>Thank you,</div>
+<br/>
+<div>{!User.Name}</div>
+<div>{!Organization.Name}</div>
+<br/>
+<div>Your comment:</div>
+<br/>
+<p>{!Case.Description}</p>

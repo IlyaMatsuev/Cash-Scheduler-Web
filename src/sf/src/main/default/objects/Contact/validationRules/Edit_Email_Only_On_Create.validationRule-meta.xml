@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edit_Email_Only_On_Create</fullName>
+    <active>false</active>
+    <errorConditionFormula>NOT(ISNEW()) &amp;&amp; ISCHANGED(Email)</errorConditionFormula>
+    <errorDisplayField>Email</errorDisplayField>
+    <errorMessage>It&apos;s allowed to edit user email only during the registration</errorMessage>
+</ValidationRule>

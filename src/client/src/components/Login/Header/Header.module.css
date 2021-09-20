@@ -1,0 +1,8 @@
+.link {
+    transition: font-size 500ms, opacity 500ms;
+}
+
+.link:hover {
+    font-size: 1.3rem;
+    opacity: 0.7;
+}

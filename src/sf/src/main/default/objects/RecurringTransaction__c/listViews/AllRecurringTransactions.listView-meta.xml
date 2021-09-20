@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllRecurringTransactions</fullName>
+    <columns>NAME</columns>
+    <columns>Title__c</columns>
+    <columns>Amount__c</columns>
+    <columns>NextTransactionDate__c</columns>
+    <columns>Interval__c</columns>
+    <columns>Category__c</columns>
+    <columns>Wallet__c</columns>
+    <columns>User__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Recurring Transactions</label>
+</ListView>

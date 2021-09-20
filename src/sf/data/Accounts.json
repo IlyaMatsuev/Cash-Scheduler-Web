@@ -1,0 +1,14 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "AccountRef1"
+            },
+            "Name": "Cash Scheduler",
+            "Type": "Customer - Direct",
+            "Industry": "Technology",
+            "Website": "http://localhost:3000/"
+        }
+    ]
+}

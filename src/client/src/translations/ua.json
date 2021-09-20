@@ -1,0 +1,159 @@
+{
+  "header": {
+    "logOut": "Вихід"
+  },
+  "menu": {
+    "dashboard": "Головна",
+    "wallets": "Гаманці",
+    "transactions": "Транзакції",
+    "categories": "Категорії",
+    "settings": "Налаштування"
+  },
+  "notifications": {
+    "title": "Повідомлення",
+    "successTitle": "Success",
+    "logOutFromConnectedAppsDescription": "Ви успішно вийшли з усіх підключених програм, які використовували ваш маркер.",
+    "newNotificationTitle": "Нове Повідомлення",
+    "deleteAccountTitle": "У Черзі На Видалення",
+    "deleteAccountDescription": "Ваш обліковий запис буде назавжди видалено через годину."
+  },
+  "account": {
+    "firstName": "Ім'я",
+    "lastName": "Прізвище",
+    "email": "Пошта",
+    "balance": "Баланс"
+  },
+  "dashboard": {
+    "today": "Сьогодні",
+    "transaction": "Транзакція",
+    "recurringTransaction": "Періодична Транзакція"
+  },
+  "wallets": {
+    "newWallet": "Новий Гаманець",
+    "editWallet": "Редагування Гаманця",
+    "deleteConfirmMessage": "Ви впевнені, що хочете видалити гаманець? Всі прив'язані до нього транзакції будуть також видалені.",
+    "walletName": "Ім'я",
+    "walletBalance": "Баланс",
+    "walletCurrency": "Валюта",
+    "walletIsDefault": "Зробити Основним?",
+    "walletIsConvertBalance": "Конвертувати Баланс?",
+    "newTransfer": "Новий Переклад",
+    "transferSourceWallet": "Звідки",
+    "transferTargetWallet": "Куди",
+    "transferAmount": "Сума"
+  },
+  "currencies": {
+    "exchangeRate": "Курс Обміну",
+    "addExchangeRate": "Додати Курс"
+  },
+  "transactions": {
+    "newTransaction": "Нова Транзакція",
+    "newRecurringTransaction": "Нова Періодична Транзакція",
+    "editTransaction": "Редагування Транзакції",
+    "editRecurringTransaction": "Редагування Повторювати Транзакції",
+    "deleteConfirmMessage": "Ви впевнені, що хочете видалити транзакцію?",
+    "transactionTitle": "Заголовок",
+    "transactionAmount": "Сума",
+    "transactionDate": "Дата",
+    "transactionNextDate": "Наступна Дата Транзакції",
+    "transactionCategory": "Категорія",
+    "transactionWallet": "Гаманець",
+    "transactionInterval": "Інтервал",
+    "transactionsList": "Транзакції",
+    "recurringTransactionsList": "Повторювані Транзакції",
+    "noRecordsMessage": "Ви ще не додали транзакції на обраний період",
+    "recurring": "Повторювані Транзакції",
+    "amountSummaryChartTitle": "Звіт По Доходи - Витрати",
+    "countPerDayChartTitle": "Звіт По-сті Транзакцій",
+    "deltaPerYearChartTitle": "Різниця За Доходи - Витрати За Рік"
+  },
+  "categories": {
+    "newCategory": "Нова Категорія",
+    "editCategory": "Редагування Категорії",
+    "standardCategories": "Стандартні Категорії",
+    "customCategories": "Спеціальні категорії",
+    "deleteConfirmMessage": "Ви впевнені, що хочете видалити категорію? Усі транзакції цієї категорії будуть також видалені.",
+    "categoryName": "Ім'я",
+    "categoryType": "Тип",
+    "categoryIconUrl": "Посилання На Іконку"
+  },
+  "settings": {
+    "General": "Основні",
+    "Notifications": "Повідомлення",
+    "Integrations": "Інтеграції",
+    "Balance": "Баланс",
+    "Appearance": "Зовнішній Вигляд",
+    "Dangerous": "Небезпечна Секція",
+    "Management": "Управління",
+    "Sound": "Звук",
+    "App Token": "Токен Програмы",
+    "Always show balance in the header": "Завжди показувати баланс в заголовку",
+    "Dark Theme": "Темна Тема",
+    "Language": "Мова",
+    "Delete Account": "Видалити Аккаунт",
+    "Turn notification on": "Включити повідомлення",
+    "Duplicate to email": "Дублювати на пошту",
+    "Turn notification sound on": "Включити звук повідомлень",
+    "You'll be able to see your actual balance all the time at the right top corner of the website": "Ви зможете бачити свій основний баланс весь час зверху справа",
+    "Dark theme is more convenient for your eyes. And it looks stylish!": "Темна тема приємніше для очей. І виглядає стильною!",
+    "Pick the language of the whole application interface": "Виберіть мову програми",
+    "You'll receive a lot of messages from us notifying you about your transactions tendencies and where you spend money more. And many other things": "Ви будете отримувати повідомлення повідомляють вам про ваших транзакція, ваш обліковий запис і т.д.",
+    "Duplicate all notifications to your email": "Дублювати повідомлення на пошту",
+    "Play sound when a new notification arrives": "Програвати звук при отриманні нового повідомлення",
+    "Token that can be used for providing access to your account for other apps in order to get them ability to log transactions for you!": "Токен, який дозволить Вам інтегрувати CashScheduler з іншими програмами!",
+    "If you don't want to use CashScheduler anymore you can delete account to be sure all your personal data is removed": "Якщо ви більше не хочете користуватися CashScheduler, то ви можете видалити свій аккаунт і бути впевненими, що ваші персональні дані видалені",
+    "pickLanguage": "Виберіть мову",
+    "copy": "Копіювати",
+    "revival": "Показати",
+    "hide": "Приховати",
+    "refresh": "Оновити",
+    "logOut": "Вийти З Всіх Інтегрованих Додатків",
+    "logOutConfirmationHeader": "Вихід з усіх інтегрованих програм",
+    "logOutConfirmationMessage": "Ви впевнені, що хочете вийти з усіх підключених програм?",
+    "confirmLogOut": "Вийти",
+    "confirmDeleteAccountMessage": "Підтвердьте дію, вказавши пароль",
+    "confirmDeleteAccountInput": "Введіть Тут Свій Пароль"
+  },
+  "months": {
+    "January": "Січень",
+    "February": "Лютий",
+    "March": "Березень",
+    "April": "Квітень",
+    "May": "Травень",
+    "June": "Червень",
+    "July": "Липень",
+    "August": "Серпень",
+    "September": "Вересень",
+    "October": "Жовтень",
+    "November": "Листопад",
+    "December": "Грудень"
+  },
+  "weekDays": {
+    "Monday": "Понеділок",
+    "Tuesday": "Вівторок",
+    "Wednesday": "Середа",
+    "Thursday": "Четвер",
+    "Friday": "П'ятниця",
+    "Saturday": "Субота",
+    "Sunday": "Неділя"
+  },
+  "transactionTypes": {
+    "Income": "Дохід",
+    "Incomes": "Доходи",
+    "Expense": "Витрата",
+    "Expenses": "Витрати",
+    "RecurringIncome": "Повторювані Доходи",
+    "RecurringExpenses": "Повторювані Витрати"
+  },
+  "transactionIntervals": {
+    "day": "Щодня",
+    "week": "Щотижня",
+    "month": "Щомісяця",
+    "year": "Щорічно"
+  },
+  "transfer": "Переклад",
+  "save": "Зберегти",
+  "cancel": "Скасувати",
+  "delete": "Вилучити",
+  "confirmDelete": "Так, видалити"
+}

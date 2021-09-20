@@ -1,0 +1,52 @@
+[
+  {
+    "Setting": {
+      "Name": "ShowBalance",
+      "UnitName": "General"
+    },
+    "Value": "true",
+    "User": {
+      "Id": 1
+    }
+  },
+  {
+    "Setting": {
+      "Name": "DuplicateToEmail",
+      "UnitName": "Notifications"
+    },
+    "Value": "true",
+    "User": {
+      "Id": 1
+    }
+  },
+  {
+    "Setting": {
+      "Name": "TurnNotificationsSoundOn",
+      "UnitName": "Notifications"
+    },
+    "Value": "true",
+    "User": {
+      "Id": 1
+    }
+  },
+  {
+    "Setting": {
+      "Name": "ShowBalance",
+      "UnitName": "General"
+    },
+    "Value": "true",
+    "User": {
+      "Id": 2
+    }
+  },
+  {
+    "Setting": {
+      "Name": "TurnNotificationsSoundOn",
+      "UnitName": "Notifications"
+    },
+    "Value": "true",
+    "User": {
+      "Id": 2
+    }
+  }
+]

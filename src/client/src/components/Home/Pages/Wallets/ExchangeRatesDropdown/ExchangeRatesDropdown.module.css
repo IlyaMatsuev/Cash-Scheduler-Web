@@ -1,0 +1,3 @@
+.dropdown > div[role="listbox"] {
+    max-height: 8rem;
+}

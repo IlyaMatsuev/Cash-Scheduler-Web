@@ -1,0 +1,74 @@
+[
+  {
+    "User": {
+      "Id": 1
+    },
+    "Setting": {
+      "Name": "ShowBalance"
+    },
+    "Value": "true"
+  },
+  {
+    "User": {
+      "Id": 1
+    },
+    "Setting": {
+      "Name": "TurnNotificationsOn"
+    },
+    "Value": "true"
+  },
+  {
+    "User": {
+      "Id": 1
+    },
+    "Setting": {
+      "Name": "DuplicateToEmail"
+    },
+    "Value": "false"
+  },
+  {
+    "User": {
+      "Id": 1
+    },
+    "Setting": {
+      "Name": "TurnNotificationsSoundOn"
+    },
+    "Value": "true"
+  },
+  {
+    "User": {
+      "Id": 1
+    },
+    "Setting": {
+      "Name": "ConnectedAppsToken"
+    },
+    "Value": "true"
+  },
+  {
+    "User": {
+      "Id": 1
+    },
+    "Setting": {
+      "Name": "DarkTheme"
+    },
+    "Value": "false"
+  },
+  {
+    "User": {
+      "Id": 1
+    },
+    "Setting": {
+      "Name": "Language"
+    },
+    "Value": "en"
+  },
+  {
+    "User": {
+      "Id": 1
+    },
+    "Setting": {
+      "Name": "DeleteAccount"
+    },
+    "Value": "true"
+  }
+]

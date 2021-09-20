@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Not_Enough_Money_On_Wallet</fullName>
+    <active>true</active>
+    <errorConditionFormula>Category__r.TypeName__c = $CustomMetadata.TransactionType__mdt.Expense.DeveloperName
+&amp;&amp; Wallet__r.Balance__c - Amount__c &lt; 0</errorConditionFormula>
+    <errorDisplayField>Amount__c</errorDisplayField>
+    <errorMessage>There is not enough money in the wallet for the transaction</errorMessage>
+</ValidationRule>

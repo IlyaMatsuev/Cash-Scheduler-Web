@@ -1,0 +1,66 @@
+﻿[
+  {
+    "Label": "Always show balance in the header",
+    "Name": "ShowBalance",
+    "UnitName": "General",
+    "SectionName": "Balance",
+    "ValueType": "Checkbox",
+    "Description": "You'll be able to see your actual balance all the time at the right top corner of the website"
+  },
+  {
+    "Label": "Dark Theme",
+    "Name": "DarkTheme",
+    "UnitName": "General",
+    "SectionName": "Appearance",
+    "ValueType": "Checkbox",
+    "Description": "Dark theme is more convenient for your eyes. And it looks stylish!"
+  },
+  {
+    "Label": "Language",
+    "Name": "Language",
+    "UnitName": "General",
+    "SectionName": "Appearance",
+    "ValueType": "Custom",
+    "Description": "Pick the language of the whole application interface"
+  },
+  {
+    "Label": "Delete Account",
+    "Name": "DeleteAccount",
+    "UnitName": "General",
+    "SectionName": "Dangerous",
+    "ValueType": "Custom",
+    "Description": "If you don't want to use CashScheduler anymore you can delete account to be sure all your personal data is removed"
+  },
+  {
+    "Label": "Turn notification on",
+    "Name": "TurnNotificationsOn",
+    "UnitName": "Notifications",
+    "SectionName": "Management",
+    "ValueType": "Checkbox",
+    "Description": "You'll receive a lot of messages from us notifying you about your transactions tendencies and where you spend money more. And many other things"
+  },
+  {
+    "Label": "Duplicate to email",
+    "Name": "DuplicateToEmail",
+    "UnitName": "Notifications",
+    "SectionName": "Management",
+    "ValueType": "Checkbox",
+    "Description": "Duplicate all notifications to your email"
+  },
+  {
+    "Label": "Turn notification sound on",
+    "Name": "TurnNotificationsSoundOn",
+    "UnitName": "Notifications",
+    "SectionName": "Sound",
+    "ValueType": "Checkbox",
+    "Description": "Play sound when a new notification arrives"
+  },
+  {
+    "Label": "App token",
+    "Name": "ConnectedAppsToken",
+    "UnitName": "Integrations",
+    "SectionName": "AppToken",
+    "ValueType": "Custom",
+    "Description": "Token that can be used for providing access to your account for other apps in order to get them ability to log transactions for you!"
+  }
+]

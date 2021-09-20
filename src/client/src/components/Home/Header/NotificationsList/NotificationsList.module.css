@@ -1,0 +1,41 @@
+.notificationsListPopup {
+    cursor: pointer;
+    user-select: none;
+}
+
+.notificationsListPopup:hover {
+    opacity: .8;
+}
+
+.noNotifications > i {
+    margin: 0 !important;
+}
+
+.notificationsListContainer {
+    max-height: 25rem;
+    overflow-y: auto;
+}
+
+.notificationEntry {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 12rem;
+    height: 4.5rem;
+}
+
+.notificationEntry:hover {
+    transition: transform 500ms;
+    transform: scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.15) 0 8px 16px 0 !important;
+}
+
+.notificationTitle {
+    position: relative;
+    top: 20%;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    margin-right: .5rem !important;
+}

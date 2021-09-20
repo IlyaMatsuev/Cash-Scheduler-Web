@@ -1,0 +1,8 @@
+.categoryListColumn {
+    overflow: auto;
+    max-height: 50rem;
+}
+
+.categoryIcon {
+    margin-right: 2rem !important;
+}

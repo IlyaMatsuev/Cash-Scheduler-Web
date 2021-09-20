@@ -1,0 +1,46 @@
+[
+  {
+    "Name": "justo aliquam",
+    "Balance": 17068.96,
+    "Currency": {
+      "Abbreviation": "EUR"
+    },
+    "IsDefault": true,
+    "User": {
+      "Id": 1
+    }
+  },
+  {
+    "Name": "orci",
+    "Balance": 77968.93,
+    "Currency": {
+      "Abbreviation": "PHP"
+    },
+    "IsDefault": false,
+    "User": {
+      "Id": 1
+    }
+  },
+  {
+    "Name": "sociis",
+    "Balance": 66252.59,
+    "Currency": {
+      "Abbreviation": "KES"
+    },
+    "IsDefault": false,
+    "User": {
+      "Id": 1
+    }
+  },
+  {
+    "Name": "potenti nullam",
+    "Balance": 96742.0,
+    "Currency": {
+      "Abbreviation": "MXN"
+    },
+    "IsDefault": false,
+    "User": {
+      "Id": 1
+    }
+  }
+]

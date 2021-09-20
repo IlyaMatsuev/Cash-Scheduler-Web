@@ -1,0 +1,17 @@
+.walletItem {
+    user-select: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap !important;
+}
+
+.walletItem:hover {
+    transition: transform 500ms, background-color 1s;
+    transform: scale(1.05);
+    background-color: #D7E1E9 !important;
+}
+
+.defaultLabel {
+    margin-top: .05rem !important;
+    margin-left: .05rem !important;
+}

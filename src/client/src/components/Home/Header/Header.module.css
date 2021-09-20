@@ -1,0 +1,26 @@
+.logo {
+    user-select: none;
+    cursor: pointer;
+}
+
+.navbar {
+    background-color: #2b3134;
+}
+
+.navbar > div {
+    width: 25%;
+}
+
+.balanceContainer {
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.notificationsContainer {
+    position: absolute;
+    bottom: -1350%;
+    left: 75%;
+    z-index: 3;
+}

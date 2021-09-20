@@ -1,0 +1,159 @@
+{
+  "header": {
+    "logOut": "Se Déconnecter"
+  },
+  "menu": {
+    "dashboard": "Tableau De Bord",
+    "wallets": "Portefeuilles",
+    "transactions": "Transactions",
+    "categories": "Catégories",
+    "settings": "Les Paramètres"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "successTitle": "Success",
+    "logOutFromConnectedAppsDescription": "Vous vous êtes déconnecté avec succès de toutes les applications connectées qui utilisaient votre jeton.",
+    "newNotificationTitle": "Nouvelle Notification",
+    "deleteAccountTitle": "En File d'Attente Pour Suppression",
+    "deleteAccountDescription": "Votre compte sera définitivement supprimé dans une heure."
+  },
+  "account": {
+    "firstName": "Nom",
+    "lastName": "Nom de famille",
+    "email": "Email",
+    "balance": "Équilibre"
+  },
+  "dashboard": {
+    "today": "Aujourd'hui",
+    "transaction": "Transaction",
+    "recurringTransaction": "Transaction Récurrente"
+  },
+  "wallets": {
+    "newWallet": "Nouveau Portefeuille",
+    "editWallet": "Modifier le Portefeuille",
+    "deleteConfirmMessage": "Voulez-vous vraiment supprimer le portefeuille? Toutes les transactions qui lui sont associées seront également supprimées.",
+    "walletName": "Nom",
+    "walletBalance": "Équilibre",
+    "walletCurrency": "Devise",
+    "walletIsDefault": "Le rendre primaire?",
+    "walletIsConvertBalance": "Convertir le solde?",
+    "newTransfer": "Nouvelle Traduction",
+    "transferSourceWallet": "Portefeuille Source",
+    "transferTargetWallet": "Portefeuille Cible",
+    "transferAmount": "Montant"
+  },
+  "currencies": {
+    "exchangeRate": "Taux de change",
+    "addExchangeRate": "Ajouter un taux de change"
+  },
+  "transactions": {
+    "newTransaction": "Nouvelle Transaction",
+    "newRecurringTransaction": "Nouvelle Transaction Récurrente",
+    "editTransaction": "Modifier une Transaction",
+    "editRecurringTransaction": "Modifier une Transaction Récurrente",
+    "deleteConfirmMessage": "Voulez-vous vraiment supprimer la transaction?",
+    "transactionTitle": "Titre",
+    "transactionAmount": "Montant",
+    "transactionDate": "Date",
+    "transactionNextDate": "Date de la Prochaine Transaction",
+    "transactionCategory": "Catégorie",
+    "transactionWallet": "Portefeuille",
+    "transactionInterval": "Intervalle",
+    "transactionsList": "Transactions",
+    "recurringTransactionsList": "Transactions Récurrentes",
+    "noRecordsMessage": "Vous n'avez pas encore ajouté de transactions pour la période sélectionnée",
+    "recurring": "Transactions Récurrentes",
+    "amountSummaryChartTitle": "Revenu - Rapport de Dépenses",
+    "countPerDayChartTitle": "Rapport Sur le Nombre de Transactions",
+    "deltaPerYearChartTitle": "Revenus - Différence de Dépenses Par An"
+  },
+  "categories": {
+    "newCategory": "Nouvelle Catégorie",
+    "editCategory": "Modifier une Catégorie",
+    "standardCategories": "Catégories Standard",
+    "customCategories": "Catégories Personnalisées",
+    "deleteConfirmMessage": "Voulez-vous vraiment supprimer la catégorie? Toutes les transactions de cette catégorie seront également supprimées.",
+    "categoryName": "Nom",
+    "categoryType": "Type",
+    "categoryIconUrl": "Lien d'Icône"
+  },
+  "settings": {
+    "General": "Général",
+    "Notifications": "Notifications",
+    "Integrations": "Intégrations",
+    "Balance": "Équilibre",
+    "Appearance": "Apparence",
+    "Dangerous": "Section Dangereuse",
+    "Management": "La Gestion",
+    "Sound": "Sonner",
+    "App Token": "Jeton d'Application",
+    "Always show balance in the header": "Toujours afficher l'équilibre dans l'en-tête",
+    "Dark Theme": "Thème Sombre",
+    "Language": "Langue",
+    "Delete Account": "Supprimer le Compte",
+    "Turn notification on": "Activer la notification",
+    "Duplicate to email": "Dupliquer dans un e-mail",
+    "Turn notification sound on": "Activer le son de notification",
+    "You'll be able to see your actual balance all the time at the right top corner of the website": "Vous pourrez voir votre solde réel à tout moment dans le coin supérieur droit",
+    "Dark theme is more convenient for your eyes. And it looks stylish!": "Le thème sombre est plus pratique pour vos yeux. Et ça a l'air élégant!",
+    "Pick the language of the whole application interface": "Choisissez la langue de toute l'interface de l'application",
+    "You'll receive a lot of messages from us notifying you about your transactions tendencies and where you spend money more. And many other things": "Vous recevrez de nombreux messages de notre part vous informant de vos tendances en matière de transactions et des domaines dans lesquels vous dépensez le plus d'argent. Et plein d'autres choses",
+    "Duplicate all notifications to your email": "Dupliquer toutes les notifications dans votre e-mail",
+    "Play sound when a new notification arrives": "Jouez du son à l'arrivée d'une nouvelle notification",
+    "Token that can be used for providing access to your account for other apps in order to get them ability to log transactions for you!": "Jeton qui peut être utilisé pour donner accès à votre compte à d'autres applications afin de leur permettre d'enregistrer des transactions pour vous!",
+    "If you don't want to use CashScheduler anymore you can delete account to be sure all your personal data is removed": "Si vous ne souhaitez plus utiliser CashScheduler, vous pouvez supprimer le compte pour être sûr que toutes vos données personnelles sont supprimées",
+    "pickLanguage": "Choisissez la langue",
+    "copy": "Copie",
+    "revival": "La Relance",
+    "hide": "Cacher",
+    "refresh": "Rafraîchir",
+    "logOut": "Quitter Toutes Les Applications Intégrées",
+    "logOutConfirmationHeader": "Quittez toutes les applications intégrées",
+    "logOutConfirmationMessage": "Voulez-vous vraiment vous déconnecter de toutes les applications connectées?",
+    "confirmLogOut": "Se Déconnecter",
+    "confirmDeleteAccountMessage": "Confirmez l'action en fournissant un mot de passe",
+    "confirmDeleteAccountInput": "Tapez Votre Mot de Passe Ici"
+  },
+  "months": {
+    "January": "Janvier",
+    "February": "Février",
+    "March": "Mars",
+    "April": "Avril",
+    "May": "Peut",
+    "June": "Juin",
+    "July": "Juillet",
+    "August": "Août",
+    "September": "septembre",
+    "October": "Octobre",
+    "November": "Novembre",
+    "December": "Décembre"
+  },
+  "weekDays": {
+    "Monday": "Lundi",
+    "Tuesday": "Mardi",
+    "Wednesday": "Mercredi",
+    "Thursday": "Jeudi",
+    "Friday": "Vendredi",
+    "Saturday": "Samedi",
+    "Sunday": "Dimanche"
+  },
+  "transactionTypes": {
+    "Income": "Revenu",
+    "Incomes": "Revenu",
+    "Expense": "Consommation",
+    "Expenses": "Frais",
+    "RecurringIncome": "Revenu Récurrent",
+    "RecurringExpenses": "Dépenses Récurrentes"
+  },
+  "transactionIntervals": {
+    "day": "Du Quotidien",
+    "week": "Hebdomadaire",
+    "month": "Mensuel",
+    "year": "Annuellement"
+  },
+  "transfer": "Transfert",
+  "save": "Sauvegarder",
+  "cancel": "Annuler",
+  "delete": "Effacer",
+  "confirmDelete": "Oui, supprimer"
+}

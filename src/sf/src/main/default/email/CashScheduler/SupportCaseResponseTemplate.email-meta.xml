@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Standardized template for responses to customer inquiries</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Case Response</name>
+    <style>none</style>
+    <subject>Response to your Case {!Case.CaseNumber}: {!Case.Subject}</subject>
+    <textOnly>Dear {!Contact.FirstName},
+
+{!Case.Solution_Description}
+
+Thank you,
+
+{!User.Name}
+{!Organization.Name}
+
+Your comment:
+
+{!Case.Description}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

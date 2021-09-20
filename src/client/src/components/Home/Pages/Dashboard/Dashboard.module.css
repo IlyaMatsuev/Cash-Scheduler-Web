@@ -1,0 +1,12 @@
+.calendarWrapper {
+    height: 80%;
+}
+
+.displayedDate {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.transactionModal {
+    z-index: 1 !important;
+}

@@ -1,0 +1,112 @@
+[
+  {
+    "Name": "Desipramine Hydrochloride",
+    "Type": {
+      "Name": "Expense"
+    },
+    "IsCustom": true,
+    "IconUrl": "http://dummyimage.com/228x166.png/5fa2dd/ffffff",
+    "User": {
+      "Id": 1
+    }
+  },
+  {
+    "Name": "Mederma PM",
+    "Type": {
+      "Name": "Income"
+    },
+    "IsCustom": true,
+    "IconUrl": "http://dummyimage.com/179x198.jpg/ff4444/ffffff",
+    "User": {
+      "Id": 1
+    }
+  },
+  {
+    "Name": "Box Elder Maple Pollen",
+    "Type": {
+      "Name": "Expense"
+    },
+    "IsCustom": true,
+    "IconUrl": "http://dummyimage.com/101x213.png/ff4444/ffffff",
+    "User": {
+      "Id": 1
+    }
+  },
+  {
+    "Name": "Mango Blossom",
+    "Type": {
+      "Name": "Expense"
+    },
+    "IsCustom": true,
+    "IconUrl": "http://dummyimage.com/233x184.png/cc0000/ffffff",
+    "User": {
+      "Id": 1
+    }
+  },
+  {
+    "Name": "Risperidone",
+    "Type": {
+      "Name": "Income"
+    },
+    "IsCustom": true,
+    "IconUrl": "http://dummyimage.com/221x171.jpg/dddddd/000000",
+    "User": {
+      "Id": 1
+    }
+  },
+  {
+    "Name": "Nadolol",
+    "Type": {
+      "Name": "Expense"
+    },
+    "IsCustom": true,
+    "IconUrl": "http://dummyimage.com/232x241.png/ff4444/ffffff",
+    "User": {
+      "Id": 1
+    }
+  },
+  {
+    "Name": "Streptomyces",
+    "Type": {
+      "Name": "Expense"
+    },
+    "IsCustom": true,
+    "IconUrl": "http://dummyimage.com/213x227.png/5fa2dd/ffffff",
+    "User": {
+      "Id": 1
+    }
+  },
+  {
+    "Name": "Pain Reliever",
+    "Type": {
+      "Name": "Expense"
+    },
+    "IsCustom": true,
+    "IconUrl": "http://dummyimage.com/143x145.bmp/cc0000/ffffff",
+    "User": {
+      "Id": 1
+    }
+  },
+  {
+    "Name": "Medrox",
+    "Type": {
+      "Name": "Income"
+    },
+    "IsCustom": true,
+    "IconUrl": "http://dummyimage.com/134x141.jpg/5fa2dd/ffffff",
+    "User": {
+      "Id": 1
+    }
+  },
+  {
+    "Name": "Kinesys",
+    "Type": {
+      "Name": "Income"
+    },
+    "IsCustom": true,
+    "IconUrl": "http://dummyimage.com/222x250.bmp/dddddd/000000",
+    "User": {
+      "Id": 1
+    }
+  }
+]

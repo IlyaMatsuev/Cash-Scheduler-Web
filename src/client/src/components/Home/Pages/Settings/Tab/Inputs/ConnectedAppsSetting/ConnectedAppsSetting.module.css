@@ -1,0 +1,11 @@
+.input {
+    width: 30rem;
+    margin-right: -1rem;
+}
+
+.revivalButton {
+    position: relative;
+    line-height: 1.214em !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}

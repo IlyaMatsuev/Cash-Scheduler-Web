@@ -1,0 +1,9 @@
+.walletsDropdown > div[role="listbox"] {
+    height: 8rem;
+}
+
+.walletsDropdown > div[role="listbox"] > div[role="option"] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap !important;
+}

@@ -1,0 +1,10 @@
+node_modules
+scripts
+.idea
+.git
+.dockerignore
+.gitignore
+Dockerfile
+debug.log
+README.md
+Procfile

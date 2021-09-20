@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact.Wallets__r.RecurringTransactions__r$Title__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Wallets__r$CurrencyName__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Wallets__r.RecurringTransactions__r$NextTransactionDate__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Wallets__r.RecurringTransactions__r$Wallet__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Wallets__r.RecurringTransactions__r$Category__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>Contact.Wallets__r.RecurringTransactions__r$Amount__c</field>
+    </columns>
+    <format>Summary</format>
+    <groupingsDown>
+        <field>Contact.Wallets__r.RecurringTransactions__r$Date__c</field>
+        <sortOrder>Desc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Contact.Wallets__r.RecurringTransactions__r$Interval__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Recurring Transactions In Currency FQ</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Contacts_With_Wallets_And_Recurring_Transactions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Contact.Wallets__r.RecurringTransactions__r$Date__c</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>
