@@ -57,5 +57,9 @@ msbuild.wrn
 *.user
 *.userosscache
 *.sln.docstates
+
+# HTTPS certificate
 *.pfx
-*.env
+
+# Project docker secrets
+secrets.env
