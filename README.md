@@ -26,6 +26,8 @@ In order to be able to run the project you need the following:
 
 ### Running
 
+The project accepts some additional env variables for the running from docker. Default and general values can be found in the docker-compose file. The secrets values examples can be found in the `secrets.default.env`. You should create your own `secrets.env` file.
+
 1. Pull the project
 ```bash
 git clone https://github.com/IlyaMatsuev/Apex-GraphQL-Client.git
