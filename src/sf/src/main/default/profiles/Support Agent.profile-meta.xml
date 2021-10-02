@@ -47,15 +47,7 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CreateNotificationVariables</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>FutureTriggerHandlerContainer</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>HttpMethod</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>

@@ -13,7 +13,8 @@ sfdx force:auth:web:login -a "$org_alias"
 
 echo
 echo "Installing packages..."
-sfdx force:package:install --wait 10 --publishwait 10 --package gql-apex-client@1.1.0-1 --noprompt -u "$org_alias"
+# gql-apex-client@1.1.0-1
+sfdx force:package:install --wait 10 --publishwait 10 --package 04t5Y000001ELhrQAG --noprompt -u "$org_alias"
 
 echo
 echo "Deploying to $org_alias..."

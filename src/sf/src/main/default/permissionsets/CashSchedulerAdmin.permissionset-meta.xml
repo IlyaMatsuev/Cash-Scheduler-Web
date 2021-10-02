@@ -41,10 +41,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CreateNotificationVariables</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>ICashSchedulerGraphQlService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
