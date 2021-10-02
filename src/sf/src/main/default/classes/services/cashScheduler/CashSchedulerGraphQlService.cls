@@ -15,26 +15,24 @@ public with sharing class CashSchedulerGraphQlService implements ICashSchedulerG
     }
 
     public void createNotification(Notification notification) {
-        GraphQLNode createNotificationNode = new GraphQLNode('CreateNotification')
-                .setOperation('mutation')
-                .addArguments(new GraphQLArgument('$notification', 'NewNotificationInput!', true))
-                .add(new GraphQLNode('createNotification')
-                        .addArguments(new GraphQLArgument[]{
-                                new GraphQLArgument('notification', '$notification', true)
-                        }).add(new Object[]{'id', 'title', 'content', 'isRead'})
-                );
+        GraphQLNode createNotificationNode = new GraphQLNode(
+            'createNotification',
+            new List<String> { 'id', 'title', 'content', 'isRead' }
+        ).withArgument('notification', '$notification');
 
-        GraphQLQuery createNotificationQuery = new GraphQLQuery(
-                createNotificationNode,
-                new CreateNotificationVariables(notification)
-        );
-        RestClientResponse response = new RestClient(serverSettings.Endpoint__c, HttpMethod.POST)
-                .withBody(JSON.serialize(createNotificationQuery))
-                .withHeader('SfOrigin', UserInfo.getOrganizationId())
-                .withHeader('SecurityToken', serverSettings.SecurityToken__c)
-                .send();
+        GraphQLMutationNode mutation = new GraphQLMutationNode(
+            'CreateNotification',
+            createNotificationNode
+        ).withVariable('notification', 'NewNotificationInput!');
 
-        System.debug('Response success: ' + response.success);
-        System.debug('Response: ' + response.jsonBody);
+        GraphQLRequest request = mutation.buildRequest()
+            .withVariable('notification', notification)
+            .withHeader('SfOrigin', UserInfo.getOrganizationId())
+            .withHeader('SecurityToken', serverSettings.SecurityToken__c);
+
+        GraphQLResponse response = new GraphQLHttpClient(serverSettings.Endpoint__c).send(request);
+
+        System.debug('Response has errors: ' + response.hasErrors());
+        System.debug('Response data: ' + response.getData());
     }
 }

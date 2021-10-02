@@ -55,10 +55,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>HttpConstants</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>HttpMethod</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -68,10 +64,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ICashSchedulerGraphQlService</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>IRestClient</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -104,14 +96,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ReassignDefaultWalletTriggerHandlerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>RestClient</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>RestClientResponse</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>

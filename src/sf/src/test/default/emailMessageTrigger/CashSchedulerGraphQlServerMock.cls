@@ -15,7 +15,7 @@ public with sharing class CashSchedulerGraphQlServerMock implements HttpCalloutM
         System.assert(String.isNotBlank(request.getBody()));
 
         HttpResponse response = new HttpResponse();
-        response.setStatusCode(HttpConstants.SUCCESS_STATUS);
+        response.setStatusCode(HttpConstants.STATUS_CODE_SUCCESS);
         return response;
     }
 }

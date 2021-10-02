@@ -69,7 +69,7 @@ private class CashSchedulerWebServiceTest {
                 'ids' => CONTACT_CASH_SCHEDULER_ID_1 + ',' + CONTACT_CASH_SCHEDULER_ID_2
         });
         // NOTE: no sense to specify authorization header
-        response.statusCode = HttpConstants.SUCCESS_STATUS;
+        response.statusCode = HttpConstants.STATUS_CODE_SUCCESS;
 
 
         Test.startTest();
@@ -89,13 +89,13 @@ private class CashSchedulerWebServiceTest {
         System.assertEquals(1, cases.size());
         System.assertEquals(CONTACT_CASH_SCHEDULER_ID_3, contacts.get(0).CashSchedulerId__c);
         System.assertEquals(1, contacts.get(0).Cases.size());
-        System.assert(response.headers.containsKey(HttpConstants.CONTENT_TYPE_HEADER));
-        System.assertEquals(HttpConstants.CONTENT_TYPE_JSON, response.headers.get(HttpConstants.CONTENT_TYPE_HEADER));
+        System.assert(response.headers.containsKey(HttpConstants.HEADER_NAME_CONTENT_TYPE));
+        System.assertEquals(HttpConstants.HEADER_VALUE_MIMETYPE_JSON, response.headers.get(HttpConstants.HEADER_NAME_CONTENT_TYPE));
         System.assert(responseBody.containsKey('success'));
         System.assert(responseBody.containsKey('errors'));
         System.assert((Boolean) responseBody.get('success'));
         System.assert(((List<Object>) responseBody.get('errors')).isEmpty());
-        System.assertEquals(HttpConstants.SUCCESS_STATUS, response.statusCode);
+        System.assertEquals(HttpConstants.STATUS_CODE_SUCCESS, response.statusCode);
     }
 
 

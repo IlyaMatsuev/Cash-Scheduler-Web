@@ -27,7 +27,7 @@ sfdx force:org:create -f ./config/scratch-def.json -a "$scratch_alias" -v "$dev_
 
 echo
 echo "Installing packages..."
-sfdx force:package:install --wait 10 --publishwait 10 --package 04t1C000000tfGqQAI --noprompt -u "$scratch_alias"
+sfdx force:package:install --wait 10 --publishwait 10 --package gql-apex-client@1.1.0-1 --noprompt -u "$scratch_alias"
 
 echo
 echo "Deploying to $scratch_alias..."
@@ -44,7 +44,7 @@ echo
 echo "Assigning permissions..."
 sfdx force:user:permset:assign -n CashSchedulerAdmin -u "$scratch_alias"
 sfdx force:user:permset:assign -n TriggerFrameworkUser -u "$scratch_alias"
-sfdx force:user:permset:assign -n RestClientUser -u "$scratch_alias"
+sfdx force:user:permset:assign -n GraphQLApexClientUser -u "$scratch_alias"
 
 echo
 echo "Generating password..."

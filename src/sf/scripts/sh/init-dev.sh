@@ -13,7 +13,7 @@ sfdx force:auth:web:login -a "$org_alias"
 
 echo
 echo "Installing packages..."
-sfdx force:package:install --wait 10 --publishwait 10 --package 04t1C000000tfGqQAI --noprompt -u "$org_alias"
+sfdx force:package:install --wait 10 --publishwait 10 --package gql-apex-client@1.1.0-1 --noprompt -u "$org_alias"
 
 echo
 echo "Deploying to $org_alias..."
@@ -30,7 +30,7 @@ echo
 echo "Assigning permissions..."
 sfdx force:user:permset:assign -n CashSchedulerAdmin -u "$org_alias"
 sfdx force:user:permset:assign -n TriggerFrameworkUser -u "$org_alias"
-sfdx force:user:permset:assign -n RestClientUser -u "$org_alias"
+sfdx force:user:permset:assign -n GraphQLApexClientUser -u "$scratch_alias"
 
 echo
 echo "Loading data..."
