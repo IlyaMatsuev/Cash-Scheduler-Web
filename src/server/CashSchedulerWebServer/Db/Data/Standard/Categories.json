@@ -1,162 +1,122 @@
 [
   {
-    "Name": "Citalopram",
+    "Name": "Salary",
     "Type": {
       "Name": "Income"
     },
     "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/241x112.jpg/5fa2dd/ffffff"
+    "IconUrl": "https://img.icons8.com/external-wanicon-two-tone-wanicon/64/000000/external-salary-labour-day-wanicon-two-tone-wanicon.png"
   },
   {
-    "Name": "risperidone",
+    "Name": "Restaurant",
     "Type": {
       "Name": "Expense"
     },
     "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/244x209.bmp/5fa2dd/ffffff"
+    "IconUrl": "https://img.icons8.com/color/48/000000/restaurant-.png"
   },
   {
-    "Name": "Warfarin Sodium",
+    "Name": "Transport",
     "Type": {
       "Name": "Expense"
     },
     "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/106x201.png/cc0000/ffffff"
+    "IconUrl": "https://img.icons8.com/plasticine/100/000000/bus--v2.png"
   },
   {
-    "Name": "Soulus Rp",
+    "Name": "Home",
     "Type": {
       "Name": "Expense"
     },
     "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/110x157.bmp/5fa2dd/ffffff"
+    "IconUrl": "https://img.icons8.com/plasticine/100/000000/home.png"
   },
   {
-    "Name": "Losartan Potassium",
+    "Name": "Gift",
     "Type": {
       "Name": "Income"
     },
     "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/132x162.jpg/cc0000/ffffff"
+    "IconUrl": "https://img.icons8.com/plasticine/100/000000/gift.png"
   },
   {
-    "Name": "Nifedipine",
+    "Name": "Loan",
     "Type": {
       "Name": "Expense"
     },
     "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/152x201.jpg/ff4444/ffffff"
+    "IconUrl": "https://img.icons8.com/plasticine/100/000000/initiate-money-transfer.png"
   },
   {
-    "Name": "Food - Plant Source",
+    "Name": "Loan",
     "Type": {
       "Name": "Income"
     },
     "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/113x184.jpg/dddddd/000000"
+    "IconUrl": "https://img.icons8.com/plasticine/100/000000/initiate-money-transfer.png"
   },
   {
-    "Name": "Methocarbamol",
+    "Name": "Luck",
     "Type": {
       "Name": "Income"
     },
     "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/244x205.png/dddddd/000000"
+    "IconUrl": "https://img.icons8.com/plasticine/100/000000/clover.pn"
   },
   {
-    "Name": "Perrigo Peroxide",
-    "Type": {
-      "Name": "Income"
-    },
-    "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/109x188.bmp/cc0000/ffffff"
-  },
-  {
-    "Name": "RECKEWEG R29 Theridon",
+    "Name": "Charity",
     "Type": {
       "Name": "Expense"
     },
     "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/146x169.bmp/5fa2dd/ffffff"
+    "IconUrl": "https://img.icons8.com/plasticine/100/000000/receive-cash.png"
   },
   {
-    "Name": "daytime cough",
+    "Name": "Sport",
     "Type": {
       "Name": "Expense"
     },
     "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/135x168.png/ff4444/ffffff"
+    "IconUrl": "https://img.icons8.com/external-wanicon-lineal-color-wanicon/64/000000/external-sport-back-to-school-wanicon-lineal-color-wanicon.png"
   },
   {
-    "Name": "CD DIOR PRESTIGE White",
-    "Type": {
-      "Name": "Income"
-    },
-    "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/189x155.jpg/5fa2dd/ffffff"
-  },
-  {
-    "Name": "Levofloxacin",
+    "Name": "Food",
     "Type": {
       "Name": "Expense"
     },
     "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/174x224.jpg/cc0000/ffffff"
+    "IconUrl": "https://img.icons8.com/office/16/000000/hamburger.png"
   },
   {
-    "Name": "stomach relief",
-    "Type": {
-      "Name": "Income"
-    },
-    "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/226x109.bmp/5fa2dd/ffffff"
-  },
-  {
-    "Name": "Acetaminophen",
-    "Type": {
-      "Name": "Income"
-    },
-    "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/129x248.jpg/cc0000/ffffff"
-  },
-  {
-    "Name": "Pollens - Trees",
-    "Type": {
-      "Name": "Income"
-    },
-    "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/240x205.bmp/dddddd/000000"
-  },
-  {
-    "Name": "Hemorrhoidal",
-    "Type": {
-      "Name": "Income"
-    },
-    "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/194x208.png/ff4444/ffffff"
-  },
-  {
-    "Name": "Colgate Optic White",
+    "Name": "Clothes",
     "Type": {
       "Name": "Expense"
     },
     "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/105x141.png/ff4444/ffffff"
+    "IconUrl": "https://img.icons8.com/fluency/48/000000/clothes.png"
   },
   {
-    "Name": "BLACK OAK POLLEN",
+    "Name": "Mobile",
     "Type": {
       "Name": "Expense"
     },
     "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/110x243.bmp/5fa2dd/ffffff"
+    "IconUrl": "https://img.icons8.com/office/80/000000/two-smartphones.png"
   },
   {
-    "Name": "Nitrous Oxide",
+    "Name": "Internet",
     "Type": {
       "Name": "Expense"
     },
     "IsCustom": false,
-    "IconUrl": "http://dummyimage.com/220x246.bmp/5fa2dd/ffffff"
+    "IconUrl": "https://img.icons8.com/color/96/000000/internet--v1.png"
+  },
+  {
+    "Name": "Bills",
+    "Type": {
+      "Name": "Expense"
+    },
+    "IsCustom": false,
+    "IconUrl": "https://img.icons8.com/external-itim2101-lineal-color-itim2101/64/000000/external-bills-financial-itim2101-lineal-color-itim2101.png"
   }
 ]
